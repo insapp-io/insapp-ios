@@ -49,7 +49,9 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
     
     func loadPost(_ post: Post, forAssociation association: Association){
         self.post = post
-        self.likeButton.isSelected = post.likes!.contains(User.fetch()!.id!)
+        if (User.fetch() != nil){
+            self.likeButton.isSelected = post.likes!.contains(User.fetch()!.id!)
+        }
         self.association = association
         self.associationLabel.text = "@\(association.name!.lowercased())"
         

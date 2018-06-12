@@ -185,26 +185,52 @@ class EventViewController: UIViewController, EKEventEditViewDelegate, UITableVie
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = scrollView.contentOffset.y
-        if value >= 0 {
-            self.coverImageView.frame = CGRect(x: 0, y: max(-105,-value), width: self.view.frame.width, height: 175)
-            self.blurCoverView.frame = self.coverImageView.frame
-            self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
-            self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y - 20
-            self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
-            self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y - 20
-            self.blurCoverView.alpha = (20-(105-max(value, 85)))/20
-            self.eventNameLabel.alpha = (20-(145-max(value, 125)))/20
-        }else{
-            self.coverImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 175 - value)
-            self.blurCoverView.frame = self.coverImageView.frame
-            self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
-            self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y - 20
-            self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
-            self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y - 20
-            self.blurCoverView.alpha = (self.coverImageView.frame.height-195)/100
-            self.eventNameLabel.alpha = 0
+        if UIDevice.current.modelName == "iPhone10,3" || UIDevice.current.modelName == "iPhone10,6"{
+            if value >= 0 {
+                self.coverImageView.frame = CGRect(x: 0, y: max(-105, -value), width:    self.view.frame.width, height: 199)
+                self.blurCoverView.frame = self.coverImageView.frame
+                self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
+                self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y
+                self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
+                self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y
+                self.blurCoverView.alpha = (20-(105-max(value, 85)))/20
+                self.eventNameLabel.alpha = (20-(145-max(value, 125)))/20
+            }
+            else{
+                self.coverImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 199 - value)
+                self.blurCoverView.frame = self.coverImageView.frame
+                self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
+                self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y
+                self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
+                self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y
+                self.blurCoverView.alpha = (self.coverImageView.frame.height-195)/100
+                self.eventNameLabel.alpha = 0
+            }
+            self.updateViewConstraints()
+         }
+        else {
+            if value >= 0 {
+                self.coverImageView.frame = CGRect(x: 0, y: max(-105,-value), width:    self.view.frame.width, height: 175)
+                self.blurCoverView.frame = self.coverImageView.frame
+                self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
+                self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y
+                self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
+                self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y
+                self.blurCoverView.alpha = (20-(105-max(value, 85)))/20
+                self.eventNameLabel.alpha = (20-(145-max(value, 125)))/20
+            }
+            else{
+                self.coverImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 175 - value)
+                self.blurCoverView.frame = self.coverImageView.frame
+                self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
+                self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y
+                self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
+                self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y
+                self.blurCoverView.alpha = (self.coverImageView.frame.height-195)/100
+                self.eventNameLabel.alpha = 0
+            }
+            self.updateViewConstraints()
         }
-        self.updateViewConstraints()
     }
 
     

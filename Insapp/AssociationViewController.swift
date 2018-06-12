@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+
 class AssociationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AssociationPostsDelegate, AssociationEventsDelegate {
     
     @IBOutlet weak var backButton: UIButton!
@@ -172,25 +174,49 @@ class AssociationViewController: UIViewController, UITableViewDelegate, UITableV
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = scrollView.contentOffset.y
-        if value >= 0 {
-            self.coverImageView.frame = CGRect(x: 0, y: max(-105,-value), width: self.view.frame.width, height: 175)
-            self.blurCoverView.frame = self.coverImageView.frame
-            self.blurCoverView.alpha = (20-(105-max(value, 85)))/20
-            self.associationNameLabel.alpha = (20-(145-max(value, 125)))/20
-            if value >= 105 {
-                self.profileImageView.frame = CGRect(x: self.view.frame.width-8-40, y: 20, width: 40, height: 40)
+        if UIDevice.current.modelName == "iPhone10,3" || UIDevice.current.modelName == "iPhone10,6"{
+            if value >= 0 {
+                self.coverImageView.frame = CGRect(x: 0, y: max(-105,-value), width: self.view.frame.width, height: 199)
+                self.blurCoverView.frame = self.coverImageView.frame
+                self.blurCoverView.alpha = (20-(105-max(value, 85)))/20
+                self.associationNameLabel.alpha = (20-(145-max(value, 125)))/20
+                if value >= 105 {
+                    self.profileImageView.frame = CGRect(x: self.view.frame.width-8-40, y: 44, width: 40, height: 40)
+                }else{
+                    let coef = -0.0048*value+0.91
+                    self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100*coef, y: 149-value, width: 100*coef, height: 100*coef)
+                }
+                self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
             }else{
-                let coef = -0.0048*value+0.91
-                self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100*coef, y: 125-value, width: 100*coef, height: 100*coef)
+                self.coverImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 199 - value)
+                self.blurCoverView.frame = self.coverImageView.frame
+                self.blurCoverView.alpha = (self.coverImageView.frame.height-175)/100
+                self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100, y: 149-value, width: 100, height: 100)
+                self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
+                self.associationNameLabel.alpha = 0
             }
-            self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
-        }else{
-            self.coverImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 175 - value)
-            self.blurCoverView.frame = self.coverImageView.frame
-            self.blurCoverView.alpha = (self.coverImageView.frame.height-175)/100
-            self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100, y: 125-value, width: 100, height: 100)
-            self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
-            self.associationNameLabel.alpha = 0
+        }
+        else{
+            if value >= 0 {
+                self.coverImageView.frame = CGRect(x: 0, y: max(-105,-value), width: self.view.frame.width, height: 175)
+                self.blurCoverView.frame = self.coverImageView.frame
+                self.blurCoverView.alpha = (20-(105-max(value, 85)))/20
+                self.associationNameLabel.alpha = (20-(145-max(value, 125)))/20
+                if value >= 105 {
+                    self.profileImageView.frame = CGRect(x: self.view.frame.width-8-40, y: 20, width: 40, height: 40)
+                }else{
+                    let coef = -0.0048*value+0.91
+                    self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100*coef, y: 125-value, width: 100*coef, height: 100*coef)
+                }
+                self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
+            }else{
+                self.coverImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 175 - value)
+                self.blurCoverView.frame = self.coverImageView.frame
+                self.blurCoverView.alpha = (self.coverImageView.frame.height-175)/100
+                self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100, y: 125-value, width: 100, height: 100)
+                self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
+                self.associationNameLabel.alpha = 0
+            }
         }
     }
     
