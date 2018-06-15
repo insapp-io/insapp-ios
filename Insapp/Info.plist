@@ -2,6 +2,25 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIApplicationShortcutItems</key>
+	<array>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>megaphone</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Mes notifications</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>io.thomasmorel.insapp.showNotifications</string>
+		</dict>
+		<dict>
+			<key>UIApplicationShortcutItemIconFile</key>
+			<string>attendee_dark</string>
+			<key>UIApplicationShortcutItemTitle</key>
+			<string>Ma carte amicaliste</string>
+			<key>UIApplicationShortcutItemType</key>
+			<string>io.thomasmorel.insapp.showProfile</string>
+		</dict>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleExecutable</key>
@@ -17,7 +36,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>2.0.1</string>
 	<key>CFBundleVersion</key>
-	<string>4</string>
+	<string>5</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -42,7 +61,7 @@
 	<key>NSCalendarsUsageDescription</key>
 	<string>Used to add events to Calendar</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Scan le code barre de ta carte amicaliste pour l'avoir dans ton téléphone :)</string>
+	<string>Scan le code barre de ta carte amicaliste pour l&apos;avoir dans ton téléphone :)</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

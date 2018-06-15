@@ -18,6 +18,42 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     var window: UIWindow?
     var notification: [String: AnyObject]?
     var previousViewController:UIViewController? = nil
+    
+    
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Swift.Void) {
+
+        handleShortcut(shortcutItem)
+    }
+    
+    enum ApplicationShortcutTypes: String {
+        case showNotifications = "io.thomasmorel.insapp.showNotifications"
+        case showProfile = "io.thomasmorel.insapp.showProfile"
+    }
+    
+    private func handleShortcut(_ item: UIApplicationShortcutItem) {
+        guard let actionType = ApplicationShortcutTypes(rawValue: item.type) else {
+            return
+        }
+        switch (actionType) {
+        case .showNotifications:
+            print("notifications")
+            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "TabViewController") as UIViewController
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = initialViewControlleripad
+            let myTabBar = self.window?.rootViewController as! UITabBarController
+            myTabBar.selectedIndex = 3
+            self.window?.makeKeyAndVisible()
+        case .showProfile:
+            let mainStoryboardIpad : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            let initialViewControlleripad : UIViewController = mainStoryboardIpad.instantiateViewController(withIdentifier: "TabViewController") as UIViewController
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.window?.rootViewController = initialViewControlleripad
+            let myTabBar = self.window?.rootViewController as! UITabBarController
+            myTabBar.selectedIndex = 4
+            self.window?.makeKeyAndVisible()
+        }
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         

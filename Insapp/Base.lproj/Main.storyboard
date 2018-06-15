@@ -2757,7 +2757,7 @@ préférées grâce à la page News</string>
         <!--Notifications-->
         <scene sceneID="sCM-mh-icl">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Qz7-pH-akU" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="QuickActionNotifications" automaticallyAdjustsScrollViewInsets="NO" id="Qz7-pH-akU" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Notifications" image="megaphone" id="zW7-WS-cne"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uz1-5X-0AU">
