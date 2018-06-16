@@ -2730,11 +2730,11 @@ préférées grâce à la page News</string>
                         <viewControllerLayoutGuide type="bottom" id="TOd-VC-BXr"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="H1R-vG-6hf">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="674"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gLv-Xw-Ov0">
-                                <rect key="frame" x="0.0" y="44" width="375" height="596"/>
+                                <rect key="frame" x="0.0" y="44" width="375" height="509"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -2876,14 +2876,15 @@ préférées grâce à la page News</string>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="jQj-Z2-O61" firstAttribute="leading" secondItem="hGD-Iw-GpV" secondAttribute="leadingMargin" constant="-16" id="26y-VS-uTZ"/>
+                            <constraint firstItem="jQj-Z2-O61" firstAttribute="leading" secondItem="hGD-Iw-GpV" secondAttribute="leading" id="26y-VS-uTZ"/>
                             <constraint firstItem="fP5-zH-SwI" firstAttribute="bottom" secondItem="Rcj-2p-hlE" secondAttribute="top" id="3pC-DH-ouh"/>
                             <constraint firstItem="fP5-zH-SwI" firstAttribute="leading" secondItem="jQj-Z2-O61" secondAttribute="leading" id="4O7-6O-XFs"/>
-                            <constraint firstItem="fP5-zH-SwI" firstAttribute="trailing" secondItem="jQj-Z2-O61" secondAttribute="trailing" id="8a0-LS-z3f"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jQj-Z2-O61" secondAttribute="trailing" constant="-16" id="9PV-WS-7Wl"/>
+                            <constraint firstAttribute="trailing" secondItem="jQj-Z2-O61" secondAttribute="trailing" id="9PV-WS-7Wl"/>
+                            <constraint firstItem="fP5-zH-SwI" firstAttribute="trailing" secondItem="hGD-Iw-GpV" secondAttribute="trailing" id="CNH-sG-qLB"/>
                             <constraint firstItem="jQj-Z2-O61" firstAttribute="top" secondItem="VzM-J9-eeG" secondAttribute="bottom" constant="-20" id="D7g-gV-f27">
                                 <variation key="widthClass=compact" constant="-44"/>
                             </constraint>
+                            <constraint firstItem="fP5-zH-SwI" firstAttribute="leading" secondItem="hGD-Iw-GpV" secondAttribute="leading" id="Xtw-SN-gFX"/>
                             <constraint firstItem="fP5-zH-SwI" firstAttribute="top" secondItem="jQj-Z2-O61" secondAttribute="bottom" id="cLZ-Cz-cuY"/>
                         </constraints>
                     </view>
@@ -2925,6 +2926,6 @@ préférées grâce à la page News</string>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Oqz-cD-eQp"/>
-        <segue reference="Iad-5e-dbL"/>
+        <segue reference="sY5-PM-Elg"/>
     </inferredMetricsTieBreakers>
 </document>
