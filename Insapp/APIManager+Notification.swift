@@ -22,7 +22,7 @@ extension APIManager {
             kNotificationToken: token,
             kNotificationOs: "iOS",
             ]
-        requestWithToken(url: "/notification", method: .post, parameters: params as [String : AnyObject], completion: { result in
+        requestWithToken(url: "/notifications", method: .post, parameters: params as [String : AnyObject], completion: { result in
             
         }) { (errorMessage, statusCode) in
             
@@ -31,7 +31,7 @@ extension APIManager {
     
     static func fetchNotifications(controller: UIViewController, completion:@escaping (_ notifications:[Notification]) -> ()){
         let user_id = Credentials.fetch()!.userId
-        requestWithToken(url: "/notification/\(user_id)", method: .get, completion: { result in
+        requestWithToken(url: "/notifications/\(user_id)", method: .get, completion: { result in
             guard let resultJson = result as? Dictionary<String, AnyObject> else { completion([]) ; return }
             guard let notifJsonArray = resultJson["notifications"] as? [Dictionary<String, AnyObject>] else { completion([]) ; return }
             completion(Notification.parseArray(notifJsonArray))
@@ -41,7 +41,7 @@ extension APIManager {
     static func readNotification(notification: Notification, controller: UIViewController, completion:@escaping (_ notification:Optional<Notification>) -> ()){
         let user_id = Credentials.fetch()!.userId
         let notif_id = notification.id!
-        requestWithToken(url: "/notification/\(user_id)/\(notif_id)", method: .delete, completion: { result in
+        requestWithToken(url: "/notifications/\(user_id)/\(notif_id)", method: .delete, completion: { result in
             guard let notifJson = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Notification.parseJson(notifJson))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }

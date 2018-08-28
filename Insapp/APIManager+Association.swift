@@ -13,7 +13,7 @@ import UIKit
 extension APIManager{
     
     static func fetchAssociations(controller: UIViewController, completion:@escaping ([Association]) -> ()){
-        requestWithToken(url: "/association", method: .get, completion: { result in
+        requestWithToken(url: "/associations", method: .get, completion: { result in
             if var json = result as? [Dictionary<String, AnyObject>] {
                 json = json.filter({ (association_json) -> Bool in
                     if let _ = Association.parseJson(association_json) {
@@ -33,7 +33,7 @@ extension APIManager{
     }
     
     static func fetchAssociation(association_id: String, controller: UIViewController, completion:@escaping (Optional<Association>) -> ()){
-        requestWithToken(url: "/association/\(association_id)", method: .get, completion: { result in
+        requestWithToken(url: "/associations/\(association_id)", method: .get, completion: { result in
             if let json = result as? Dictionary<String, AnyObject> {
                 completion(Association.parseJson(json))
             }else{
