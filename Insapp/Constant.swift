@@ -21,7 +21,7 @@ let kTutorialPages = ["TutorialAssociationViewController", "TutorialEventViewCon
 //COLOR
 let kLightGreyColor = UIColor(colorLiteralRed: 238/255, green: 238/255, blue: 238/255, alpha: 1)
 let kDarkGreyColor = UIColor(colorLiteralRed: 180/255, green: 180/255, blue: 180/255, alpha: 1)
-let kRedColor = UIColor(colorLiteralRed: 232/255, green: 92/255, blue: 86/255, alpha: 1)
+let kRedColor = UIColor(colorLiteralRed: 236/255, green: 93/255, blue: 87/255, alpha: 1)
 let kWhiteColor = UIColor.white
 let kClearColor = UIColor.clear
 
@@ -64,12 +64,11 @@ let kAssociationSearchCell = "AssociationSearchCell"
 let kSeeMoreCell = "SeeMoreCell"
 
 //API
-let kAPIHostname = "https://insapp.fr/api/v1"
-let kCDNHostname = "https://insapp.fr/cdn/"
-//let kAPIHostname = "https://insapp.insa-rennes.fr/api/v1"
-//let kCDNHostname = "https://insapp.insa-rennes.fr/cdn/"
-//let kAPIHostname = "http://localhost:9010/api/v1"
-//let kCDNHostname = "http://localhost:9010/cdn/"
+//let kAPIHostname = "https://insapp.fr/api/v1"
+//let kCDNHostname = "https://insapp.fr/cdn/"
+let kAPIHostname = "https://insapp.insa-rennes.fr/api/v1"
+let kCDNHostname = "https://insapp.insa-rennes.fr/cdn/"
+
 let kCASHostname = "https://cas.insa-rennes.fr"
 let kLoginPassword = "password"
 let kLoginUsername = "username"

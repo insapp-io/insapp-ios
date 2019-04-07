@@ -11,9 +11,12 @@ import Fabric
 import CoreData
 import Crashlytics
 import UserNotifications
+import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate {
 
     var window: UIWindow?
     var notification: [String: AnyObject]?
@@ -69,8 +72,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         
         Fabric.with([Crashlytics.self])
         
-        self.notification = launchOptions?[.remoteNotification] as? [String: AnyObject]
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+            // For iOS 10 data message (sent via FCM
+            FIRMessaging.messaging().remoteMessageDelegate = self
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
         
+        application.registerForRemoteNotifications()
+        
+        FIRApp.configure()
+        
+        
+        self.notification = launchOptions?[.remoteNotification] as? [String: AnyObject]
+        //registerForNotification()
         return true
     }
 
@@ -91,13 +114,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         }
     }
     
+    func subscribeToTopicNotification(topic:String){
+        FIRMessaging.messaging().subscribe(toTopic: topic)
+    }
+    
+    func unsubscribeToTopicNotification(topic:String){
+        FIRMessaging.messaging().unsubscribe(fromTopic: topic)
+    }
+    
     func registerForNotification(completion: (() -> ())? = nil ){
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-            UIApplication.shared.registerForRemoteNotifications()
+            DispatchQueue.main.async {
+                UIApplication.shared.registerForRemoteNotifications()
+            }
             completion?()
+            print("Permission granted: \(granted)")
         }
     }
+    
+    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+        print(remoteMessage.appData)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        
+        // Print full message.
+        print(userInfo)
+    }
+    
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         

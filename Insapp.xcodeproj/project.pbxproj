@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2A1B25CE20CEB9ED00C9E7AF /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */; };
+		2A31075B21D37D200080ED7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A31075A21D37D1F0080ED7E /* GoogleService-Info.plist */; };
+		2A31075C21D37D200080ED7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A31075A21D37D1F0080ED7E /* GoogleService-Info.plist */; };
 		2A77C15D20D2E42B0032749C /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A77C15C20D2E42B0032749C /* Stickers.xcassets */; };
 		2A77C16120D2E42B0032749C /* instickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A77C15A20D2E42A0032749C /* instickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7D051D8B1DCB8B1500DED954 /* UniversalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D051D8A1DCB8B1500DED954 /* UniversalSearchViewController.swift */; };
@@ -65,7 +67,6 @@
 		E192C1E91D9119C900355512 /* TutorialPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192C1E81D9119C900355512 /* TutorialPageViewController.swift */; };
 		E192C1EB1D911A2F00355512 /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192C1EA1D911A2F00355512 /* TutorialViewController.swift */; };
 		E192C1ED1D93C98C00355512 /* CreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E192C1EC1D93C98C00355512 /* CreditViewController.swift */; };
-		E192C1EF1D9427AE00355512 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E192C1EE1D9427AE00355512 /* GoogleService-Info.plist */; };
 		E193DD861D9E72EF00478B52 /* ListUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193DD851D9E72EF00478B52 /* ListUserViewController.swift */; };
 		E193DD881D9E73B700478B52 /* UserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E193DD871D9E73B700478B52 /* UserCell.xib */; };
 		E193DD8A1D9E745400478B52 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E193DD891D9E745400478B52 /* UserCell.swift */; };
@@ -154,6 +155,7 @@
 
 /* Begin PBXFileReference section */
 		2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		2A31075A21D37D1F0080ED7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A77C15A20D2E42A0032749C /* instickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = instickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A77C15C20D2E42B0032749C /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		2A77C15E20D2E42B0032749C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -216,7 +218,6 @@
 		E192C1E81D9119C900355512 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		E192C1EA1D911A2F00355512 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E192C1EC1D93C98C00355512 /* CreditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
-		E192C1EE1D9427AE00355512 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		E192C1F01D9427FB00355512 /* Insapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Insapp-Bridging-Header.h"; sourceTree = "<group>"; };
 		E193DD851D9E72EF00478B52 /* ListUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListUserViewController.swift; sourceTree = "<group>"; };
 		E193DD871D9E73B700478B52 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
@@ -287,6 +288,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		56EB65F7C134D719A915D2E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		E1DC7F031D86E2C900284222 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -555,7 +563,7 @@
 		E1DC7EFD1D86E2C900284222 = {
 			isa = PBXGroup;
 			children = (
-				E192C1EE1D9427AE00355512 /* GoogleService-Info.plist */,
+				2A31075A21D37D1F0080ED7E /* GoogleService-Info.plist */,
 				E1DC7F081D86E2C900284222 /* Insapp */,
 				2A77C15B20D2E42A0032749C /* instickers */,
 				E1DC7F071D86E2C900284222 /* Products */,
@@ -625,6 +633,7 @@
 			buildConfigurationList = 2A77C16220D2E42B0032749C /* Build configuration list for PBXNativeTarget "instickers" */;
 			buildPhases = (
 				2A77C15820D2E42A0032749C /* Resources */,
+				56EB65F7C134D719A915D2E8 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -644,7 +653,6 @@
 				E1DC7F031D86E2C900284222 /* Frameworks */,
 				E1DC7F041D86E2C900284222 /* Resources */,
 				39E715618C35977E1EEBF500 /* [CP] Embed Pods Frameworks */,
-				685A601738DE8386C1FCBC48 /* [CP] Copy Pods Resources */,
 				E17240711D942D5F0073F501 /* ShellScript */,
 				2A2A490C20CEAD2E00A2AA19 /* Embed App Extensions */,
 			);
@@ -694,6 +702,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -714,6 +723,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A77C15D20D2E42B0032749C /* Stickers.xcassets in Resources */,
+				2A31075C21D37D200080ED7E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -732,7 +742,6 @@
 				E1C3F9EB1D895008006A66CF /* EventCell.xib in Resources */,
 				E1F96D1D1E4DBECB0050C1F8 /* UserBarCodeCell.xib in Resources */,
 				7DBEFCBB1DD1CCFE00BDA8A1 /* SearchPostCell.xib in Resources */,
-				E192C1EF1D9427AE00355512 /* GoogleService-Info.plist in Resources */,
 				E119D07B1E49B6E100C10A64 /* EventCommentCell.xib in Resources */,
 				E1DC7F171D86E2C900284222 /* LaunchScreen.storyboard in Resources */,
 				7D0C40D01DEAECE3005FE515 /* SearchUserCell.xib in Resources */,
@@ -747,6 +756,7 @@
 				7D0F88431DEDCC3E00E740F2 /* AssociationSearchCell.xib in Resources */,
 				E12E458B1E4B0205004D0C44 /* AssociationCell.xib in Resources */,
 				E119D0771E48BEBF00C10A64 /* EventDescriptionCell.xib in Resources */,
+				2A31075B21D37D200080ED7E /* GoogleService-Info.plist in Resources */,
 				7D1591861DE49E44001F949E /* SearchEventCell.xib in Resources */,
 				E119D0801E49F3CB00C10A64 /* AssociationHeaderCell.xib in Resources */,
 				E1DC7F0F1D86E2C900284222 /* Main.storyboard in Resources */,
@@ -765,13 +775,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Insapp-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		39E715618C35977E1EEBF500 /* [CP] Embed Pods Frameworks */ = {
@@ -780,28 +793,22 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Insapp/Pods-Insapp-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/FaveButton/FaveButton.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaveButton.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insapp/Pods-Insapp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		685A601738DE8386C1FCBC48 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Insapp/Pods-Insapp-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Insapp/Pods-Insapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E17240711D942D5F0073F501 /* ShellScript */ = {

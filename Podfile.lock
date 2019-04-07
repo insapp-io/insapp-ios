@@ -1,47 +1,81 @@
 PODS:
-  - Alamofire (4.0.0)
-  - Crashlytics (3.8.2):
-    - Fabric (~> 1.6.3)
-  - Fabric (1.6.8)
-  - FaveButton (2.0.3)
-  - FirebaseAnalytics (3.3.1):
+  - Alamofire (4.8.2)
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
+  - FaveButton (3.2.0)
+  - Firebase/Core (3.17.0):
+    - FirebaseAnalytics (= 3.9.0)
+    - FirebaseCore (= 3.6.0)
+  - Firebase/Messaging (3.17.0):
+    - Firebase/Core
+    - FirebaseMessaging (= 1.2.3)
+  - FirebaseAnalytics (3.9.0):
+    - FirebaseCore (~> 3.6)
     - FirebaseInstanceID (~> 1.0)
-    - GoogleInterchangeUtilities (~> 1.2)
-    - GoogleSymbolUtilities (~> 1.1)
-    - GoogleUtilities (~> 1.2)
-  - FirebaseInstanceID (1.0.8)
-  - Google/Analytics (3.0.3):
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseCore (3.6.0):
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseInstanceID (1.0.10):
+    - FirebaseCore (~> 3.6)
+  - FirebaseMessaging (1.2.3):
+    - FirebaseAnalytics (~> 3.8)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
+  - Google/Analytics (3.1.0):
     - Google/Core
     - GoogleAnalytics (~> 3.12)
-  - Google/Core (3.0.3):
+  - Google/Core (3.1.0):
     - FirebaseAnalytics (~> 3.2)
   - GoogleAnalytics (3.17.0)
-  - GoogleInterchangeUtilities (1.2.1):
-    - GoogleSymbolUtilities (~> 1.0)
-  - GoogleSymbolUtilities (1.1.1)
-  - GoogleUtilities (1.3.1):
-    - GoogleSymbolUtilities (~> 1.0)
+  - GoogleToolboxForMac/Defines (2.2.0)
+  - GoogleToolboxForMac/Logger (2.2.0):
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - "GoogleToolboxForMac/NSData+zlib (2.2.0)":
+    - GoogleToolboxForMac/Defines (= 2.2.0)
+  - Protobuf (3.7.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.0)
   - Crashlytics
   - Fabric
-  - FaveButton (~> 2.0.3)
+  - FaveButton
+  - Firebase/Core
+  - Firebase/Messaging
   - Google/Analytics
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - Crashlytics
+    - Fabric
+    - FaveButton
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - Google
+    - GoogleAnalytics
+    - GoogleToolboxForMac
+    - Protobuf
+
 SPEC CHECKSUMS:
-  Alamofire: fef59f00388f267e52d9b432aa5d93dc97190f14
-  Crashlytics: 27acca95a01b042a8294291dd6dff27f8f6af6d7
-  Fabric: 5755268d0171435ab167e3d0878a28a777deaf10
-  FaveButton: cfcbc5e73da159c4f916613da5687357b5bb4783
-  FirebaseAnalytics: d968d4d5f6aeb795cd64144337bcd233e530efc6
-  FirebaseInstanceID: ba1e640935235e5fac39dfa816fe7660e72e1a8a
-  Google: 813c467362eabc11385f5a5cc9ad0cb651a58f4e
+  Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
+  FaveButton: c818ab3d04d22a7615e93f08c7b35932acb3f735
+  Firebase: 4b66b5b59c43edac745b87f0c87e42cdd0279c13
+  FirebaseAnalytics: e5fe8486efc01bec33f6bf82e2fa9fce4b124052
+  FirebaseCore: 9691ee2ade70c098d7cf92440f4303f16d83ca75
+  FirebaseInstanceID: b9eedd6846fb5e1f0f7279e1deaa7a7e4cf8392e
+  FirebaseMessaging: 753d05a925e9eb8eadd09a0ffc9b808578b72fac
+  Google: 98da4b1a60ed0beb80a290387a28333406a1eb90
   GoogleAnalytics: f42cc53a87a51fe94334821868d9c8481ff47a7b
-  GoogleInterchangeUtilities: def8415a862effc67d549d5b5b0b9c7a2f97d4de
-  GoogleSymbolUtilities: 33117db1b5f290c6fbf259585e4885b4c84b98d7
-  GoogleUtilities: 56c5ac05b7aa5dc417a1bb85221a9516e04d7032
+  GoogleToolboxForMac: ff31605b7d66400dcec09bed5861689aebadda4d
+  Protobuf: 7a877b7f3e5964e3fce995e2eb323dbc6831bb5a
 
-PODFILE CHECKSUM: 31c0ee96476c18f206fd367843341e74a4b901d1
+PODFILE CHECKSUM: aac34ca0ed0bf3e38a132dc44f25b0434db64444
 
-COCOAPODS: 1.1.0.rc.1
+COCOAPODS: 1.6.1

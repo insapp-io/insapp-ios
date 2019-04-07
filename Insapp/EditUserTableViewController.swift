@@ -27,6 +27,7 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var addToCalendarSwitch: UISwitch!
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var promotionPickerView:UIPickerView!
     var genderPickerView:UIPickerView!
@@ -198,13 +199,17 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
                         self.notificationSwitch.isOn = self.isNotificationEnabled
                     }
                 }else{
-                    UIApplication.shared.registerForRemoteNotifications()
+                    self.isNotificationEnabled = true
+                    DispatchQueue.main.async { // Correct
+                        UIApplication.shared.registerForRemoteNotifications()
+                        self.appDelegate.subscribeToTopicNotification(topic: "newstest")
+                    }
+                    
                 }
             }
         }else{
-            let alert = Alert.create(alert: .notificationDisable)
-            self.present(alert, animated: true, completion: nil)
-            self.notificationSwitch.isOn = self.isNotificationEnabled
+            self.isNotificationEnabled = false
+            self.appDelegate.unsubscribeToTopicNotification(topic: "newstest")
         }
     }
     

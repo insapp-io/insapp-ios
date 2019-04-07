@@ -117,7 +117,7 @@ class Alert: AnyObject {
     }
     
     private static func createNotifcationDisableAlert(_ completion: ((Bool) -> ())?) -> UIAlertController{
-        let alert = UIAlertController(title: "", message: "Pour désactiver les notifications, vas dans Réglages > Notifications > Insapp", preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: "Pour désactiver les notifications, va dans Réglages > Notifications > Insapp", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: nil)
         alert.addAction(defaultAction)
         return alert

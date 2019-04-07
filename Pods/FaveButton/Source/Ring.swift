@@ -96,7 +96,7 @@ extension Ring{
     
     
     fileprivate func createRingLayer(_ radius: CGFloat, lineWidth: CGFloat, fillColor: UIColor, strokeColor: UIColor) -> CAShapeLayer{
-        let circle = UIBezierPath(arcCenter: CGPoint.zero, radius: radius - lineWidth/2, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+        let circle = UIBezierPath(arcCenter: CGPoint.zero, radius: radius - lineWidth/2, startAngle: 0, endAngle: 2*(.pi), clockwise: true)
         
         let ring = Init(CAShapeLayer()){
             $0.path         = circle.cgPath
@@ -159,7 +159,12 @@ extension Ring{
             $0.toValue        = toColor.cgColor
             $0.duration       = duration
             $0.beginTime      = CACurrentMediaTime() + delay
+            #if swift(>=4.2)
+            $0.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            #else
             $0.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            #endif
+            
         }
         
         return animation
@@ -171,9 +176,15 @@ extension Ring{
             $0.toValue             = strokeColor.cgColor
             $0.duration            = duration
             $0.beginTime           = CACurrentMediaTime() + delay
+            #if swift(>=4.2)
+            $0.fillMode            = CAMediaTimingFillMode.forwards
+            $0.timingFunction      = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            #else
             $0.fillMode            = kCAFillModeForwards
-            $0.isRemovedOnCompletion = false
             $0.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            #endif
+            $0.isRemovedOnCompletion = false
+            
         }
         return animation
     }
@@ -184,24 +195,34 @@ extension Ring{
             $0.toValue              = lineWidth
             $0.duration             = duration
             $0.beginTime            = CACurrentMediaTime() + delay
-            $0.fillMode             = kCAFillModeForwards
             $0.isRemovedOnCompletion  = false
+            #if swift(>=4.2)
+            $0.fillMode             = CAMediaTimingFillMode.forwards
+            $0.timingFunction       = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            #else
+            $0.fillMode             = kCAFillModeForwards
             $0.timingFunction       = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            #endif
         }
         return animation
     }
     
     
     fileprivate func animationCirclePath(_ radius: CGFloat, duration: Double, delay: Double) -> CABasicAnimation{
-        let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: 0, endAngle: CGFloat(2*M_PI), clockwise: true)
+        let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius, startAngle: 0, endAngle: 2*(.pi), clockwise: true)
         
         let animation = Init(CABasicAnimation(keyPath: "path")){
             $0.toValue              = path.cgPath
             $0.duration             = duration
             $0.beginTime            = CACurrentMediaTime() + delay
-            $0.fillMode             = kCAFillModeForwards
             $0.isRemovedOnCompletion  = false
+            #if swift(>=4.2)
+            $0.fillMode             = CAMediaTimingFillMode.forwards
+            $0.timingFunction       = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeOut)
+            #else
+            $0.fillMode             = kCAFillModeForwards
             $0.timingFunction       = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseOut)
+            #endif
         }
         return animation
     }
@@ -217,15 +238,5 @@ extension Ring : CAAnimationDelegate{
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
 
 
