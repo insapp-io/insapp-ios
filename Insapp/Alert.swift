@@ -21,7 +21,9 @@ enum AlertType {
     case reportConfirmation
 }
 
-class Alert: AnyObject {
+class Alert {
+    
+    var Object:AnyObject?
     
     static func create(alert: AlertType, completion: ((Bool) -> ())? = nil) -> UIAlertController{
         switch alert {

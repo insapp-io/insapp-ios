@@ -128,7 +128,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
-    func fetchPosts(){
+    @objc func fetchPosts(){
         APIManager.fetchLastestPosts(controller: self, completion: { (posts) in
             self.posts = posts
             DispatchQueue.global(qos: .default).async {

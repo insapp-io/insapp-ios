@@ -165,7 +165,7 @@ class EventViewController: UIViewController, EKEventEditViewDelegate, UITableVie
         
         let cell = tableView.dequeueReusableCell(withIdentifier: kEventDescriptionCell, for: indexPath) as! EventDescriptionCell
         cell.contentTextView.text = self.event.desc! + "\n\n\n\n"
-        cell.contentTextView.linkTextAttributes = [NSForegroundColorAttributeName: UIColor.black, NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue];
+        cell.contentTextView.linkTextAttributes = [NSAttributedStringKey.foregroundColor.rawValue: UIColor.black, NSAttributedStringKey.underlineStyle.rawValue: NSUnderlineStyle.styleSingle.rawValue];
         return cell
     }
     

@@ -43,13 +43,13 @@ class EditUserViewController: UIViewController {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
     }
     
-    func keyboardWillShow(_ notification: NSNotification) {
+    @objc func keyboardWillShow(_ notification: NSNotification) {
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
         let keyboardFrame = (userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue
         self.keyboardHeightConstraint.constant = keyboardFrame.height
     }
     
-    func keyboardWillHide(_ notification: NSNotification) {
+    @objc func keyboardWillHide(_ notification: NSNotification) {
         self.keyboardHeightConstraint.constant = 0
     }
     

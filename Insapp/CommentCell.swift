@@ -73,8 +73,8 @@ class CommentCell: UITableViewCell, UITextViewDelegate {
         let paragrapheStyle = NSMutableParagraphStyle()
         paragrapheStyle.lineSpacing = 0
         
-        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: kNormalFont, size: 15.0)!, range: NSRange(location:0, length:string.characters.count))
-        attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragrapheStyle, range: NSRange(location:0, length:string.characters.count))
+        attributedString.addAttribute(NSAttributedStringKey.font, value: UIFont(name: kNormalFont, size: 15.0)!, range: NSRange(location:0, length:string.characters.count))
+        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragrapheStyle, range: NSRange(location:0, length:string.characters.count))
         self.contentTextView.attributedText = attributedString
         
         let contentSize = self.contentTextView.sizeThatFits(self.contentTextView.bounds.size)
@@ -91,8 +91,8 @@ class CommentCell: UITableViewCell, UITextViewDelegate {
         let paragrapheStyle = NSMutableParagraphStyle()
         paragrapheStyle.lineSpacing = 0
         
-        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: kNormalFont, size: 15.0)!, range: NSRange(location:0, length: text.characters.count))
-        attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragrapheStyle, range: NSRange(location:0, length: text.characters.count))
+        attributedString.addAttribute(NSAttributedStringKey.font, value: UIFont(name: kNormalFont, size: 15.0)!, range: NSRange(location:0, length: text.characters.count))
+        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragrapheStyle, range: NSRange(location:0, length: text.characters.count))
         self.contentTextView.attributedText = attributedString
         
         let contentSize = self.contentTextView.sizeThatFits(self.contentTextView.bounds.size)
@@ -107,15 +107,15 @@ class CommentCell: UITableViewCell, UITextViewDelegate {
         let attributedString = NSMutableAttributedString(string: string)
         for tag in comment.tags!{
             let range = (string as NSString).range(of: tag.name!)
-            attributedString.addAttribute(NSLinkAttributeName, value: NSURL(string: tag.user!)!, range: range)
-            attributedString.addAttribute(NSForegroundColorAttributeName, value: UIColor.blue, range: range)
+            attributedString.addAttribute(NSAttributedStringKey.link, value: NSURL(string: tag.user!)!, range: range)
+            attributedString.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.blue, range: range)
         }
         
         let paragrapheStyle = NSMutableParagraphStyle()
         paragrapheStyle.lineSpacing = 0
         
-        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: kNormalFont, size: 15.0)!, range: NSRange(location:0, length:string.characters.count))
-        attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragrapheStyle, range: NSRange(location:0, length:string.characters.count))
+        attributedString.addAttribute(NSAttributedStringKey.font, value: UIFont(name: kNormalFont, size: 15.0)!, range: NSRange(location:0, length:string.characters.count))
+        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragrapheStyle, range: NSRange(location:0, length:string.characters.count))
         self.contentTextView.attributedText = attributedString
         
         let height = self.contentTextView.contentSize.height
@@ -149,8 +149,8 @@ class CommentCell: UITableViewCell, UITextViewDelegate {
         let paragrapheStyle = NSMutableParagraphStyle()
         paragrapheStyle.lineSpacing = 0
         
-        attributedString.addAttribute(NSFontAttributeName, value: UIFont(name: kNormalFont, size: 15.0)!, range: NSRange(location:0, length: text.characters.count))
-        attributedString.addAttribute(NSParagraphStyleAttributeName, value: paragrapheStyle, range: NSRange(location:0, length:text.characters.count))
+        attributedString.addAttribute(NSAttributedStringKey.font, value: UIFont(name: kNormalFont, size: 15.0)!, range: NSRange(location:0, length: text.characters.count))
+        attributedString.addAttribute(NSAttributedStringKey.paragraphStyle, value: paragrapheStyle, range: NSRange(location:0, length:text.characters.count))
         self.contentTextView.attributedText = attributedString
         
         let height = self.contentTextView.contentSize.height
@@ -179,7 +179,7 @@ class CommentCell: UITableViewCell, UITextViewDelegate {
         }
     }
     
-    func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
+    @objc func handleSwipeGesture(_ gesture: UISwipeGestureRecognizer) {
         switch gesture.direction {
         case UISwipeGestureRecognizerDirection.right:
             self.closeSubmenu()

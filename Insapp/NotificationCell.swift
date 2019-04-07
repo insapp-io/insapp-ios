@@ -82,7 +82,7 @@ class NotificationCell: UITableViewCell {
         
         let attributedString = NSMutableAttributedString(string: notification.message! + " ")
         let dateString = NSMutableAttributedString(string: notification.date!.timestamp(), attributes:
-            [NSForegroundColorAttributeName: kDarkGreyColor])
+            [NSAttributedStringKey.foregroundColor: kDarkGreyColor])
         attributedString.append(dateString)
         self.notification = notification
         self.messageLabel.attributedText = attributedString
@@ -100,7 +100,7 @@ class NotificationCell: UITableViewCell {
     }
     
     
-    func didTouchView(){
+    @objc func didTouchView(){
         switch self.notification.type! {
         case kNotificationTypeEvent:
             if let event = self.event {
@@ -127,7 +127,7 @@ class NotificationCell: UITableViewCell {
         }
     }
     
-    func didTouchSender(){
+    @objc func didTouchSender(){
         if (self.notification.type! == kNotificationTypeTag || self.notification.type! == kNotificationTypeEventTag), let user = self.userSender{
             self.delegate?.open(user: user)
         }

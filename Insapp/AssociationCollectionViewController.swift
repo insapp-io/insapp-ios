@@ -79,7 +79,7 @@ class AssociationCollectionViewController: UIViewController, UICollectionViewDat
         self.backgroundSearchView.frame = self.collectionView.frame
     }
     
-    func fetchAssociations(){
+    @objc func fetchAssociations(){
         self.searchBar.text = ""
         APIManager.fetchAssociations(controller: self) { (associations) in
             self.associations = associations
@@ -125,7 +125,7 @@ class AssociationCollectionViewController: UIViewController, UICollectionViewDat
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func keyboardWillShow(_ notification: NSNotification) {
+    @objc func keyboardWillShow(_ notification: NSNotification) {
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
         let keyboardFrame = (userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue
         DispatchQueue.main.async {
@@ -136,7 +136,7 @@ class AssociationCollectionViewController: UIViewController, UICollectionViewDat
         
     }
     
-    func keyboardWillHide(_ notification: NSNotification) {
+    @objc func keyboardWillHide(_ notification: NSNotification) {
         self.collectionView.contentInset = .zero
         self.collectionView.scrollIndicatorInsets = .zero
         self.refreshControl.isHidden = false

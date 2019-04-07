@@ -48,14 +48,14 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         
         session.beginConfiguration()
         
-        let videoDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
+        let videoDevice = AVCaptureDevice.default(for: AVMediaType.video)
         
         if (videoDevice != nil) {
-            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice)
+            let videoDeviceInput = try? AVCaptureDeviceInput(device: videoDevice!)
             
             if (videoDeviceInput != nil) {
-                if (session.canAddInput(videoDeviceInput)) {
-                    session.addInput(videoDeviceInput)
+                if (session.canAddInput(videoDeviceInput!)) {
+                    session.addInput(videoDeviceInput!)
                 }
             }
             
@@ -65,11 +65,11 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                 session.addOutput(metadataOutput)
                 
                 metadataOutput.metadataObjectTypes = [
-                    AVMetadataObjectTypeCode128Code
+                    AVMetadataObject.ObjectType.code128
                 ]
                 
                 
-                session.sessionPreset = AVCaptureSessionPreset640x480
+                session.sessionPreset = AVCaptureSession.Preset.vga640x480
                 let scanRectTransformed = CGRect(x: 0.4, y: 0.0, width: 0.2, height: 1.0)
                 metadataOutput.rectOfInterest = scanRectTransformed
                 
@@ -86,8 +86,8 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         session.commitConfiguration()
         
         self.cameraView?.layer.session = session
-        self.cameraView?.layer.videoGravity = AVLayerVideoGravityResizeAspectFill
-        self.cameraView?.layer.connection.videoOrientation = .portrait
+        self.cameraView?.layer.videoGravity = AVLayerVideoGravity.resizeAspectFill
+        self.cameraView?.layer.connection?.videoOrientation = .portrait
         
     }
     
@@ -113,10 +113,10 @@ class BarCodeViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-        cameraView?.layer.connection.videoOrientation = .portrait
+        cameraView?.layer.connection?.videoOrientation = .portrait
     }
     
-    func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
+    func metadataOutput(_ captureOutput: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         
         if (metadataObjects.count > 0 && metadataObjects.first is AVMetadataMachineReadableCodeObject) {
             

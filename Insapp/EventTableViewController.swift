@@ -91,7 +91,7 @@ class EventTableViewController: UIViewController, UITableViewDelegate, UITableVi
         return super.triggerError(message, statusCode)
     }
     
-    func fetchEvents(){
+    @objc func fetchEvents(){
         APIManager.fetchFutureEvents(controller: self) { (events) in
             self.dayEvents = Event.filterToday(events: events)
             self.weekEvents = Event.filterWeek(events: events)

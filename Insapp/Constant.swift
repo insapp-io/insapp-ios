@@ -19,9 +19,9 @@ let kErrorBadCASId = "Impossible de vérifier tes identifiants!"
 let kTutorialPages = ["TutorialAssociationViewController", "TutorialEventViewController", "TutorialNewsViewController", "TutorialNotificationViewController", "TutorialProfilViewController"]
 
 //COLOR
-let kLightGreyColor = UIColor(colorLiteralRed: 238/255, green: 238/255, blue: 238/255, alpha: 1)
-let kDarkGreyColor = UIColor(colorLiteralRed: 180/255, green: 180/255, blue: 180/255, alpha: 1)
-let kRedColor = UIColor(colorLiteralRed: 236/255, green: 93/255, blue: 87/255, alpha: 1)
+let kLightGreyColor = UIColor.init(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
+let kDarkGreyColor = UIColor.init(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)
+let kRedColor = UIColor.init(red: 236/255, green: 93/255, blue: 87/255, alpha: 1)
 let kWhiteColor = UIColor.white
 let kClearColor = UIColor.clear
 

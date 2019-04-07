@@ -9,8 +9,9 @@
 import Foundation
 import Alamofire
 
-class APIManager: AnyObject{
+class APIManager{
     
+    var Object:AnyObject?
     static var token:String!
     static let group = DispatchGroup()
     

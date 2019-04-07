@@ -137,7 +137,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         })
     }
     
-    func keyboardWillShow(_ notification: NSNotification) {
+    @objc func keyboardWillShow(_ notification: NSNotification) {
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
         self.keyboardFrame = (userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue
         DispatchQueue.main.async {
@@ -148,7 +148,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
     
-    func keyboardWillChangeFrame(_ notification: NSNotification) {
+    @objc func keyboardWillChangeFrame(_ notification: NSNotification) {
         let userInfo:NSDictionary = notification.userInfo! as NSDictionary
         self.keyboardFrame = (userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue).cgRectValue
         self.commentTableView.contentInset = .zero

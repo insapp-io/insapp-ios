@@ -142,7 +142,7 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
         delegate?.associationAction(association: self.association)
     }
     
-    func handleTapGesture(){
+    @objc func handleTapGesture(){
         delegate?.associationAction(association: self.association)
     }
 }

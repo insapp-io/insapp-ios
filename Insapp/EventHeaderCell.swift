@@ -133,27 +133,27 @@ class EventHeaderCell: UITableViewCell {
         }
     }
     
-    func addToCalendar() {
+    @objc func addToCalendar() {
         self.parent.addToCalendarAction()
     }
     
-    func showAttendees() {
+    @objc func showAttendees() {
         self.parent.showAttendeesAction()
     }
     
-    func didTapGoing() {
+    @objc func didTapGoing() {
         self.selectGoing()
         let status = self.eventStatus == .none ? "none" : "going"
         self.parent.changeStatus(status: status)
     }
     
-    func didTapMaybe() {
+    @objc func didTapMaybe() {
         self.selectMaybe()
         let status = self.eventStatus == .none ? "none" : "maybe"
         self.parent.changeStatus(status: status)
     }
     
-    func didTapNotGoing() {
+    @objc func didTapNotGoing() {
         self.selectNotGoing()
         let status = self.eventStatus == .none ? "none" : "notgoing"
         self.parent.changeStatus(status: status)

@@ -175,7 +175,7 @@ extension UIImageView {
         if let filter = CIFilter(name: "CICode128BarcodeGenerator") {
             filter.setValue(data, forKey: "inputMessage")
             let transform = CGAffineTransform(scaleX: 3, y: 3)
-            if let output = filter.outputImage?.applying(transform) {
+            if let output = filter.outputImage?.transformed(by: transform) {
                 self.image = UIImage(ciImage: output)
             }
         }
@@ -267,8 +267,8 @@ extension NSDate {
         
         var startYearStr = "\(startYear)"
         var endYearStr = "\(endYear)"
-        startYearStr = startYearStr[startYearStr.index(startYearStr.startIndex, offsetBy: 2)..<startYearStr.endIndex]
-        endYearStr = endYearStr[endYearStr.index(endYearStr.startIndex, offsetBy: 2)..<endYearStr.endIndex]
+        startYearStr = String(startYearStr[startYearStr.index(startYearStr.startIndex, offsetBy: 2)..<startYearStr.endIndex])
+        endYearStr = String(endYearStr[endYearStr.index(endYearStr.startIndex, offsetBy: 2)..<endYearStr.endIndex])
         startYearStr = (startYear != endYear ? "/\(startYearStr)" : "")
         endYearStr = (startYear != endYear ? "/\(endYearStr)" : "")
         

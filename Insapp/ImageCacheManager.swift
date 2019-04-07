@@ -7,7 +7,9 @@
 //
 
 import Foundation
-class ImageCacheManager: AnyObject {
+class ImageCacheManager {
+    
+    var Object:AnyObject?
 
     private static var instance: ImageCacheManager?
     

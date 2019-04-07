@@ -64,7 +64,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         }
     }
     
-    func fetchNotifications(){
+    @objc func fetchNotifications(){
         APIManager.fetchNotifications(controller: self) { (notifications) in
             DispatchQueue.global().async {
                 self.notifications = notifications
