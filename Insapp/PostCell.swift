@@ -77,8 +77,8 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
     
     func renderStaticData(){
         self.titleLabel.text = post.title!
-        self.commentLabel.text = "(\(post.comments!.count))"
-        self.likeLabel.text = "(\(post.likes!.count))"
+        self.commentLabel.text = "\(post.comments!.count)"
+        self.likeLabel.text = "\(post.likes!.count)"
         self.descriptionLabel.text = post.desc! + "\n\n\n\n"
         self.timestampLabel.text = post.date!.timestamp()
         

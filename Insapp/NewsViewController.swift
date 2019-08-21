@@ -255,8 +255,12 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         if liked {
             APIManager.dislikePost(post_id: post.id!, controller: self, completion: completion)
+            
         }else{
             APIManager.likePost(post_id: post.id!, controller: self, completion: completion)
+            let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
+            impactFeedbackgenerator.prepare()
+            impactFeedbackgenerator.impactOccurred()
         }
     }
     
@@ -286,7 +290,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        self.searchBar.showsCancelButton = true
+        
         self.backgroundSearchView.isHidden = false
     }
     

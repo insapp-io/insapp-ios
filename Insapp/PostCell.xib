@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -28,22 +29,22 @@
                     </imageView>
                     <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="auB-78-wBy">
                         <rect key="frame" x="56" y="8" width="263" height="40"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="default-color-1"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="fN7-RE-U7s"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="17"/>
                         <nil key="textColor"/>
                         <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </label>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1h" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wHN-Ld-R3I">
                         <rect key="frame" x="327" y="8" width="40" height="40"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="default-color-1"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="5x4-lR-kLa"/>
                             <constraint firstAttribute="height" constant="40" id="ETY-H5-GJK"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -55,45 +56,47 @@
                     </imageView>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QIv-w3-eUt">
                         <rect key="frame" x="46" y="318.5" width="64" height="21"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="default-color-1"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="2rj-Kz-uy7"/>
                             <constraint firstAttribute="width" constant="64" id="acf-Hf-Qti"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
+                        <color key="highlightedColor" name="default-color-1"/>
                     </label>
                     <button contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KcS-1Z-lvB">
                         <rect key="frame" x="112" y="318" width="25" height="25"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="25" id="5Dg-tm-bVW"/>
                             <constraint firstAttribute="width" constant="25" id="ek4-og-Cu9"/>
                         </constraints>
-                        <state key="normal" image="bubble"/>
+                        <state key="normal" image="bubble">
+                            <color key="titleColor" name="default-color"/>
+                            <color key="titleShadowColor" name="beta-color"/>
+                        </state>
                         <connections>
                             <action selector="commentAction:" destination="AOg-P5-dbI" eventType="touchUpInside" id="fG2-yH-1OU"/>
                         </connections>
                     </button>
                     <label contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ekm-Qy-QeQ">
                         <rect key="frame" x="8" y="343.5" width="359" height="30"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="default-color-1"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="4rd-C3-Svc"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E1O-Xc-ODh">
                         <rect key="frame" x="145" y="318.5" width="81" height="21"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="default-color-1"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="81" id="iEk-NF-Qpb"/>
                             <constraint firstAttribute="height" constant="21" id="yqZ-yy-Spo"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Light" family="Kohinoor Bangla" pointSize="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -105,6 +108,11 @@
                             <constraint firstAttribute="width" constant="30" id="n0n-s9-NpK"/>
                         </constraints>
                         <state key="normal" image="liked"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="normalColor">
+                                <color key="value" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZ8-J9-CE9">
                         <rect key="frame" x="0.0" y="0.0" width="57" height="57"/>
@@ -158,6 +166,7 @@
                         </constraints>
                     </view>
                 </subviews>
+                <color key="backgroundColor" name="default-color-1"/>
                 <constraints>
                     <constraint firstItem="QIv-w3-eUt" firstAttribute="leading" secondItem="GUI-T1-o9o" secondAttribute="trailing" constant="8" id="0IK-Za-Y6Q"/>
                     <constraint firstAttribute="bottom" secondItem="cEW-m9-jhI" secondAttribute="bottom" id="2z3-fB-ZDj"/>
@@ -199,6 +208,7 @@
                     <constraint firstAttribute="bottom" secondItem="Jqx-QD-FV6" secondAttribute="bottom" id="zgh-yw-i16"/>
                 </constraints>
             </tableViewCellContentView>
+            <color key="backgroundColor" name="default-color-1"/>
             <connections>
                 <outlet property="associationImageView" destination="AWT-dF-cCB" id="rPF-Nz-e0y"/>
                 <outlet property="associationLabel" destination="Ekm-Qy-QeQ" id="gxG-fo-TO7"/>
@@ -217,7 +227,16 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="bubble" width="28" height="29"/>
-        <image name="liked" width="29" height="29"/>
+        <image name="bubble" width="28.5" height="29"/>
+        <image name="liked" width="57" height="58"/>
+        <namedColor name="beta-color">
+            <color red="0.92549019607843142" green="0.36470588235294116" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="default-color">
+            <color red="0.92549019607843142" green="0.36470588235294116" blue="0.3411764705882353" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="default-color-1">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

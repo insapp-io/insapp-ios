@@ -22,14 +22,15 @@ let kTutorialPages = ["TutorialAssociationViewController", "TutorialEventViewCon
 let kLightGreyColor = UIColor.init(red: 238/255, green: 238/255, blue: 238/255, alpha: 1)
 let kDarkGreyColor = UIColor.init(red: 180/255, green: 180/255, blue: 180/255, alpha: 1)
 let kRedColor = UIColor.init(red: 236/255, green: 93/255, blue: 87/255, alpha: 1)
+//let kRedColor = UIColor.init(red: 91/255, green: 232/255, blue: 95/255, alpha: 1)
 let kWhiteColor = UIColor.white
 let kClearColor = UIColor.clear
 
 
 //FONT
-let kNormalFont = "KohinoorBangla-Regular"
-let kBoldFont = "KohinoorBangla-Semibold"
-let kLightFont = "KohinoorBangla-Light"
+let kNormalFont = "System-Regular"
+let kBoldFont = "System-Semibold"
+let kLightFont = "System-Light"
 
 //CELL
 let kAssociationCell = "kAssociationCell"
@@ -64,10 +65,10 @@ let kAssociationSearchCell = "AssociationSearchCell"
 let kSeeMoreCell = "SeeMoreCell"
 
 //API
-//let kAPIHostname = "https://insapp.fr/api/v1"
-//let kCDNHostname = "https://insapp.fr/cdn/"
-let kAPIHostname = "https://insapp.insa-rennes.fr/api/v1"
-let kCDNHostname = "https://insapp.insa-rennes.fr/cdn/"
+let kAPIHostname = "https://insapp.fr/api/v1"
+let kCDNHostname = "https://insapp.fr/cdn/"
+//let kAPIHostname = "https://insapp.insa-rennes.fr/api/v1"
+//let kCDNHostname = "https://insapp.insa-rennes.fr/cdn/"
 
 let kCASHostname = "https://cas.insa-rennes.fr"
 let kLoginPassword = "password"
@@ -166,6 +167,8 @@ let kNotificationTypeEventTag   = "eventTag"
 let kMaxDescriptionLength = 120
 let kSuggestCalendar = "kSuggestCalendar"
 let kBarCodeAmicalistCard = "kBarCodeAmicalistCard"
+let kPushPostNotifications = "kPushPostNotifications"
+let kPushEventNotifications = "kPushEventNotifications"
 
 let promotions = [
     "", "1STPI", "2STPI",

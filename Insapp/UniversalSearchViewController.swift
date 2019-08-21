@@ -61,7 +61,7 @@ class UniversalSearchViewController: UIViewController, UITableViewDataSource, UI
         vw.backgroundColor = kLightGreyColor
         let label = UILabel(frame: .zero)
         label.text = "Section"
-        label.font = UIFont(name: kBoldFont, size: 15.0)
+        label.font = UIFont.boldSystemFont(ofSize: 15.0)
         
         switch section {
         case 0:

@@ -33,7 +33,7 @@ extension UIViewController{
         label.text = message
         label.textColor = .white
         label.textAlignment = .center
-        label.font = UIFont(name: kNormalFont, size: 15)
+        label.font = UIFont.systemFont(ofSize: 17.0)
         label.numberOfLines = 2
         label.lineBreakMode = .byWordWrapping
         

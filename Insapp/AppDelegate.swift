@@ -15,6 +15,7 @@ import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate {
 
@@ -115,11 +116,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     func subscribeToTopicNotification(topic:String){
-        FIRMessaging.messaging().subscribe(toTopic: topic)
+        DispatchQueue.main.async {
+            FIRMessaging.messaging().subscribe(toTopic: topic)
+        }
+        print("subscribed to topic \(topic)")
     }
     
     func unsubscribeToTopicNotification(topic:String){
-        FIRMessaging.messaging().unsubscribe(fromTopic: topic)
+        DispatchQueue.main.async {
+            FIRMessaging.messaging().unsubscribe(fromTopic: topic)
+        }
+        print("unsubscribed from topic \(topic)")
     }
     
     func registerForNotification(completion: (() -> ())? = nil ){
@@ -164,6 +171,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         }
         
     }
+    
+    
     
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.

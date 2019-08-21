@@ -15,9 +15,9 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>2.1.1</string>
+	<string>3</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>Fabric</key>
 	<dict>
 		<key>APIKey</key>
@@ -47,7 +47,7 @@
 	<array>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>megaphone</string>
+			<string>bell</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Mes notifications</string>
 			<key>UIApplicationShortcutItemType</key>
@@ -55,7 +55,7 @@
 		</dict>
 		<dict>
 			<key>UIApplicationShortcutItemIconFile</key>
-			<string>attendee_dark</string>
+			<string>profilenew</string>
 			<key>UIApplicationShortcutItemTitle</key>
 			<string>Ma carte amicaliste</string>
 			<key>UIApplicationShortcutItemType</key>

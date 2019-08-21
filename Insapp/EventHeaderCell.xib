@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16A313a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,7 +14,7 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="440"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nxK-xR-hZ2" id="WPc-7H-le1">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="439"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="439.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A7S-V9-yCf">
@@ -23,7 +22,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="40" id="lBb-Vs-foG"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="25"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -32,7 +31,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="4UH-ge-Lhs"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -41,7 +40,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="47" id="SLA-nu-0SZ"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -51,7 +50,7 @@
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="JuQ-aX-1xT"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -64,7 +63,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="A2S-Ga-FvY"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -74,7 +73,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fQa-Si-oK0"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="KohinoorBangla-Semibold" family="Kohinoor Bangla" pointSize="25"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -100,7 +99,7 @@
                         </constraints>
                     </imageView>
                     <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="attendee_dark" translatesAutoresizingMaskIntoConstraints="NO" id="4W6-zJ-mHy">
-                        <rect key="frame" x="8" y="248" width="15" height="15"/>
+                        <rect key="frame" x="8" y="247.5" width="15" height="15"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" constant="15" id="ACt-AG-lfR"/>
@@ -108,7 +107,7 @@
                         </constraints>
                     </imageView>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unkown_light" translatesAutoresizingMaskIntoConstraints="NO" id="Y0P-vN-4pB">
-                        <rect key="frame" x="152" y="330" width="70" height="70"/>
+                        <rect key="frame" x="152.5" y="330" width="70" height="70"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="KMW-Sg-z7R"/>
@@ -116,7 +115,7 @@
                         </constraints>
                     </imageView>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="go_checked" translatesAutoresizingMaskIntoConstraints="NO" id="hdj-1Z-EMu">
-                        <rect key="frame" x="39" y="330" width="70" height="70"/>
+                        <rect key="frame" x="47" y="330" width="70" height="70"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="DyO-7S-KY8"/>
@@ -124,7 +123,7 @@
                         </constraints>
                     </imageView>
                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="not_going_light" translatesAutoresizingMaskIntoConstraints="NO" id="BBz-3B-iJa">
-                        <rect key="frame" x="265" y="330" width="70" height="70"/>
+                        <rect key="frame" x="257" y="330" width="70" height="70"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="width" constant="70" id="2Ig-dm-oNK"/>
@@ -132,13 +131,13 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J'y vais" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZtR-hW-zZT">
-                        <rect key="frame" x="46" y="408" width="56" height="21"/>
+                        <rect key="frame" x="54" y="408" width="56" height="21"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="width" constant="56" id="4od-H1-ZnA"/>
                             <constraint firstAttribute="height" constant="21" id="pLB-62-dZv"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -149,18 +148,18 @@
                             <constraint firstAttribute="height" constant="21" id="L0i-oW-beT"/>
                             <constraint firstAttribute="width" constant="73" id="eAK-k6-QS2"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="J'y vais pas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVu-WA-YQv">
-                        <rect key="frame" x="256" y="408" width="88" height="21"/>
+                        <rect key="frame" x="248" y="408" width="88" height="21"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="5zm-Bf-eoM"/>
                             <constraint firstAttribute="width" constant="88" id="i1t-qP-SUh"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="KohinoorBangla-Regular" family="Kohinoor Bangla" pointSize="12"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -223,8 +222,8 @@
     <resources>
         <image name="attendee_dark" width="37" height="50"/>
         <image name="clock_dark" width="50" height="50"/>
-        <image name="go_checked" width="96" height="96"/>
-        <image name="not_going_light" width="96" height="96"/>
-        <image name="unkown_light" width="96" height="96"/>
+        <image name="go_checked" width="96.5" height="96.5"/>
+        <image name="not_going_light" width="96.5" height="96.5"/>
+        <image name="unkown_light" width="96.5" height="96.5"/>
     </resources>
 </document>

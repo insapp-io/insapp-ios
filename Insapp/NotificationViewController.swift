@@ -69,6 +69,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
             DispatchQueue.global().async {
                 self.notifications = notifications
                 for notification in notifications {
+                    if notification.content != "5ce5242004570b39d8b453b8" {
                     switch notification.type! {
                     case kNotificationTypeEvent:
                         self.download(eventId: notification.content!)
@@ -88,6 +89,7 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
                         break
                     default:
                         break
+                        }
                     }
                 }
                 
@@ -115,29 +117,33 @@ class NotificationViewController: UIViewController, UITableViewDelegate, UITable
         let notification = self.notifications[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: kNotificationCell, for: indexPath) as! NotificationCell
         cell.delegate = self
-        switch notification.type! {
-        case kNotificationTypeEvent:
-            let content = self.events[notification.content!]!
-            let sender = self.associations[notification.sender!]!
-            cell.load(notification, withEvent: content, withSender: sender)
-            break
-        case kNotificationTypePost:
-            let content = self.posts[notification.content!]!
-            let sender = self.associations[notification.sender!]!
-            cell.load(notification, withPost: content, withSender: sender)
-            break
-        case kNotificationTypeTag:
-            let content = self.posts[notification.content!]!
-            let sender = self.users[notification.sender!]!
-            cell.load(notification, withPost: content, withUser: sender)
-            break
-        case kNotificationTypeEventTag:
-            let content = self.events[notification.content!]!
-            let sender = self.users[notification.sender!]!
-            cell.load(notification, withEvent: content, withUser: sender)
-            break
-        default:
-            break
+            if notification.content != "5ce5242004570b39d8b453b8" {
+            switch notification.type! {
+            case kNotificationTypeEvent:
+                let content = self.events[notification.content!]!
+                let sender = self.associations[notification.sender!]!
+                cell.load(notification, withEvent: content, withSender: sender)
+                break
+            case kNotificationTypePost:
+
+                    let content = self.posts[notification.content!]!
+                    let sender = self.associations[notification.sender!]!
+                    cell.load(notification, withPost: content, withSender: sender)
+                
+                break
+            case kNotificationTypeTag:
+                let content = self.posts[notification.content!]!
+                let sender = self.users[notification.sender!]!
+                cell.load(notification, withPost: content, withUser: sender)
+                break
+            case kNotificationTypeEventTag:
+                let content = self.events[notification.content!]!
+                let sender = self.users[notification.sender!]!
+                cell.load(notification, withEvent: content, withUser: sender)
+                break
+            default:
+                break
+            }
         }
         return cell
     }

@@ -176,6 +176,9 @@ class EventHeaderCell: UITableViewCell {
         }
         self.eventStatus = .going
         self.animate(imageView: self.goingImageView, image: #imageLiteral(resourceName: "go_checked"))
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
     }
     
     func selectMaybe(){
@@ -195,6 +198,9 @@ class EventHeaderCell: UITableViewCell {
         }
         self.eventStatus = .maybe
         self.animate(imageView: self.unkownImageView, image: #imageLiteral(resourceName: "unkown_checked"))
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
     }
     
     func selectNotGoing(){
@@ -214,6 +220,9 @@ class EventHeaderCell: UITableViewCell {
         }
         self.eventStatus = .notgoing
         self.animate(imageView: self.notgoingImageView, image: #imageLiteral(resourceName: "not_going_checked"))
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
     }
     
     func animate(imageView: UIImageView, image: UIImage){

@@ -8,10 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2A1B25CE20CEB9ED00C9E7AF /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */; };
-		2A31075B21D37D200080ED7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A31075A21D37D1F0080ED7E /* GoogleService-Info.plist */; };
-		2A31075C21D37D200080ED7E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2A31075A21D37D1F0080ED7E /* GoogleService-Info.plist */; };
 		2A77C15D20D2E42B0032749C /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A77C15C20D2E42B0032749C /* Stickers.xcassets */; };
 		2A77C16120D2E42B0032749C /* instickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A77C15A20D2E42A0032749C /* instickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2AEDAC6322B81B50006C29D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDAC6222B81B4F006C29D3 /* GoogleService-Info.plist */; };
 		7D051D8B1DCB8B1500DED954 /* UniversalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D051D8A1DCB8B1500DED954 /* UniversalSearchViewController.swift */; };
 		7D051D8D1DCB909300DED954 /* APIManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D051D8C1DCB909300DED954 /* APIManager+Search.swift */; };
 		7D0C40D01DEAECE3005FE515 /* SearchUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0C40CF1DEAECE3005FE515 /* SearchUserCell.xib */; };
@@ -155,10 +154,10 @@
 
 /* Begin PBXFileReference section */
 		2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		2A31075A21D37D1F0080ED7E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2A77C15A20D2E42A0032749C /* instickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = instickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A77C15C20D2E42B0032749C /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		2A77C15E20D2E42B0032749C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2AEDAC6222B81B4F006C29D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		7D051D8A1DCB8B1500DED954 /* UniversalSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalSearchViewController.swift; sourceTree = "<group>"; };
 		7D051D8C1DCB909300DED954 /* APIManager+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Search.swift"; sourceTree = "<group>"; };
 		7D0C40CF1DEAECE3005FE515 /* SearchUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchUserCell.xib; sourceTree = "<group>"; };
@@ -563,7 +562,7 @@
 		E1DC7EFD1D86E2C900284222 = {
 			isa = PBXGroup;
 			children = (
-				2A31075A21D37D1F0080ED7E /* GoogleService-Info.plist */,
+				2AEDAC6222B81B4F006C29D3 /* GoogleService-Info.plist */,
 				E1DC7F081D86E2C900284222 /* Insapp */,
 				2A77C15B20D2E42A0032749C /* instickers */,
 				E1DC7F071D86E2C900284222 /* Products */,
@@ -723,7 +722,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2A77C15D20D2E42B0032749C /* Stickers.xcassets in Resources */,
-				2A31075C21D37D200080ED7E /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -756,7 +754,7 @@
 				7D0F88431DEDCC3E00E740F2 /* AssociationSearchCell.xib in Resources */,
 				E12E458B1E4B0205004D0C44 /* AssociationCell.xib in Resources */,
 				E119D0771E48BEBF00C10A64 /* EventDescriptionCell.xib in Resources */,
-				2A31075B21D37D200080ED7E /* GoogleService-Info.plist in Resources */,
+				2AEDAC6322B81B50006C29D3 /* GoogleService-Info.plist in Resources */,
 				7D1591861DE49E44001F949E /* SearchEventCell.xib in Resources */,
 				E119D0801E49F3CB00C10A64 /* AssociationHeaderCell.xib in Resources */,
 				E1DC7F0F1D86E2C900284222 /* Main.storyboard in Resources */,
@@ -1107,7 +1105,7 @@
 			baseConfigurationReference = B07F8504F090A6CA8BCC8915 /* Pods-Insapp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-beta";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Insapp/Insapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1115,7 +1113,7 @@
 				DEVELOPMENT_TEAM = 548HKPZ8GK;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Insapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1134,7 +1132,7 @@
 			baseConfigurationReference = FF193D226DDB96C99A3FA380 /* Pods-Insapp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-beta";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Insapp/Insapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -1142,7 +1140,7 @@
 				DEVELOPMENT_TEAM = 548HKPZ8GK;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Insapp/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -28,7 +28,7 @@ class AssociationDescriptionCell: UITableViewCell {
         let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: width-16, height: CGFloat.greatestFiniteMagnitude))
         label.numberOfLines = 0
         label.lineBreakMode = NSLineBreakMode.byWordWrapping
-        label.font = UIFont(name: kNormalFont, size: 17)
+        label.font = UIFont.systemFont(ofSize: 17.0)
         label.text = association.desc! + "\n\n\n"
         label.sizeToFit()
         return label.frame.height + CGFloat(16 + 47)

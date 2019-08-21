@@ -31,7 +31,7 @@ class SpashScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         UIView.animate(withDuration: 0.5) { 
-            self.imageView.frame.origin.y -= self.imageView.frame.width/2
+            self.imageView.frame.origin.y -= self.imageView.frame.width
             self.loader.alpha = 1
         }
     }
@@ -143,6 +143,7 @@ class SpashScreenViewController: UIViewController {
                 })
             }
         }
+        vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: true) {
             guard let _ = completion else { return }
             completion!(vc)

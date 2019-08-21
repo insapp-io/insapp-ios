@@ -69,7 +69,9 @@ class CASViewController: UIViewController, UIWebViewDelegate{
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)
                     let vc = storyboard.instantiateViewController(withIdentifier: "TabViewController") as! UITabBarController
                     vc.delegate = UIApplication.shared.delegate as! UITabBarControllerDelegate?
+                    vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
+                    
                 }
             })
         }

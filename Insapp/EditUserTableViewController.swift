@@ -22,6 +22,7 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
     @IBOutlet weak var descriptionTextView: UITextView!
     @IBOutlet weak var descriptionLengthLabel: UILabel!
     @IBOutlet weak var notificationSwitch: UISwitch!
+    @IBOutlet weak var eventSwitch: UISwitch!
     @IBOutlet weak var avatarHelpLabel: UILabel!
     @IBOutlet weak var insappImageView: UIImageView!
     @IBOutlet weak var versionLabel: UILabel!
@@ -81,6 +82,16 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
             if let addToCalendar = UserDefaults.standard.object(forKey: kSuggestCalendar) as? Bool {
                 self.addToCalendarSwitch.isOn = addToCalendar
             }
+            
+            self.notificationSwitch.isOn = false
+            if let postNotification = UserDefaults.standard.object(forKey: kPushPostNotifications) as? Bool {
+                self.notificationSwitch.isOn = postNotification
+            }
+            
+            self.eventSwitch.isOn = false
+            if let eventNotification = UserDefaults.standard.object(forKey: kPushEventNotifications) as? Bool {
+                self.eventSwitch.isOn = eventNotification
+            }
         }
         
         self.lightStatusBar()
@@ -92,9 +103,6 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
         
         UNUserNotificationCenter.current().getNotificationSettings { (settings) in
             self.isNotificationEnabled = settings.authorizationStatus == .authorized
-            DispatchQueue.main.async {
-                self.notificationSwitch.isOn = self.isNotificationEnabled
-            }
         }
     }
 
@@ -189,17 +197,14 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
     }
     
     @IBAction func notificationStatusAction(_ sender: AnyObject) {
+        UserDefaults.standard.set(self.notificationSwitch.isOn, forKey: kPushPostNotifications)
         if self.notificationSwitch.isOn {
             let center = UNUserNotificationCenter.current()
             center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
                 if !granted {
                     let alert = Alert.create(alert: .notificationEnable)
                     self.present(alert, animated: true, completion: nil)
-                    DispatchQueue.main.async {
-                        self.notificationSwitch.isOn = self.isNotificationEnabled
-                    }
                 }else{
-                    self.isNotificationEnabled = true
                     DispatchQueue.main.async { // Correct
                         UIApplication.shared.registerForRemoteNotifications()
                         self.appDelegate.subscribeToTopicNotification(topic: "newstest")
@@ -208,11 +213,31 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
                 }
             }
         }else{
-            self.isNotificationEnabled = false
             self.appDelegate.unsubscribeToTopicNotification(topic: "newstest")
         }
     }
     
+    @IBAction func eventStatusAction(_ sender: Any) {
+        UserDefaults.standard.set(self.eventSwitch.isOn, forKey: kPushEventNotifications)
+        if self.eventSwitch.isOn {
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
+                if !granted {
+                    let alert = Alert.create(alert: .notificationEnable)
+                    self.present(alert, animated: true, completion: nil)
+                }else{
+                    DispatchQueue.main.async { // Correct
+                        UIApplication.shared.registerForRemoteNotifications()
+                        self.appDelegate.subscribeToTopicNotification(topic: "events")
+                    }
+                    
+                }
+            }
+        }else{
+            self.appDelegate.unsubscribeToTopicNotification(topic: "events")
+        }
+        
+    }
     @IBAction func showBarCodeCameraAction(_ sender: Any) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "BarCodeViewController") as! BarCodeViewController
