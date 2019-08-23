@@ -10,7 +10,6 @@
 		2A1B25CE20CEB9ED00C9E7AF /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */; };
 		2A77C15D20D2E42B0032749C /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A77C15C20D2E42B0032749C /* Stickers.xcassets */; };
 		2A77C16120D2E42B0032749C /* instickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A77C15A20D2E42A0032749C /* instickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2AEDAC6322B81B50006C29D3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2AEDAC6222B81B4F006C29D3 /* GoogleService-Info.plist */; };
 		7D051D8B1DCB8B1500DED954 /* UniversalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D051D8A1DCB8B1500DED954 /* UniversalSearchViewController.swift */; };
 		7D051D8D1DCB909300DED954 /* APIManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D051D8C1DCB909300DED954 /* APIManager+Search.swift */; };
 		7D0C40D01DEAECE3005FE515 /* SearchUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0C40CF1DEAECE3005FE515 /* SearchUserCell.xib */; };
@@ -157,7 +156,8 @@
 		2A77C15A20D2E42A0032749C /* instickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = instickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2A77C15C20D2E42B0032749C /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
 		2A77C15E20D2E42B0032749C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2AEDAC6222B81B4F006C29D3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2AF20984230E809C00C05EF9 /* DevMode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevMode.xcconfig; sourceTree = "<group>"; };
+		2AF20985230E80A900C05EF9 /* ProdMode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProdMode.xcconfig; sourceTree = "<group>"; };
 		7D051D8A1DCB8B1500DED954 /* UniversalSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalSearchViewController.swift; sourceTree = "<group>"; };
 		7D051D8C1DCB909300DED954 /* APIManager+Search.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Search.swift"; sourceTree = "<group>"; };
 		7D0C40CF1DEAECE3005FE515 /* SearchUserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SearchUserCell.xib; sourceTree = "<group>"; };
@@ -333,6 +333,15 @@
 				2A77C15E20D2E42B0032749C /* Info.plist */,
 			);
 			path = instickers;
+			sourceTree = "<group>";
+		};
+		2AF20983230E806E00C05EF9 /* Configurations */ = {
+			isa = PBXGroup;
+			children = (
+				2AF20984230E809C00C05EF9 /* DevMode.xcconfig */,
+				2AF20985230E80A900C05EF9 /* ProdMode.xcconfig */,
+			);
+			path = Configurations;
 			sourceTree = "<group>";
 		};
 		7D09F78D1E0C5DC900B93A6E /* Search */ = {
@@ -562,7 +571,7 @@
 		E1DC7EFD1D86E2C900284222 = {
 			isa = PBXGroup;
 			children = (
-				2AEDAC6222B81B4F006C29D3 /* GoogleService-Info.plist */,
+				2AF20983230E806E00C05EF9 /* Configurations */,
 				E1DC7F081D86E2C900284222 /* Insapp */,
 				2A77C15B20D2E42A0032749C /* instickers */,
 				E1DC7F071D86E2C900284222 /* Products */,
@@ -654,6 +663,7 @@
 				39E715618C35977E1EEBF500 /* [CP] Embed Pods Frameworks */,
 				E17240711D942D5F0073F501 /* ShellScript */,
 				2A2A490C20CEAD2E00A2AA19 /* Embed App Extensions */,
+				2AF2098F230E9C5F00C05EF9 /* Google plist */,
 			);
 			buildRules = (
 			);
@@ -687,6 +697,9 @@
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
+								enabled = 1;
+							};
+							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
 							com.apple.Push = {
@@ -754,7 +767,6 @@
 				7D0F88431DEDCC3E00E740F2 /* AssociationSearchCell.xib in Resources */,
 				E12E458B1E4B0205004D0C44 /* AssociationCell.xib in Resources */,
 				E119D0771E48BEBF00C10A64 /* EventDescriptionCell.xib in Resources */,
-				2AEDAC6322B81B50006C29D3 /* GoogleService-Info.plist in Resources */,
 				7D1591861DE49E44001F949E /* SearchEventCell.xib in Resources */,
 				E119D0801E49F3CB00C10A64 /* AssociationHeaderCell.xib in Resources */,
 				E1DC7F0F1D86E2C900284222 /* Main.storyboard in Resources */,
@@ -767,6 +779,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2AF2098F230E9C5F00C05EF9 /* Google plist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Google plist";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "PATH_TO_GOOGLE_PLISTS=\"${PROJECT_DIR}\"\n\ncase \"${CONFIGURATION}\" in\n\n\"Debug\")\ncp -r \"$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-dev.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" ;;\n\n\"Release\")\ncp -r \"$PATH_TO_GOOGLE_PLISTS/GoogleService-Info-prod.plist\" \"${BUILT_PRODUCTS_DIR}/${PRODUCT_NAME}.app/GoogleService-Info.plist\" ;;\n\n*)\n;;\nesac\n";
+		};
 		3000671468CFDED1A9D803E8 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -820,7 +850,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2fc035eb84a4d714ea10291b4587818c05a74a2d d0541239a2f2c85e4f74b9ef2cbdf440d9dc38ca5bc835ad4a579ba0ceb5dc46";
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2fc035eb84a4d714ea10291b4587818c05a74a2d d0541239a2f2c85e4f74b9ef2cbdf440d9dc38ca5bc835ad4a579ba0ceb5dc46\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -968,7 +998,7 @@
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				INFOPLIST_FILE = instickers/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp.instickers;
+				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp.dev.instickers;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1102,7 +1132,7 @@
 		};
 		E1DC7F1C1D86E2C900284222 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B07F8504F090A6CA8BCC8915 /* Pods-Insapp.debug.xcconfig */;
+			baseConfigurationReference = 2AF20984230E809C00C05EF9 /* DevMode.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-beta";
@@ -1129,10 +1159,10 @@
 		};
 		E1DC7F1D1D86E2C900284222 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF193D226DDB96C99A3FA380 /* Pods-Insapp.release.xcconfig */;
+			baseConfigurationReference = 2AF20985230E80A900C05EF9 /* ProdMode.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-beta";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Insapp/Insapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

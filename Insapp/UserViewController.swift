@@ -52,7 +52,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.avatarImageView.layer.cornerRadius = self.avatarImageView.frame.width/2
         self.avatarImageView.layer.borderColor = UIColor.black.cgColor
         self.avatarImageView.layer.masksToBounds = true
-        self.avatarImageView.layer.borderWidth = 1
+        self.avatarImageView.layer.borderWidth = 0
         
         if self.user_id == nil {
             self.user_id = Credentials.fetch()!.userId

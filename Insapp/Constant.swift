@@ -65,8 +65,9 @@ let kAssociationSearchCell = "AssociationSearchCell"
 let kSeeMoreCell = "SeeMoreCell"
 
 //API
-let kAPIHostname = "https://insapp.fr/api/v1"
-let kCDNHostname = "https://insapp.fr/cdn/"
+
+let kAPIHostname = "https://" + (Bundle.main.infoDictionary?["BaseApiUrl"] as! String)
+let kCDNHostname = "https://" + (Bundle.main.infoDictionary?["BaseCdnUrl"] as! String)
 //let kAPIHostname = "https://insapp.insa-rennes.fr/api/v1"
 //let kCDNHostname = "https://insapp.insa-rennes.fr/cdn/"
 

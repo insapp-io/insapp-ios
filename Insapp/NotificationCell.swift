@@ -95,7 +95,7 @@ class NotificationCell: UITableViewCell {
         self.senderImageView.layer.masksToBounds = true
         self.senderImageView.backgroundColor = kWhiteColor
         self.senderImageView.layer.borderColor = kDarkGreyColor.cgColor
-        self.senderImageView.layer.borderWidth = 1
+        //self.senderImageView.layer.borderWidth = 1
 
     }
     

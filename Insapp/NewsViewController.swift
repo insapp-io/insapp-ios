@@ -11,6 +11,8 @@ import UIKit
 
 class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, PostCellDelegate, UISearchBarDelegate, CommentControllerDelegate {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var postTableView: UITableView!  
     @IBOutlet weak var loader: UIActivityIndicatorView!
     @IBOutlet weak var noPostLabel: UILabel!
@@ -88,6 +90,17 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }else{
             self.fetchPosts()
         }
+        
+        if UserDefaults.standard.object(forKey: "firstOpeningSinceUpdate") == nil{
+            self.appDelegate.subscribeToTopicNotification(topic: "posts-unknown-class")
+            self.appDelegate.subscribeToTopicNotification(topic: "posts-ios")
+            self.appDelegate.subscribeToTopicNotification(topic: "events-unknown-class")
+            self.appDelegate.subscribeToTopicNotification(topic: "events-ios")
+            UserDefaults.standard.set(true, forKey: kPushEventNotifications)
+            UserDefaults.standard.set(true, forKey: kPushPostNotifications)
+            UserDefaults.standard.set(true, forKey: "firstOpeningSinceUpdate")
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,6 +115,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidAppear(_ animated: Bool) {
         self.backgroundSearchView.frame = self.postTableView.frame
+        
     }
     
     func computeSizes(){

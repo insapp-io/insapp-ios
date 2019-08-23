@@ -34,6 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         case showProfile = "io.thomasmorel.insapp.showProfile"
     }
     
+    
     private func handleShortcut(_ item: UIApplicationShortcutItem) {
         guard let actionType = ApplicationShortcutTypes(rawValue: item.type) else {
             return
@@ -60,6 +61,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+
+        //FIRApp.configure(with: options)
         
         ImageCacheManager.initialize()
         
@@ -91,7 +95,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         application.registerForRemoteNotifications()
         
         FIRApp.configure()
-        
+
         
         self.notification = launchOptions?[.remoteNotification] as? [String: AnyObject]
         //registerForNotification()
@@ -129,6 +133,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         print("unsubscribed from topic \(topic)")
     }
     
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        //if let messageID = userInfo[gcmMessageIDKey] {
+         //   print("Message ID: \(messageID)")
+      // }
+        
+        // Print full message.
+        print(userInfo)
+    }
+    
+
+    
     func registerForNotification(completion: (() -> ())? = nil ){
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
@@ -144,19 +167,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         print(remoteMessage.appData)
     }
     
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        // If you are receiving a notification message while your app is in the background,
-        // this callback will not be fired till the user taps on the notification launching the application.
-        // TODO: Handle data of notification
-        
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-        
-        // Print message ID.
-        
-        // Print full message.
-        print(userInfo)
-    }
     
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {

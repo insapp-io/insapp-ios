@@ -19,6 +19,7 @@ enum AlertType {
     case reportComment
     case reportUser
     case reportConfirmation
+    case getInsappInfo
 }
 
 class Alert {
@@ -47,10 +48,23 @@ class Alert {
             return Alert.createReportUserAlert(completion)
         case .reportConfirmation:
             return Alert.createReportConfirmationAlert(completion)
+        case .getInsappInfo:
+            return Alert.createInsappInfoAlert(completion)
         }
     }
     
     private static func createReportConfirmationAlert(_ completion: ((Bool) -> ())?) -> UIAlertController{
+        let alert = UIAlertController(title: "", message: "Un email a été envoyé à l'AEIR et au responsable d'Insapp. Une décision sera prise dans les 24h", preferredStyle: .alert)
+        let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: { alert in
+            completion?(true)
+        })
+        alert.addAction(defaultAction)
+        return alert
+    }
+    
+    private static func createInsappInfoAlert(_ completion: ((Bool) -> ())?) -> UIAlertController{
+        let version = Bundle.main.infoDictionary!["CFBundleVersion"] as? String
+        let bundle = Bundle.main.infoDictionary!["CFBundleIdentifier"] as? String
         let alert = UIAlertController(title: "", message: "Un email a été envoyé à l'AEIR et au responsable d'Insapp. Une décision sera prise dans les 24h", preferredStyle: .alert)
         let defaultAction = UIAlertAction(title: "Ok", style: .default, handler: { alert in
             completion?(true)

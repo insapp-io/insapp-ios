@@ -12,6 +12,8 @@ import UIKit
 
 class TutorialViewController: UIPageViewController, UIPageViewControllerDataSource, UIPageViewControllerDelegate {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var pageViewControllers:[TutorialPageViewController] = []
     
     override func viewDidLoad() {
@@ -93,8 +95,18 @@ class TutorialViewController: UIPageViewController, UIPageViewControllerDataSour
     
     func presentCASViewController(){
         DispatchQueue.main.async {
+            
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "LegalViewController") as! LegalViewController
+            
+            self.appDelegate.subscribeToTopicNotification(topic: "posts-unknown-class")
+            self.appDelegate.subscribeToTopicNotification(topic: "posts-ios")
+            self.appDelegate.subscribeToTopicNotification(topic: "events-unknown-class")
+            self.appDelegate.subscribeToTopicNotification(topic: "events-ios")
+            
+            UserDefaults.standard.set(true, forKey: kPushEventNotifications)
+            UserDefaults.standard.set(true, forKey: kPushPostNotifications)
+            
             vc.onAgree = {
                 DispatchQueue.main.async {
                     let storyboard = UIStoryboard(name: "Main", bundle: nil)

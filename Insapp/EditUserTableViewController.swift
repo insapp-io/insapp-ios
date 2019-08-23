@@ -74,8 +74,8 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
             self.insappImageView.layer.masksToBounds = true
             self.insappImageView.layer.cornerRadius = 10
             self.versionLabel.text = ""
-            if let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
-                self.versionLabel.text = "Insapp v\(version)"
+            if let version = Bundle.main.infoDictionary!["CFBundleIdentifier"] as? String {
+                self.versionLabel.text = "\(version)"
             }
             
             self.addToCalendarSwitch.isOn = false
@@ -146,7 +146,7 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == 10 {
+        if indexPath.row == 11 {
             let alert = Alert.create(alert: .deleteUser, completion: { (success) in
                 if success {
                     self.deleteUser()
@@ -207,13 +207,14 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
                 }else{
                     DispatchQueue.main.async { // Correct
                         UIApplication.shared.registerForRemoteNotifications()
-                        self.appDelegate.subscribeToTopicNotification(topic: "newstest")
+                        self.appDelegate.subscribeToTopicNotification(topic: "posts-unknown-class")
+                        self.appDelegate.subscribeToTopicNotification(topic: "posts-ios")
                     }
                     
                 }
             }
         }else{
-            self.appDelegate.unsubscribeToTopicNotification(topic: "newstest")
+            self.appDelegate.unsubscribeToTopicNotification(topic: "posts-ios")
         }
     }
     
@@ -228,13 +229,15 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
                 }else{
                     DispatchQueue.main.async { // Correct
                         UIApplication.shared.registerForRemoteNotifications()
-                        self.appDelegate.subscribeToTopicNotification(topic: "events")
+                        self.appDelegate.subscribeToTopicNotification(topic: "events-unknown-class")
+                        self.appDelegate.subscribeToTopicNotification(topic: "events-ios")
                     }
                     
                 }
             }
         }else{
-            self.appDelegate.unsubscribeToTopicNotification(topic: "events")
+            self.appDelegate.unsubscribeToTopicNotification(topic: "events-unknown-class")
+            self.appDelegate.subscribeToTopicNotification(topic: "events-ios")
         }
         
     }
