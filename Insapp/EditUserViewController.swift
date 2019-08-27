@@ -11,6 +11,8 @@ import UIKit
 
 class EditUserViewController: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     @IBOutlet weak var keyboardHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var saveButton: UIButton!
     var settingViewController:EditUserTableViewController?
@@ -56,13 +58,44 @@ class EditUserViewController: UIViewController {
     @IBAction func dismissAction(_ sender: AnyObject) {
         self.settingViewController?.view.resignFirstResponder()
         self.settingViewController?.view.endEditing(true)
+        //fabricTopFrame.origin.y -= fabricTopFrame.size.height
+        /*UIView.animate(withDuration: 5.0, delay: 5.0, options: .curveLinear, animations: {
+            topFrame.origin.y -= topFrame.size.height
+            self.view.frame = topFrame
+        }, completion: { finished in
+            print("Ok!")
+        })*/
         self.dismiss(animated: true, completion: nil)
+        
     }
     
     @IBAction func saveAction(_ sender: AnyObject) {
         if let field = self.checkForm() {
             field.textColor = UIColor.red
         }else{
+            let promoNotif:String? = user!.promotion
+            if let promoNotif = promoNotif as? String{
+              if let postNotification = UserDefaults.standard.object(forKey: kPushPostNotifications) as?    Bool {
+                  let topicPost : String = "posts-"+promoNotif
+                  if postNotification {
+                      appDelegate.subscribeToTopicNotification(topic: topicPost)
+                  }
+                  else{
+                      appDelegate.unsubscribeToTopicNotification(topic: topicPost)
+                  }
+              }
+            
+              if let eventNotification = UserDefaults.standard.object(forKey: kPushEventNotifications) as? Bool     {
+                  let topicEvent : String = "events-"+promoNotif
+                  if eventNotification {
+                      appDelegate.subscribeToTopicNotification(topic: topicEvent)
+                  }
+                  else{
+                      appDelegate.unsubscribeToTopicNotification(topic: topicEvent)
+                  }
+              }
+            }
+
             self.startLoading()
             APIManager.update(user: self.user!, controller: self, completion: { (opt_user) in
                 guard let _ = opt_user else { return }

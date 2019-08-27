@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2A1B25CE20CEB9ED00C9E7AF /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */; };
-		2A77C15D20D2E42B0032749C /* Stickers.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2A77C15C20D2E42B0032749C /* Stickers.xcassets */; };
-		2A77C16120D2E42B0032749C /* instickers.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2A77C15A20D2E42A0032749C /* instickers.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		7D051D8B1DCB8B1500DED954 /* UniversalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D051D8A1DCB8B1500DED954 /* UniversalSearchViewController.swift */; };
 		7D051D8D1DCB909300DED954 /* APIManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D051D8C1DCB909300DED954 /* APIManager+Search.swift */; };
 		7D0C40D01DEAECE3005FE515 /* SearchUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0C40CF1DEAECE3005FE515 /* SearchUserCell.xib */; };
@@ -127,16 +125,6 @@
 		E1F96D231E4DC9B70050C1F8 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F96D221E4DC9B70050C1F8 /* LoadingCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		2A77C15F20D2E42B0032749C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = E1DC7EFE1D86E2C900284222 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2A77C15920D2E42A0032749C;
-			remoteInfo = instickers;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXCopyFilesBuildPhase section */
 		2A2A490C20CEAD2E00A2AA19 /* Embed App Extensions */ = {
 			isa = PBXCopyFilesBuildPhase;
@@ -144,7 +132,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				2A77C16120D2E42B0032749C /* instickers.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,9 +140,6 @@
 
 /* Begin PBXFileReference section */
 		2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
-		2A77C15A20D2E42A0032749C /* instickers.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = instickers.appex; sourceTree = BUILT_PRODUCTS_DIR; };
-		2A77C15C20D2E42B0032749C /* Stickers.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Stickers.xcassets; sourceTree = "<group>"; };
-		2A77C15E20D2E42B0032749C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2AF20984230E809C00C05EF9 /* DevMode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevMode.xcconfig; sourceTree = "<group>"; };
 		2AF20985230E80A900C05EF9 /* ProdMode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProdMode.xcconfig; sourceTree = "<group>"; };
 		7D051D8A1DCB8B1500DED954 /* UniversalSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalSearchViewController.swift; sourceTree = "<group>"; };
@@ -287,13 +271,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		56EB65F7C134D719A915D2E8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E1DC7F031D86E2C900284222 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -324,15 +301,6 @@
 				91F3E8AD26D80FD2335AF851 /* Pods_Insapp.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2A77C15B20D2E42A0032749C /* instickers */ = {
-			isa = PBXGroup;
-			children = (
-				2A77C15C20D2E42B0032749C /* Stickers.xcassets */,
-				2A77C15E20D2E42B0032749C /* Info.plist */,
-			);
-			path = instickers;
 			sourceTree = "<group>";
 		};
 		2AF20983230E806E00C05EF9 /* Configurations */ = {
@@ -573,7 +541,6 @@
 			children = (
 				2AF20983230E806E00C05EF9 /* Configurations */,
 				E1DC7F081D86E2C900284222 /* Insapp */,
-				2A77C15B20D2E42A0032749C /* instickers */,
 				E1DC7F071D86E2C900284222 /* Products */,
 				037CA08AD5C555BCEAA91135 /* Pods */,
 				1C1A49BC4867010B04E15155 /* Frameworks */,
@@ -585,7 +552,6 @@
 			isa = PBXGroup;
 			children = (
 				E1DC7F061D86E2C900284222 /* Insapp.app */,
-				2A77C15A20D2E42A0032749C /* instickers.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -636,22 +602,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		2A77C15920D2E42A0032749C /* instickers */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A77C16220D2E42B0032749C /* Build configuration list for PBXNativeTarget "instickers" */;
-			buildPhases = (
-				2A77C15820D2E42A0032749C /* Resources */,
-				56EB65F7C134D719A915D2E8 /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = instickers;
-			productName = instickers;
-			productReference = 2A77C15A20D2E42A0032749C /* instickers.appex */;
-			productType = "com.apple.product-type.app-extension.messages-sticker-pack";
-		};
 		E1DC7F051D86E2C900284222 /* Insapp */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = E1DC7F1B1D86E2C900284222 /* Build configuration list for PBXNativeTarget "Insapp" */;
@@ -668,7 +618,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				2A77C16020D2E42B0032749C /* PBXTargetDependency */,
 			);
 			name = Insapp;
 			productName = Insapp;
@@ -685,11 +634,6 @@
 				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Antoine PEGNE";
 				TargetAttributes = {
-					2A77C15920D2E42A0032749C = {
-						CreatedOnToolsVersion = 9.4;
-						DevelopmentTeam = 548HKPZ8GK;
-						ProvisioningStyle = Automatic;
-					};
 					E1DC7F051D86E2C900284222 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = 548HKPZ8GK;
@@ -724,20 +668,11 @@
 			projectRoot = "";
 			targets = (
 				E1DC7F051D86E2C900284222 /* Insapp */,
-				2A77C15920D2E42A0032749C /* instickers */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		2A77C15820D2E42A0032749C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2A77C15D20D2E42B0032749C /* Stickers.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		E1DC7F041D86E2C900284222 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -947,14 +882,6 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		2A77C16020D2E42B0032749C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2A77C15920D2E42A0032749C /* instickers */;
-			targetProxy = 2A77C15F20D2E42B0032749C /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
 		E1DC7F0D1D86E2C900284222 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
@@ -975,66 +902,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		2A77C16320D2E42B0032749C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon-1";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 548HKPZ8GK;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = instickers/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp.dev.instickers;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		2A77C16420D2E42B0032749C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = "iMessage App Icon-1";
-				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
-				CLANG_ENABLE_OBJC_WEAK = YES;
-				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
-				CLANG_WARN_COMMA = YES;
-				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
-				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
-				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
-				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
-				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
-				CLANG_WARN_STRICT_PROTOTYPES = YES;
-				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 548HKPZ8GK;
-				GCC_C_LANGUAGE_STANDARD = gnu11;
-				INFOPLIST_FILE = instickers/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp.instickers;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 		E1DC7F191D86E2C900284222 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1186,15 +1053,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A77C16220D2E42B0032749C /* Build configuration list for PBXNativeTarget "instickers" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2A77C16320D2E42B0032749C /* Debug */,
-				2A77C16420D2E42B0032749C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		E1DC7F011D86E2C900284222 /* Build configuration list for PBXProject "Insapp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

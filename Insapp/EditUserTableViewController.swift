@@ -72,7 +72,7 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
             self.descriptionTextView.isScrollEnabled = true
             
             self.insappImageView.layer.masksToBounds = true
-            self.insappImageView.layer.cornerRadius = 10
+            //self.insappImageView.layer.cornerRadius = 10
             self.versionLabel.text = ""
             if let version = Bundle.main.infoDictionary!["CFBundleIdentifier"] as? String {
                 self.versionLabel.text = "\(version)"

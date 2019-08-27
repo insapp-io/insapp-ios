@@ -190,8 +190,8 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         let value = max(0, scrollView.contentOffset.y)
         print(value)
         self.headerView.frame.origin.y = -max(0, value) + 80
-        self.avatarImageView.bounds = CGRect(x: 0, y: 0, width: 100-value, height: 100-value)
-        self.avatarImageView.layer.cornerRadius = self.avatarImageView.bounds.width/2
+        //self.avatarImageView.bounds = CGRect(x: 0, y: 0, width: 100-value, height: 100-value)
+        //self.avatarImageView.layer.cornerRadius = self.avatarImageView.bounds.width/2
         //print(self.avatarImageView.bounds.width/2)
     }
     

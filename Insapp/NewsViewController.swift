@@ -91,7 +91,9 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
             self.fetchPosts()
         }
         
-        if UserDefaults.standard.object(forKey: "firstOpeningSinceUpdate") == nil{
+        if UserDefaults.standard.object(forKey: "firstOpeningSinceUpdate") == nil {
+            self.appDelegate.unsubscribeToTopicNotification(topic: "newstest")
+            self.appDelegate.unsubscribeToTopicNotification(topic: "eventstest")
             self.appDelegate.subscribeToTopicNotification(topic: "posts-unknown-class")
             self.appDelegate.subscribeToTopicNotification(topic: "posts-ios")
             self.appDelegate.subscribeToTopicNotification(topic: "events-unknown-class")
@@ -304,7 +306,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     }
     
     func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        
+        self.searchBar.showsCancelButton = true
         self.backgroundSearchView.isHidden = false
     }
     

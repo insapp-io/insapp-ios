@@ -290,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="swt-bW-UVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3081" y="1916"/>
+            <point key="canvasLocation" x="3079.7101449275365" y="1915.7608695652175"/>
         </scene>
         <!--User Event List View Controller-->
         <scene sceneID="u2Y-7s-n8g">
@@ -962,7 +962,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Supprimer mon compte" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mi-ri-Fag">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me déconnecter" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Mi-ri-Fag">
                                                     <rect key="frame" x="57" y="11.333333333333336" width="300" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="300" id="gJp-NH-ag4"/>
@@ -986,8 +986,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="99.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v2.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQX-hK-LOH">
-                                                    <rect key="frame" x="132" y="76" width="150" height="21"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insapp-logo-red" translatesAutoresizingMaskIntoConstraints="NO" id="55f-Hb-odz">
+                                                    <rect key="frame" x="177" y="8" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="60" id="7h4-l9-ZpG"/>
+                                                        <constraint firstAttribute="height" constant="60" id="RZA-On-5zq"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="v2.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TQX-hK-LOH">
+                                                    <rect key="frame" x="88" y="76" width="239" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="150" id="H4N-rb-7z2"/>
                                                         <constraint firstAttribute="height" constant="21" id="R9E-xf-qff"/>
@@ -996,13 +1003,6 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="insapp-logo-red" translatesAutoresizingMaskIntoConstraints="NO" id="55f-Hb-odz">
-                                                    <rect key="frame" x="177" y="8" width="60" height="60"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="60" id="7h4-l9-ZpG"/>
-                                                        <constraint firstAttribute="height" constant="60" id="RZA-On-5zq"/>
-                                                    </constraints>
-                                                </imageView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="TQX-hK-LOH" firstAttribute="top" secondItem="55f-Hb-odz" secondAttribute="bottom" constant="8" id="6Q2-vk-GsP"/>
@@ -1044,7 +1044,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="3080.8000000000002" y="2705.9113300492613"/>
+            <point key="canvasLocation" x="3079.7101449275365" y="2705.7065217391305"/>
         </scene>
         <!--News View Controller-->
         <scene sceneID="V5P-p0-QSe">
@@ -2006,7 +2006,7 @@ de l'INSA Rennes</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="assocation_tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="XfY-aR-bmw">
-                                <rect key="frame" x="16" y="164" width="382" height="564"/>
+                                <rect key="frame" x="16" y="164" width="382" height="564.00000000000011"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="beta-color"/>
@@ -2434,7 +2434,7 @@ de l'INSA Rennes</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="event_tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="Kes-ZG-f07">
-                                <rect key="frame" x="16" y="164" width="382" height="564"/>
+                                <rect key="frame" x="16" y="164" width="382" height="564.00000000000011"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="beta-color"/>
@@ -2494,7 +2494,7 @@ préférées grâce à la page News</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="post_tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="0z0-eT-zDO">
-                                <rect key="frame" x="16" y="164" width="382" height="564"/>
+                                <rect key="frame" x="16" y="164" width="382" height="564.00000000000011"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" name="beta-color"/>
