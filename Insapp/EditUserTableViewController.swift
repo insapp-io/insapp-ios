@@ -207,14 +207,14 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
                 }else{
                     DispatchQueue.main.async { // Correct
                         UIApplication.shared.registerForRemoteNotifications()
-                        self.appDelegate.subscribeToTopicNotification(topic: "posts-unknown-class")
-                        self.appDelegate.subscribeToTopicNotification(topic: "posts-ios")
+                        //self.appDelegate.subscribeToTopicNotification(topic: "posts-unknown-class")
+                        //self.appDelegate.subscribeToTopicNotification(topic: "posts-ios")
                     }
                     
                 }
             }
         }else{
-            self.appDelegate.unsubscribeToTopicNotification(topic: "posts-ios")
+            //self.appDelegate.unsubscribeToTopicNotification(topic: "posts-ios")
         }
     }
     
@@ -229,15 +229,15 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
                 }else{
                     DispatchQueue.main.async { // Correct
                         UIApplication.shared.registerForRemoteNotifications()
-                        self.appDelegate.subscribeToTopicNotification(topic: "events-unknown-class")
-                        self.appDelegate.subscribeToTopicNotification(topic: "events-ios")
+                        //self.appDelegate.subscribeToTopicNotification(topic: "events-unknown-class")
+                        //self.appDelegate.subscribeToTopicNotification(topic: "events-ios")
                     }
                     
                 }
             }
         }else{
-            self.appDelegate.unsubscribeToTopicNotification(topic: "events-unknown-class")
-            self.appDelegate.subscribeToTopicNotification(topic: "events-ios")
+            //self.appDelegate.unsubscribeToTopicNotification(topic: "events-unknown-class")
+            //self.appDelegate.subscribeToTopicNotification(topic: "events-ios")
         }
         
     }
