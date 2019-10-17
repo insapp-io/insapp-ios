@@ -70,6 +70,7 @@ class EditUserViewController: UIViewController {
     }
     
     @IBAction func saveAction(_ sender: AnyObject) {
+        self.unsubscribeToTopics()
         if let field = self.checkForm() {
             field.textColor = UIColor.red
         }else{
@@ -83,46 +84,65 @@ class EditUserViewController: UIViewController {
         }
     }
     
+    func unsubscribeToTopics(){
+        let promoNotif:String = user!.promotion!
+        appDelegate.unsubscribeToTopicNotification(topic: "posts-ios")
+        appDelegate.unsubscribeToTopicNotification(topic: "events-ios")
+            if promoNotif != ""{
+                let topicPost : String = "posts-"+promoNotif
+                let topicEvent : String = "events-"+promoNotif
+                appDelegate.unsubscribeToTopicNotification(topic: topicPost)
+                appDelegate.unsubscribeToTopicNotification(topic: topicEvent)
+            }
+            else{
+                appDelegate.unsubscribeToTopicNotification(topic: "events-unknown-class")
+                appDelegate.unsubscribeToTopicNotification(topic: "posts-unknown-class")
+            }
+        }
+    
     func subscribeToTopics(){
         let promoNotif:String = user!.promotion!
         if let postNotification = UserDefaults.standard.object(forKey: kPushPostNotifications) as?    Bool {
             if promoNotif != ""{
                 let topicPost : String = "posts-"+promoNotif
                 if postNotification {
+                    appDelegate.subscribeToTopicNotification(topic: "posts-ios")
                     appDelegate.subscribeToTopicNotification(topic: topicPost)
                 }
                 else{
                     appDelegate.unsubscribeToTopicNotification(topic: topicPost)
                 }
             }
-            if postNotification {
-                appDelegate.subscribeToTopicNotification(topic: "posts-ios")
-                appDelegate.subscribeToTopicNotification(topic: "posts-noclass")
-            }
             else{
-                appDelegate.unsubscribeToTopicNotification(topic: "posts-ios")
-                appDelegate.unsubscribeToTopicNotification(topic: "posts-noclass")
+                if postNotification {
+                    appDelegate.subscribeToTopicNotification(topic: "posts-ios")
+                    appDelegate.subscribeToTopicNotification(topic: "posts-unknown-class")
+                }
+                else{
+                    appDelegate.unsubscribeToTopicNotification(topic: "posts-unknown-class")
+                }
             }
-                
         }
             
         if let eventNotification = UserDefaults.standard.object(forKey: kPushEventNotifications) as? Bool    {
             if promoNotif != ""{
                 let topicEvent : String = "events-"+promoNotif
                 if eventNotification {
+                    appDelegate.subscribeToTopicNotification(topic: "events-ios")
                     appDelegate.subscribeToTopicNotification(topic: topicEvent)
                 }
                 else{
                     appDelegate.unsubscribeToTopicNotification(topic: topicEvent)
                 }
             }
-            if eventNotification {
-                appDelegate.subscribeToTopicNotification(topic: "events-ios")
-                appDelegate.subscribeToTopicNotification(topic: "events-noclass")
-            }
             else{
-                appDelegate.unsubscribeToTopicNotification(topic: "events-ios")
-                appDelegate.unsubscribeToTopicNotification(topic: "events-noclass")
+                if eventNotification {
+                    appDelegate.subscribeToTopicNotification(topic: "events-ios")
+                    appDelegate.subscribeToTopicNotification(topic: "events-unknown-class")
+                }
+                else{
+                    appDelegate.unsubscribeToTopicNotification(topic: "events-unknown-class")
+                }
             }
         }
     }

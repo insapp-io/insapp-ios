@@ -101,7 +101,7 @@ class SpashScreenViewController: UIViewController {
             }
         })
     }
-    
+    ;
     func loadCommentViewController(_ controller: UITabBarController, post_id: String, comment_id: String){
         let navigationController = (controller.selectedViewController as! UINavigationController)
         let viewController = navigationController.topViewController

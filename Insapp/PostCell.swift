@@ -52,17 +52,24 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
         if (User.fetch() != nil){
             self.likeButton.isSelected = post.likes!.contains(User.fetch()!.id!)
         }
+
         self.association = association
         self.associationLabel.text = "@\(association.name!.lowercased())"
-        
         DispatchQueue.main.async {
             self.associationImageView.downloadedFrom(link: kCDNHostname + association.profilePhotoURL!)
-            self.postImageView.downloadedFrom(link: kCDNHostname + post.photourl!)
         }
-        
-        let height = post.imageSize!["height"]!
-        let ratio = self.frame.size.width/post.imageSize!["width"]!
-        self.postImageViewHeightConstraint.constant = ratio * height
+        if (self.post.photourl != "0"){
+            DispatchQueue.main.async {
+                self.postImageView.downloadedFrom(link: kCDNHostname + post.photourl!)
+            }
+            let height = post.imageSize!["height"]!
+            let ratio = self.frame.size.width/post.imageSize!["width"]!
+            self.postImageViewHeightConstraint.constant = ratio * height
+        }
+        else{
+            self.postImageViewHeightConstraint.constant = 0
+            self.postImageView.isHidden = true;
+        }
         self.renderStaticData()
     }
     
@@ -107,8 +114,8 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
             }
         }
         
-        self.gradientView.layer.insertSublayer(gradient, at: 0)
-        self.bringSubview(toFront: self.gradientView)
+        //self.gradientView.layer.insertSublayer(gradient, at: 0)
+       // self.bringSubview(toFront: self.gradientView)
     }
     
     func faveButton(_ faveButton: FaveButton, didSelected selected: Bool){

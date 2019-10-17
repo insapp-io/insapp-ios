@@ -185,7 +185,7 @@ class EventViewController: UIViewController, EKEventEditViewDelegate, UITableVie
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let value = scrollView.contentOffset.y
-        if UIDevice.current.modelName == "iPhone10,3" || UIDevice.current.modelName == "iPhone10,6"{
+        if UIDevice.current.modelName == "iPhone10,3" || UIDevice.current.modelName == "iPhone10,6" || UIDevice.current.modelName == "iPhone11,2" || UIDevice.current.modelName == "iPhone11,4" || UIDevice.current.modelName == "iPhone11,6" || UIDevice.current.modelName == "iPhone11,8" || UIDevice.current.modelName == "iPhone12,1" || UIDevice.current.modelName == "iPhone12,3" || UIDevice.current.modelName == "iPhone11,5" || UIDevice.current.modelName == "x86_64"{
             if value >= 0 {
                 self.coverImageView.frame = CGRect(x: 0, y: max(-105, -value), width:    self.view.frame.width, height: 199)
                 self.blurCoverView.frame = self.coverImageView.frame

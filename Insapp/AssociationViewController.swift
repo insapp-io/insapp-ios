@@ -13,6 +13,13 @@ import UIKit
 
 class AssociationViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, AssociationPostsDelegate, AssociationEventsDelegate {
     
+    @IBOutlet weak var profilWidthConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profilHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var profilOriginYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var blurViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var coverImageViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var coverImageViewOriginYConstraint: NSLayoutConstraint!
+    @IBOutlet weak var blurViewOriginYConstraint: NSLayoutConstraint!
     @IBOutlet weak var backButton: UIButton!
     @IBOutlet weak var associationNameLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
@@ -46,6 +53,7 @@ class AssociationViewController: UIViewController, UITableViewDelegate, UITableV
         self.associationNameLabel.text = "@"+self.association.name!
         self.associationNameLabel.alpha = 0
         self.blurCoverView.alpha = 0
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -63,6 +71,7 @@ class AssociationViewController: UIViewController, UITableViewDelegate, UITableV
     }
     
     override func viewDidAppear(_ animated: Bool) {
+
         self.fetchPosts()
         self.fetchEvents()
         self.downloadGroup.notify(queue: DispatchQueue.main) {
@@ -176,51 +185,88 @@ class AssociationViewController: UIViewController, UITableViewDelegate, UITableV
         let value = scrollView.contentOffset.y
        // print(value)
         //print(UIDevice.current.modelName)
-        if UIDevice.current.modelName == "iPhone10,3" || UIDevice.current.modelName == "iPhone10,6" || UIDevice.current.modelName == "iPhone11,2" || UIDevice.current.modelName == "iPhone11,4" || UIDevice.current.modelName == "iPhone11,6" || UIDevice.current.modelName == "iPhone11,8" || UIDevice.current.modelName == "x86_64"{
+        if UIDevice.current.modelName == "iPhone10,3" || UIDevice.current.modelName == "iPhone10,6" || UIDevice.current.modelName == "iPhone11,2" || UIDevice.current.modelName == "iPhone11,4" || UIDevice.current.modelName == "iPhone11,6" || UIDevice.current.modelName == "iPhone11,8" || UIDevice.current.modelName == "iPhone12,1" || UIDevice.current.modelName == "iPhone12,3" || UIDevice.current.modelName == "iPhone11,5" || UIDevice.current.modelName == "x86_64"{
             if value >= 0 {
                 self.coverImageView.frame = CGRect(x: 0, y: max(-105,-value), width: self.view.frame.width, height: 199)
+                //self.coverImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 175 - value)
                 self.blurCoverView.frame = self.coverImageView.frame
+                self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
+                self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y
+                self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
+                self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y
                 self.blurCoverView.alpha = (20-(105-max(value, 85)))/20
                 self.associationNameLabel.alpha = (20-(145-max(value, 125)))/20
                 if value >= 105 {
                     self.profileImageView.frame = CGRect(x: self.view.frame.width-8-40, y: 44, width: 40, height: 40)
+                    self.profilOriginYConstraint.constant = 20
+                    self.profilWidthConstraint.constant = 40
+                    self.profilHeightConstraint.constant = 40
                 }else{
                     let coef = -0.0048*value+0.91
                     self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100*coef, y: 149-value, width: 100*coef, height: 100*coef)
+                    self.profilOriginYConstraint.constant = 125-value
+                    self.profilWidthConstraint.constant = 100*coef
+                    self.profilHeightConstraint.constant = 100*coef
                 }
                 self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
             }else{
                 self.coverImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 199 - value)
                 self.blurCoverView.frame = self.coverImageView.frame
+                self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
+                self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y
+                self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
+                self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y
                 self.blurCoverView.alpha = (self.coverImageView.frame.height-175)/100
                 self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100, y: 149-value, width: 100, height: 100)
+                self.profilOriginYConstraint.constant = 125-value
+                self.profilWidthConstraint.constant = 100
+                self.profilHeightConstraint.constant = 100
                 self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
                 self.associationNameLabel.alpha = 0
-                
             }
+            self.updateViewConstraints()
         }
         else{
             if value >= 0 {
                 self.coverImageView.frame = CGRect(x: 0, y: max(-105,-value), width: self.view.frame.width, height: 175)
                 self.blurCoverView.frame = self.coverImageView.frame
+                self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
+                self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y
+                self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
+                self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y
                 self.blurCoverView.alpha = (20-(105-max(value, 85)))/20
                 self.associationNameLabel.alpha = (20-(145-max(value, 125)))/20
                 if value >= 105 {
                     self.profileImageView.frame = CGRect(x: self.view.frame.width-8-40, y: 20, width: 40, height: 40)
+                    self.profilOriginYConstraint.constant = 20
+                    self.profilWidthConstraint.constant = 40
+                    self.profilHeightConstraint.constant = 40
                 }else{
                     let coef = -0.0048*value+0.91
                     self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100*coef, y: 125-value, width: 100*coef, height: 100*coef)
+                    self.profilOriginYConstraint.constant = 125-value
+                    self.profilWidthConstraint.constant = 100*coef
+                    self.profilHeightConstraint.constant = 100*coef
                 }
                 self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
             }else{
                 self.coverImageView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: 175 - value)
                 self.blurCoverView.frame = self.coverImageView.frame
+                self.blurViewHeightConstraint.constant = self.blurCoverView.frame.height
+                self.blurViewOriginYConstraint.constant = self.blurCoverView.frame.origin.y
+                self.coverImageViewHeightConstraint.constant = self.coverImageView.frame.height
+                self.coverImageViewOriginYConstraint.constant = self.coverImageView.frame.origin.y
                 self.blurCoverView.alpha = (self.coverImageView.frame.height-175)/100
                 self.profileImageView.frame = CGRect(x: self.view.frame.width-8-100, y: 125-value, width: 100, height: 100)
+                self.profilOriginYConstraint.constant = 125-value
+                self.profilWidthConstraint.constant = 100
+                self.profilHeightConstraint.constant = 100
                 self.profileImageView.layer.cornerRadius = self.profileImageView.frame.width/2
                 self.associationNameLabel.alpha = 0
             }
+            self.updateViewConstraints()
         }
+        
     }
     
     func show(post: Post){

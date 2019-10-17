@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,11 +14,14 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="227"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qsj-L7-wbz" id="Q5L-V9-HPP">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="226.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="227"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kv9-6P-afy">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="227.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="228"/>
+                        <state key="normal">
+                            <color key="titleColor" name="text-color"/>
+                        </state>
                         <connections>
                             <action selector="buttonAction:" destination="qsj-L7-wbz" eventType="touchUpInside" id="Dcz-Ba-v6k"/>
                         </connections>
@@ -32,7 +34,7 @@
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13A-1G-GSI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="226.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="227"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="l26-4k-xf4">
                                 <rect key="frame" x="8" y="8" width="40" height="40"/>
@@ -47,11 +49,12 @@
                                     <constraint firstAttribute="height" constant="21" id="06H-Ky-Gb4"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="text-color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="2" contentMode="scaleToFill" misplaced="YES" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fpu-p1-PDZ">
                                 <rect key="frame" x="56" y="25" width="311" height="73"/>
+                                <color key="textColor" name="text-color"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -62,7 +65,7 @@
                                     <constraint firstAttribute="height" constant="21" id="zPD-hB-4Pl"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" name="text-color"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vmq-xj-xbm">
@@ -73,7 +76,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" name="default-color-1"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="fpu-p1-PDZ" secondAttribute="trailing" constant="8" id="CR5-Ct-1iW"/>
@@ -89,7 +92,7 @@
                         </constraints>
                     </view>
                 </subviews>
-                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                <color key="backgroundColor" name="default-color-1"/>
                 <constraints>
                     <constraint firstItem="13A-1G-GSI" firstAttribute="leading" secondItem="Q5L-V9-HPP" secondAttribute="leading" id="Gm3-z8-vZG"/>
                     <constraint firstAttribute="trailing" secondItem="13A-1G-GSI" secondAttribute="trailing" id="HiA-LJ-cR7"/>
@@ -117,5 +120,11 @@
     </objects>
     <resources>
         <image name="garbage" width="128" height="128"/>
+        <namedColor name="default-color-1">
+            <color red="0.12999999523162842" green="0.12999999523162842" blue="0.12999999523162842" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="text-color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
     </resources>
 </document>

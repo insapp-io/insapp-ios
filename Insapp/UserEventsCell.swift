@@ -31,6 +31,7 @@ class UserEventsCell: UITableViewCell, UITableViewDelegate, UITableViewDataSourc
         self.tableView.showsHorizontalScrollIndicator = false
         self.tableView.separatorStyle = .none
         self.tableView.register(UINib(nibName: "EventListCell", bundle: nil), forCellReuseIdentifier: kEventListCell)
+        
     }
     
     func load(events: [Event], forAssociations associations: [String : Association], isSelf: Bool) {
@@ -42,6 +43,9 @@ class UserEventsCell: UITableViewCell, UITableViewDelegate, UITableViewDataSourc
             self.titleLabel.text = "Évènements"
             self.events = Event.filter(events: self.events)
         }
+        self.titleLabel.textColor = UIColor(named:"text-color")
+        self.tableView.backgroundColor = UIColor(named:"default-color-1")
+        self.tableView.separatorColor = UIColor(named:"text-color")
         self.tableView.reloadData()
     }
     
@@ -59,7 +63,7 @@ class UserEventsCell: UITableViewCell, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         let event = self.events[indexPath.row]
-        (cell as! EventListCell).load(event: event, withColor: .black)
+        (cell as! EventListCell).load(event: event, withColor: UIColor(named:"text-color"))
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

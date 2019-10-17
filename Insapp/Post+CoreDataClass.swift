@@ -42,14 +42,17 @@ public class Post: NSManagedObject {
         guard let dateStr       = json[kPostDate] as? String        else { return .none }
         guard let likes         = json[kPostLikes] as? [String]     else { return .none }
         guard let commentsJson  = json[kPostComments] as? [Dictionary<String, AnyObject>] else { return .none }
-        guard let photoURL      = json[kPostPhotoURL] as? String    else { return .none }
-        guard let size          = json[kPostImageSize] as? Dictionary<String, CGFloat> else { return .none }
-    
-        guard let _             = size["width"]                     else { return .none }
-        guard let _             = size["height"]                    else { return .none }
         guard let date          = dateStr.dateFromISO8602           else { return .none }
-        
         let comments = Comment.parseJsonArray(commentsJson as [Dictionary<String, AnyObject>])
+        
+        guard let photoURL      = json[kPostPhotoURL] as? String    else {return Post(post_id: id, title: title, association: association, description: desc, date: date, likes: likes, comments: comments, photoURL: "0", size: ["width":0, "height":0]) }
+        
+        guard let size          = json[kPostImageSize] as? Dictionary<String, CGFloat> else { return Post(post_id: id, title: title, association: association, description: desc, date: date, likes: likes, comments: comments, photoURL: "0", size: ["width":0, "height":0]) }
+        
+        guard let _             = size["width"]                     else { return Post(post_id: id, title: title, association: association, description: desc, date: date, likes: likes, comments: comments, photoURL: "0", size: ["width":0, "height":0]) }
+        
+        guard let _             = size["height"]                    else { return Post(post_id: id, title: title, association: association, description: desc, date: date, likes: likes, comments: comments, photoURL: "0", size: ["width":0, "height":0]) }
+        
         
         return Post(post_id: id, title: title, association: association, description: desc, date: date, likes: likes, comments: comments, photoURL: photoURL, size: size)
     }

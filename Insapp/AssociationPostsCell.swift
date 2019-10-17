@@ -75,7 +75,12 @@ class AssociationPostsCell: UITableViewCell, UICollectionViewDataSource, UIColle
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = self.collectionView.dequeueReusableCell(withReuseIdentifier: kImagePostCell, for: indexPath as IndexPath) as! ImagePostCell
         let post = self.posts[indexPath.row]
-        cell.postImageView.downloadedFrom(link: kCDNHostname + post.photourl! )
+        if post.photourl != "0"{
+            cell.postImageView.downloadedFrom(link: kCDNHostname + post.photourl! )
+        }
+        else{
+            cell.postImageView.downloadedFrom(link: kCDNHostname + association.profilePhotoURL! )
+        }
         return cell
     }
     

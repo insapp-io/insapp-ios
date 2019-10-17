@@ -145,7 +145,11 @@ extension FaveButton{
     
     
     fileprivate func createFaveIcon(_ faveIconImage: UIImage) -> FaveIcon{
-        return FaveIcon.createFaveIcon(self, icon: faveIconImage,color: normalColor)
+        if #available(iOS 11.0, *) {
+            return FaveIcon.createFaveIcon(self, icon: faveIconImage,color: UIColor.init(named: "text-color")!)
+        } else {
+            return FaveIcon.createFaveIcon(self, icon: faveIconImage,color: normalColor)
+        }
     }
     
     

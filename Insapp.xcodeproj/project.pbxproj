@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2A1B25CE20CEB9ED00C9E7AF /* Messages.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */; };
+		2ACC9DC0232648F60061D6D2 /* PassKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ACC9DBF232648F60061D6D2 /* PassKit.framework */; };
 		7D051D8B1DCB8B1500DED954 /* UniversalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D051D8A1DCB8B1500DED954 /* UniversalSearchViewController.swift */; };
 		7D051D8D1DCB909300DED954 /* APIManager+Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7D051D8C1DCB909300DED954 /* APIManager+Search.swift */; };
 		7D0C40D01DEAECE3005FE515 /* SearchUserCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7D0C40CF1DEAECE3005FE515 /* SearchUserCell.xib */; };
@@ -140,6 +141,7 @@
 
 /* Begin PBXFileReference section */
 		2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Messages.framework; path = System/Library/Frameworks/Messages.framework; sourceTree = SDKROOT; };
+		2ACC9DBF232648F60061D6D2 /* PassKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PassKit.framework; path = System/Library/Frameworks/PassKit.framework; sourceTree = SDKROOT; };
 		2AF20984230E809C00C05EF9 /* DevMode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = DevMode.xcconfig; sourceTree = "<group>"; };
 		2AF20985230E80A900C05EF9 /* ProdMode.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = ProdMode.xcconfig; sourceTree = "<group>"; };
 		7D051D8A1DCB8B1500DED954 /* UniversalSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UniversalSearchViewController.swift; sourceTree = "<group>"; };
@@ -275,6 +277,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2ACC9DC0232648F60061D6D2 /* PassKit.framework in Frameworks */,
 				2A1B25CE20CEB9ED00C9E7AF /* Messages.framework in Frameworks */,
 				9AA51A7D696DE37EA2028636 /* Pods_Insapp.framework in Frameworks */,
 			);
@@ -295,6 +298,7 @@
 		1C1A49BC4867010B04E15155 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2ACC9DBF232648F60061D6D2 /* PassKit.framework */,
 				2A1B25CD20CEB9EC00C9E7AF /* Messages.framework */,
 				E1F96D241E4F24B20050C1F8 /* Alamofire.framework */,
 				E1F96D251E4F24B20050C1F8 /* FaveButton.framework */,
@@ -647,6 +651,9 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
+								enabled = 1;
+							};
+							com.apple.Wallet = {
 								enabled = 1;
 							};
 						};
@@ -1002,16 +1009,18 @@
 			baseConfigurationReference = 2AF20984230E809C00C05EF9 /* DevMode.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon-beta";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Insapp/Insapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 548HKPZ8GK;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Insapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1034,11 +1043,13 @@
 				CODE_SIGN_ENTITLEMENTS = Insapp/Insapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 548HKPZ8GK;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = Insapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				MARKETING_VERSION = 3.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

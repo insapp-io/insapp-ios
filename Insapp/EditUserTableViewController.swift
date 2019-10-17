@@ -74,8 +74,8 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
             self.insappImageView.layer.masksToBounds = true
             //self.insappImageView.layer.cornerRadius = 10
             self.versionLabel.text = ""
-            if let version = Bundle.main.infoDictionary!["CFBundleIdentifier"] as? String {
-                self.versionLabel.text = "\(version)"
+            if let version = Bundle.main.infoDictionary!["CFBundleShortVersionString"] as? String {
+                self.versionLabel.text = "Insapp v\(version)"
             }
             
             self.addToCalendarSwitch.isOn = false

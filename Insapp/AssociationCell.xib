@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14854.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14806.4"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -22,7 +23,7 @@
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qp3-ts-mUD">
                         <rect key="frame" x="0.0" y="93" width="81" height="27"/>
                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                        <nil key="textColor"/>
+                        <color key="textColor" name="text-color"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -34,10 +35,16 @@
                 <constraint firstItem="Qp3-ts-mUD" firstAttribute="top" secondItem="hs3-5P-KOs" secondAttribute="topMargin" constant="85" id="AEc-OK-upD"/>
                 <constraint firstAttribute="trailing" secondItem="Qp3-ts-mUD" secondAttribute="trailing" id="ATg-Kk-ece"/>
                 <constraint firstItem="Hdm-cr-Qf2" firstAttribute="centerX" secondItem="Qp3-ts-mUD" secondAttribute="centerX" id="LxF-6Y-keJ"/>
+                <constraint firstItem="Qp3-ts-mUD" firstAttribute="top" secondItem="hs3-5P-KOs" secondAttribute="top" id="R4J-me-fBH"/>
                 <constraint firstItem="Qp3-ts-mUD" firstAttribute="leading" secondItem="hs3-5P-KOs" secondAttribute="leading" id="Xl4-To-KPq"/>
                 <constraint firstItem="Hdm-cr-Qf2" firstAttribute="bottom" secondItem="hs3-5P-KOs" secondAttribute="bottomMargin" constant="-10" id="f1n-MB-63N"/>
             </constraints>
             <edgeInsets key="layoutMargins" top="8" left="8" bottom="8" right="8"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="R4J-me-fBH"/>
+                </mask>
+            </variation>
             <connections>
                 <outlet property="associationImageView" destination="Hdm-cr-Qf2" id="Y7z-Zw-I0M"/>
                 <outlet property="nameLabel" destination="Qp3-ts-mUD" id="ung-HL-Szq"/>
@@ -45,4 +52,9 @@
             <point key="canvasLocation" x="138" y="152"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <namedColor name="text-color">
+            <color red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
 </document>

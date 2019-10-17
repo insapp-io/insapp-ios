@@ -124,22 +124,26 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.sizes = []
         for post in self.posts{
             let ratio = self.view.frame.size.width/post.imageSize!["width"]!
-            self.sizes.append(post.imageSize!["height"]! * ratio + kPostCellEmptyHeight)
+           // print(post.imageSize!["height"]!)
+            if (post.imageSize!["height"]! != 0){self.sizes.append(post.imageSize!["height"]! * ratio + kPostCellEmptyHeight)}
+            else{self.sizes.append(kPostCellEmptyHeight)}
         }
     }
     
     func fetchImages(){
         for post in self.posts{
-            self.group.enter()
-            let link = kCDNHostname + post.photourl!
-            if let image = ImageCacheManager.sharedInstance().fetchImage(url: link) {
-                self.images[post.photourl!] = image
-                self.group.leave()
-            }else{
-                Image.download(link: link, completion: { (image) in
+            if post.photourl != "0"{
+                self.group.enter()
+                let link = kCDNHostname + post.photourl!
+                if let image = ImageCacheManager.sharedInstance().fetchImage(url: link) {
                     self.images[post.photourl!] = image
                     self.group.leave()
-                })
+                }else{
+                    Image.download(link: link, completion: { (image) in
+                        self.images[post.photourl!] = image
+                        self.group.leave()
+                    })
+                }
             }
         }
     }
@@ -201,8 +205,10 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let post = self.posts[indexPath.row]
-        let cell = tableView.cellForRow(at: indexPath)
-        self.commentAction(post: post, forCell: cell as! PostCell, showKeyboard: true)
+       // if self.associations[post.association!]!.id != "5c9896660c01520133e1b65b" {
+            let cell = tableView.cellForRow(at: indexPath)
+            self.commentAction(post: post, forCell: cell as! PostCell, showKeyboard: true)
+       // }
     }
     
     func refreshUI(reload:Bool = false){

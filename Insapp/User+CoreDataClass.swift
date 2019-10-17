@@ -41,14 +41,14 @@ public class User: NSManagedObject {
     static func avatarFor(gender: String, andPromotion promotion: String) -> UIImage{
         if gender.characters.count == 0 && promotion.characters.count > 0 {
             var promo = promotion
-            if promo.contains("Personnel/Enseignant") { promo = "worker" }
-            else if promo.contains("Alternant") { promo = "alternant" }
+            if promo.contains("STAFF") { promo = "worker" }
+            else if promo.contains("CDTI") { promo = "CDTI" }
             else if !promo.contains("STPI") { promo.remove(at: promo.startIndex) }
             return UIImage(named: "avatar-\(promo)-male")!
         }else if gender.characters.count > 0 && promotion.characters.count > 0 {
             var promo = promotion
-            if promo.contains("Personnel/Enseignant") { promo = "worker" }
-            else if promo.contains("Alternant") { promo = "alternant" }
+            if promo.contains("STAFF") { promo = "worker" }
+            else if promo.contains("CDTI") { promo = "CDTI" }
             else if !promo.contains("STPI") { promo.remove(at: promo.startIndex) }
             return UIImage(named: "avatar-\(promo)-\(gender)")!
         }else{
