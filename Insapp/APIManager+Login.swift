@@ -22,37 +22,11 @@ extension APIManager{
     }
     
     static func signin(ticket: String, controller: UIViewController, completion:@escaping (Optional<Credentials>) -> ()){
-        let params = [
-            kLoginUsername: "",
-            kLoginDeviceId: UIDevice.current.identifierForVendor!.uuidString
-        ] as [String : Any]
         request(url: "/login/user/" + ticket, method: .post, parameters: params as [String : AnyObject], completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Credentials.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     
-    static func login(_ credentials: Credentials, controller:UIViewController, completion:@escaping (Optional<Credentials>, Optional<User>) -> ()){
-        let params = [
-            kCredentialsUserId: credentials.userId,
-            kCredentialsUsername: credentials.username,
-            kCredentialsAuthToken: credentials.authToken
-        ]
-        request(url: "/login/user", method: .post, parameters: params as [String : AnyObject], completion: { result in
-            guard let json = result as? Dictionary<String, AnyObject> else { completion(.none, .none) ; return }
-            guard let credentialsJson = json["credentials"] as? Dictionary<String, AnyObject> else { completion(.none, .none) ; return }
-            guard let credentials = Credentials.parseJson(credentialsJson) else { completion(.none, .none) ; return }
-            guard let token = json["sessionToken"] as? Dictionary<String, AnyObject> else { completion(credentials, .none) ; return }
-            guard let userJson = json["user"] as? Dictionary<String, AnyObject> else { completion(credentials, .none) ; return }
-            guard let user = User.parseJson(userJson) else {
-                completion(credentials, .none)
-                return
-            }
-            
-            APIManager.token = token["Token"] as! String
-            
-            completion(credentials, user)
-        }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
-    }
     
 }
