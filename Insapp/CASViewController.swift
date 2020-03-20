@@ -54,7 +54,23 @@ class CASViewController: UIViewController, UIWebViewDelegate{
     
     func signInUser(ticket: String){
         APIManager.signin(ticket: ticket, controller: self) { (opt_cred) in
-            
+            guard let _ = opt_cred else {
+                    self.displayError(message: kErrorServer)
+                    return
+                }
+                guard let _ = opt_user else {
+                    self.displayError(message: kErrorUnkown)
+                    return
+                }
+                self.stopLoading()
+                DispatchQueue.main.async {
+                    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                    let vc = storyboard.instantiateViewController(withIdentifier: "TabViewController") as! UITabBarController
+                    vc.delegate = UIApplication.shared.delegate as! UITabBarControllerDelegate?
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: true, completion: nil)
+                    
+                }
             })
         }
     }
