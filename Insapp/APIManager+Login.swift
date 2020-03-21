@@ -26,6 +26,9 @@ extension APIManager{
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Credentials.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
+        
+        
+    
     }
     
     

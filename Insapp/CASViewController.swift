@@ -58,9 +58,9 @@ class CASViewController: UIViewController, UIWebViewDelegate{
                     self.displayError(message: kErrorServer)
                     return
                 }
-                guard let _ = opt_user else {
+            /*guard let _ = opt_user else {
                     self.displayError(message: kErrorUnkown)
-                    return
+                    return*/
                 }
                 self.stopLoading()
                 DispatchQueue.main.async {
@@ -71,9 +71,9 @@ class CASViewController: UIViewController, UIWebViewDelegate{
                     self.present(vc, animated: true, completion: nil)
                     
                 }
-            })
-        }
-    }
+            }
+        
+
     
     @IBAction func showHelpAction(_ sender: AnyObject) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
