@@ -17,11 +17,7 @@ class SpashScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //if let credentials = Credentials.fetch() {
-            //self.login(credentials)
-        //}else{
             self.signin()
-        //}
     }
     
     override func viewWillAppear(_ animated: Bool) {

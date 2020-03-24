@@ -17,6 +17,7 @@ extension Credentials {
     }
 
     @NSManaged public var authToken: String
+    @NSManaged public var refreshToken: String
     @NSManaged public var userId: String
     @NSManaged public var username: String
 

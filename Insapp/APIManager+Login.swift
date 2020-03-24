@@ -23,10 +23,13 @@ extension APIManager{
     
     static func signin(ticket: String, controller: UIViewController, completion:@escaping (Optional<Credentials>) -> ()){
         request(url: "/login/user/" + ticket, method: .post, completion: { result in
-            guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
+            guard let json = result as? Dictionary<String, AnyObject>
+                else { completion(.none) ; return }
             completion(Credentials.parseJson(json))
-        }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
         
+        
+        }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
+       
         
     
     }
