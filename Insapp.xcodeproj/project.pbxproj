@@ -77,7 +77,6 @@
 		E1B600181DAFC57A0082BBB4 /* LegalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1B600171DAFC57A0082BBB4 /* LegalViewController.swift */; };
 		E1BBE6331E5F4816005F8930 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BBE6321E5F4816005F8930 /* ImageCacheManager.swift */; };
 		E1BDEBB21D9A6C8F006EB340 /* CASViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1BDEBB11D9A6C8F006EB340 /* CASViewController.swift */; };
-		E1C3F9C91D87E8BD006A66CF /* Credentials+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3F9C81D87E8BD006A66CF /* Credentials+CoreDataProperties.swift */; };
 		E1C3F9CB1D87F7B2006A66CF /* ErrorManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3F9CA1D87F7B2006A66CF /* ErrorManager.swift */; };
 		E1C3F9CD1D87F7E0006A66CF /* APIManager+Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3F9CC1D87F7E0006A66CF /* APIManager+Login.swift */; };
 		E1C3F9D01D87F817006A66CF /* APIManager+User.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C3F9CF1D87F817006A66CF /* APIManager+User.swift */; };
@@ -115,7 +114,6 @@
 		E1DC7F661D86FBAB00284222 /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC7F5E1D86FBAB00284222 /* User+CoreDataProperties.swift */; };
 		E1DC7F671D86FBAB00284222 /* Association+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC7F5F1D86FBAB00284222 /* Association+CoreDataClass.swift */; };
 		E1DC7F681D86FBAB00284222 /* Association+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC7F601D86FBAB00284222 /* Association+CoreDataProperties.swift */; };
-		E1DC7F691D86FBAB00284222 /* Credentials+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC7F611D86FBAB00284222 /* Credentials+CoreDataClass.swift */; };
 		E1DC7F6B1D86FBAB00284222 /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC7F631D86FBAB00284222 /* Event+CoreDataClass.swift */; };
 		E1DC7F6C1D86FBAB00284222 /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1DC7F641D86FBAB00284222 /* Event+CoreDataProperties.swift */; };
 		E1E01CD41DA8EDE20082E88A /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E01CD31DA8EDE20082E88A /* Alert.swift */; };
@@ -218,7 +216,6 @@
 		E1BBE6321E5F4816005F8930 /* ImageCacheManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		E1BBE6341E5F4DD8005F8930 /* Insapp 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Insapp 3.xcdatamodel"; sourceTree = "<group>"; };
 		E1BDEBB11D9A6C8F006EB340 /* CASViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CASViewController.swift; sourceTree = "<group>"; };
-		E1C3F9C81D87E8BD006A66CF /* Credentials+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Credentials+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1C3F9CA1D87F7B2006A66CF /* ErrorManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorManager.swift; sourceTree = "<group>"; };
 		E1C3F9CC1D87F7E0006A66CF /* APIManager+Login.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+Login.swift"; sourceTree = "<group>"; };
 		E1C3F9CF1D87F817006A66CF /* APIManager+User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "APIManager+User.swift"; sourceTree = "<group>"; };
@@ -258,7 +255,6 @@
 		E1DC7F5E1D86FBAB00284222 /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1DC7F5F1D86FBAB00284222 /* Association+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Association+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E1DC7F601D86FBAB00284222 /* Association+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Association+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		E1DC7F611D86FBAB00284222 /* Credentials+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Credentials+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E1DC7F631D86FBAB00284222 /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
 		E1DC7F641D86FBAB00284222 /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		E1E01CD31DA8EDE20082E88A /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
@@ -595,8 +591,6 @@
 				E1DC7F5E1D86FBAB00284222 /* User+CoreDataProperties.swift */,
 				E1DC7F5F1D86FBAB00284222 /* Association+CoreDataClass.swift */,
 				E1DC7F601D86FBAB00284222 /* Association+CoreDataProperties.swift */,
-				E1DC7F611D86FBAB00284222 /* Credentials+CoreDataClass.swift */,
-				E1C3F9C81D87E8BD006A66CF /* Credentials+CoreDataProperties.swift */,
 				E1DC7F631D86FBAB00284222 /* Event+CoreDataClass.swift */,
 				E1DC7F641D86FBAB00284222 /* Event+CoreDataProperties.swift */,
 			);
@@ -805,8 +799,6 @@
 				7D0F88451DEDCCEF00E740F2 /* AssociationSearchCell.swift in Sources */,
 				E1CEB4891E3D02F500F84CB1 /* GifSupport.swift in Sources */,
 				E1C3F9D71D88365D006A66CF /* EditUserTableViewController.swift in Sources */,
-				E1C3F9C91D87E8BD006A66CF /* Credentials+CoreDataProperties.swift in Sources */,
-				E1DC7F691D86FBAB00284222 /* Credentials+CoreDataClass.swift in Sources */,
 				E1C3F9D51D8803D2006A66CF /* UserViewController.swift in Sources */,
 				E1C3F9D21D87FC07006A66CF /* SplashScreenViewController.swift in Sources */,
 				E11EE83A1DA246A30029C051 /* NotificationCell.swift in Sources */,

@@ -16,9 +16,9 @@ let kNotificationOs = "os"
 
 extension APIManager {
     
-    static func updateNotification(token: String, credentials: Credentials){
+    static func updateNotification(token: String, user: User){
         let params = [
-            kNotificationUserId: credentials.userId,
+            kNotificationUserId: user.id,
             kNotificationToken: token,
             kNotificationOs: "iOS",
             ]
@@ -30,7 +30,7 @@ extension APIManager {
     }
     
     static func fetchNotifications(controller: UIViewController, completion:@escaping (_ notifications:[Notification]) -> ()){
-        let user_id = Credentials.fetch()!.userId
+        let user_id = User.fetch()!.id
         requestWithToken(url: "/notifications/\(user_id)", method: .get, completion: { result in
             guard let resultJson = result as? Dictionary<String, AnyObject> else { completion([]) ; return }
             guard let notifJsonArray = resultJson["notifications"] as? [Dictionary<String, AnyObject>] else { completion([]) ; return }
@@ -39,7 +39,7 @@ extension APIManager {
     }
     
     static func readNotification(notification: Notification, controller: UIViewController, completion:@escaping (_ notification:Optional<Notification>) -> ()){
-        let user_id = Credentials.fetch()!.userId
+        let user_id = User.fetch()!.id
         let notif_id = notification.id!
         requestWithToken(url: "/notifications/\(user_id)/\(notif_id)", method: .delete, completion: { result in
             guard let notifJson = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }

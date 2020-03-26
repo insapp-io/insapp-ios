@@ -82,7 +82,7 @@ public class User: NSManagedObject {
         
         let user = User(user_id: id, username: username)
         
-        if Credentials.fetch()!.userId == id {
+        if User.fetch()!.id == id {
             User.userInstance = user
         }
         

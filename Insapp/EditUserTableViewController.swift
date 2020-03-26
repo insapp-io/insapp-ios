@@ -159,7 +159,6 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
     func deleteUser(){
         APIManager.delete(user: (self.parent as! EditUserViewController).user!, controller: self.parent!, completion: { (result) in
             if result == .success {
-                Credentials.delete()
                 UserDefaults.standard.removeObject(forKey: kSuggestCalendar)
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let vc = storyboard.instantiateViewController(withIdentifier: "SpashScreenViewController")

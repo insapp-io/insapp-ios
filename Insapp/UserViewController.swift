@@ -55,7 +55,7 @@ class UserViewController: UIViewController, UITableViewDelegate, UITableViewData
         self.avatarImageView.layer.borderWidth = 0
         
         if self.user_id == nil {
-            self.user_id = Credentials.fetch()!.userId
+            self.user_id = User.fetch()!.id
         }
     }
     

@@ -39,7 +39,7 @@ extension APIManager{
     }
     
     static func changeStatusForEvent(event_id: String, status: String, controller: UIViewController, completion:@escaping (_ event:Optional<Event>) -> ()){
-        let user_id = Credentials.fetch()!.userId
+        let user_id = User.fetch()!.id
         requestWithToken(url: "/events/\(event_id)/attend/\(user_id)/status/\(status)", method: .post, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             guard let json_event = json["event"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
@@ -50,7 +50,7 @@ extension APIManager{
     }
     
     static func dismissEvent(event_id: String, controller: UIViewController, completion:@escaping (_ event:Optional<Event>) -> ()){
-        let user_id = Credentials.fetch()!.userId
+        let user_id = User.fetch()!.id
         requestWithToken(url: "/events/\(event_id)/attend/\(user_id)", method: .delete, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             guard let json_event = json["event"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }

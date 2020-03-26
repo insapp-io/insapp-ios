@@ -108,7 +108,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        guard let _ = Credentials.fetch() else { return }
+        guard let _ = User.fetch() else { return }
         guard let _ = APIManager.token else { return }
         APIManager.fetchNotifications(controller: self.window!.rootViewController!) { (notifs) in
             let badge = notifs.filter({ (notif) -> Bool in return !notif.seen })
@@ -176,8 +176,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
             token += String(format: "%02.2hhx", deviceToken[i] as CVarArg)
         }
         
-        if let credentials = Credentials.fetch() {
-            APIManager.updateNotification(token: token, credentials: credentials)
+        if let user = User.fetch() {
+            APIManager.updateNotification(token: token, user: user)
         }
         
     }
@@ -195,10 +195,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        if let credentials = Credentials.fetch(), let controller = self.window?.rootViewController {
+        /*if let credentials = Credentials.fetch(), let controller = self.window?.rootViewController {
             /*APIManager.login(credentials, controller: controller, completion: { (_, _) in } )*/
-            APIManager.signin(ticket: credentials, controller: controller, completion: {(_, _) in})
-        }
+            APIManager.signin(credentials: credentials, controller: controller, completion: {(_, _) in})
+        }*/
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
