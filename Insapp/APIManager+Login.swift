@@ -23,16 +23,19 @@ extension APIManager{
     
     static func signin(ticket: String, controller: UIViewController, completion:@escaping (Optional<User>) -> ()){
         request(url: "/login/user/" + ticket, method: .post,completion: { result in
-            guard let json = result?.allHTTPHeaderFields as? Dictionary<String, AnyObject>
+            
+            if let authToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsAuthToken }) {
+                print("\(authToken): \(authToken.value)")
+            }
+            if let authToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsRefreshToken }) {
+                print("\(authToken): \(authToken.value)")
+            }
+            
+            guard let json = result as? Dictionary<String, AnyObject>
                 else { completion(.none) ; return }
-            completion(User.parseJson(json))
-        
-        
+                completion(User.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
-       
         
-    
-    }
-    
+        }
     
 }

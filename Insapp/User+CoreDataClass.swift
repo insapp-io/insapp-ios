@@ -77,12 +77,12 @@ public class User: NSManagedObject {
     }
     
     static func parseJson(_ json:Dictionary<String, AnyObject>) -> Optional<User>{
-        guard let id            = json[kUserId] as? String          else { return .none }
+        guard let id            = json[kUserId] as? String          else { return .none } 
         guard let username      = json[kUserUsername] as? String    else { return .none }
         
         let user = User(user_id: id, username: username)
         
-        if User.fetch()!.id == id {
+        if User.fetch()?.id == id || User.fetch() == nil {
             User.userInstance = user
         }
         
@@ -93,6 +93,8 @@ public class User: NSManagedObject {
         guard let promotion     = json[kUserPromotion] as? String   else { return user }
         guard let events        = json[kUserEvents] as? [String]    else { return user }
         guard let gender        = json[kUserGender] as? String      else { return user }
+        guard let authToken     = json[kCredentialsAuthToken] as? String else {return user }
+        guard let refreshToken  = json[kCredentialsRefreshToken] as? String else {return user }
         
         user.name = name
         user.desc = desc
@@ -101,6 +103,12 @@ public class User: NSManagedObject {
         user.promotion = promotion
         user.events = events
         user.gender = gender
+        
+        
+        print("--- User is ---")
+        print(authToken)
+        print(refreshToken)
+        print("---------------")
         
         return user
     }

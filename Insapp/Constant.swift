@@ -128,8 +128,8 @@ let kAssociationCover          = "cover"
 let kAssociationBgColor        = "bgcolor"
 let kAssociationFgColor        = "fgcolor"
 
-let kCredentialsAuthToken       = "authtoken"
-let kCredentialsRefreshToken    = "refreshtoken"
+let kCredentialsAuthToken       = "AuthToken"
+let kCredentialsRefreshToken    = "RefreshToken"
 let kCredentialsUsername        = "username"
 let kCredentialsUserId          = "user"
 

@@ -32,10 +32,12 @@ class APIManager{
                             error = err
                         }
                     }
-                    retry = errorBlock(error, res.statusCode)
+                retry = errorBlock(error, res.statusCode)
                     if !retry {
                         completion(response.result.value as AnyObject)   
                     }
+
+
                     //group.leave()
                 }
             //}
@@ -49,6 +51,7 @@ class APIManager{
                // _ = proc()
             //}
         //}
+        
     }
     
     static func requestWithToken(url:String, method: HTTPMethod, parameters: [String:AnyObject], completion: @escaping (Optional<AnyObject>) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
@@ -78,6 +81,8 @@ class APIManager{
         let url = URL(string: "\(kAPIHostname)\(url)")!
         var req = URLRequest(url: url)
         
+        
+        let authCookie = HTTPCookie()
         req.httpMethod = method.rawValue
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
         req.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
@@ -93,6 +98,7 @@ class APIManager{
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
         
         APIManager.process(request: req, completion: completion, errorBlock: errorBlock)
+        
     }
     
     static func requestCas(url:String, method: HTTPMethod, parameters: [String:AnyObject], completion: @escaping (Bool) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
@@ -108,6 +114,7 @@ class APIManager{
         req.setValue("text/plain", forHTTPHeaderField: "Content-Type")
         req.httpBody = data.data(using: .utf8, allowLossyConversion: false)
         
+        //req.log()
         Alamofire.request(req).response { (response) in
             guard let res = response.response, res.statusCode == 201 else {
                 completion(false)
@@ -115,5 +122,22 @@ class APIManager{
             }
             completion(true)
         }
+    }
+}
+
+extension Data {
+    func toString() -> String? {
+        return String(data: self, encoding: .utf8)
+    }
+}
+
+
+
+extension HTTPURLResponse {
+    public func debugResponse() -> Self{
+            debugPrint("======= Request =======")
+            debugPrint(self)
+            debugPrint("=======================")
+        return self
     }
 }

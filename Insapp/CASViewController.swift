@@ -53,14 +53,10 @@ class CASViewController: UIViewController, UIWebViewDelegate{
     }
     
     func signInUser(ticket: String){
-        APIManager.signin(ticket: ticket, controller: self) { (opt_cred) in
-            guard let _ = opt_cred else {
-                    self.displayError(message: kErrorServer)
-                    return
-                }
-            /*guard let _ = opt_user else {
+        APIManager.signin(ticket: ticket, controller: self) { (opt_user) in
+            guard let _ = opt_user else {
                     self.displayError(message: kErrorUnkown)
-                    return*/
+                    return
                 }
                 self.stopLoading()
                 DispatchQueue.main.async {
@@ -72,6 +68,7 @@ class CASViewController: UIViewController, UIWebViewDelegate{
                     
                 }
             }
+    }
         
 
     
