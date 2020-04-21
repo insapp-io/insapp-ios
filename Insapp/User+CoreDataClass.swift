@@ -93,9 +93,7 @@ public class User: NSManagedObject {
         guard let promotion     = json[kUserPromotion] as? String   else { return user }
         guard let events        = json[kUserEvents] as? [String]    else { return user }
         guard let gender        = json[kUserGender] as? String      else { return user }
-        guard let authToken     = json[kCredentialsAuthToken] as? String else {return user }
-        guard let refreshToken  = json[kCredentialsRefreshToken] as? String else {return user }
-        
+                
         user.name = name
         user.desc = desc
         user.email = email
@@ -104,11 +102,6 @@ public class User: NSManagedObject {
         user.events = events
         user.gender = gender
         
-        
-        print("--- User is ---")
-        print(authToken)
-        print(refreshToken)
-        print("---------------")
         
         return user
     }

@@ -20,8 +20,8 @@ class APIManager{
             var retry = false
             //group.enter()
             //DispatchQueue.global().async {
-                Alamofire.request(request).responseJSON { response in
-                    guard let res = response.response else {
+            Alamofire.request(request).responseJSON { response in
+                guard let res = response.response else {
                         retry = errorBlock(kErrorServer, -1)
                         //group.leave()
                         return
@@ -36,10 +36,26 @@ class APIManager{
                     if !retry {
                         completion(response.result.value as AnyObject)   
                     }
-
-
-                    //group.leave()
+                 
+                
+                if(response.response?.statusCode == 401){       //TODO
+                    print("")
                 }
+                    
+                
+                print("====== BEGIN ======")
+                print("-> Response")
+                print(response.response)    // URL response
+                print("-> Result")
+                print(response.result)      // result of response serialization
+                print("-> Content")
+                if let JSON = response.result.value {
+                    print("JSON: \(JSON)")  // content
+                }
+                print("===== END =====")
+                    //group.leave()
+                
+            }
             //}
             //group.wait()
             //return retry
@@ -53,38 +69,14 @@ class APIManager{
         //}
         
     }
-    
-    static func requestWithToken(url:String, method: HTTPMethod, parameters: [String:AnyObject], completion: @escaping (Optional<AnyObject>) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
-        guard let token = APIManager.token else { errorBlock("", 0) ; return }
-        let url = URL(string: "\(kAPIHostname)\(url)?token=\(token)")!
-        var req = URLRequest(url: url)
         
-        req.httpMethod = method.rawValue
-        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        req.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
-        
-        APIManager.process(request: req, completion: completion, errorBlock: errorBlock)
-    }
-    
-    static func requestWithToken(url:String, method: HTTPMethod, completion: @escaping (Optional<AnyObject>) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
-        guard let token = APIManager.token else { errorBlock("", 0) ; return }
-        let url = URL(string: "\(kAPIHostname)\(url)?token=\(token)")!
-        var req = URLRequest(url: url)
-        
-        req.httpMethod = method.rawValue
-        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        APIManager.process(request: req, completion: completion, errorBlock: errorBlock)
-    }
-    
     static func request(url:String, method: HTTPMethod, parameters: [String:AnyObject], completion: @escaping (Optional<AnyObject>) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
         let url = URL(string: "\(kAPIHostname)\(url)")!
         var req = URLRequest(url: url)
         
         
-        let authCookie = HTTPCookie()
         req.httpMethod = method.rawValue
-        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        //req.setValue("application/json", forHTTPHeaderField: "Content-Type")
         req.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         
         APIManager.process(request: req, completion: completion, errorBlock: errorBlock)
@@ -122,22 +114,5 @@ class APIManager{
             }
             completion(true)
         }
-    }
-}
-
-extension Data {
-    func toString() -> String? {
-        return String(data: self, encoding: .utf8)
-    }
-}
-
-
-
-extension HTTPURLResponse {
-    public func debugResponse() -> Self{
-            debugPrint("======= Request =======")
-            debugPrint(self)
-            debugPrint("=======================")
-        return self
     }
 }

@@ -25,10 +25,10 @@ extension APIManager{
         request(url: "/login/user/" + ticket, method: .post,completion: { result in
             
             if let authToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsAuthToken }) {
-                print("\(authToken): \(authToken.value)")
+                //print("AuthToken: \(authToken.value)")
             }
-            if let authToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsRefreshToken }) {
-                print("\(authToken): \(authToken.value)")
+            if let refreshToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsRefreshToken }) {
+                //print("RefreshToken: \(authToken.value)")
             }
             
             guard let json = result as? Dictionary<String, AnyObject>

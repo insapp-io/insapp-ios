@@ -9,8 +9,6 @@
 		<string>$(TeamIdentifierPrefix)pass.amicaliste.io.thomasmorel.insapp</string>
 	</array>
 	<key>com.apple.security.application-groups</key>
-	<array>
-		<string>group.io.thomasmorel.insappGroup</string>
-	</array>
+	<array/>
 </dict>
 </plist>

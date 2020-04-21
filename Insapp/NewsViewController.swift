@@ -117,16 +117,18 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidAppear(_ animated: Bool) {
         self.backgroundSearchView.frame = self.postTableView.frame
-        
     }
     
     func computeSizes(){
         self.sizes = []
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
         for post in self.posts{
-            let ratio = self.view.frame.size.width/post.imageSize!["width"]!
-           // print(post.imageSize!["height"]!)
-            if (post.imageSize!["height"]! != 0){self.sizes.append(post.imageSize!["height"]! * ratio + kPostCellEmptyHeight)}
-            else{self.sizes.append(kPostCellEmptyHeight)}
+            //let ratio = self.view.frame.size.width/post.imageSize!["width"]!
+            let ratio = screenWidth/post.imageSize!["width"]!
+            if (post.imageSize!["height"]! != 0){self.sizes.append(post.imageSize!["height"]! * ratio + kPostCellEmptyHeight)
+            }else{ self.sizes.append(kPostCellEmptyHeight); }
+            
         }
     }
     
@@ -151,11 +153,11 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @objc func fetchPosts(){
         APIManager.fetchLastestPosts(controller: self, completion: { (posts) in
             self.posts = posts
-            DispatchQueue.global(qos: .default).async {
+            //DispatchQueue.global(qos: .default).async {
                 self.computeSizes()
-                self.fetchImages()
+                //self.fetchImages()
                 self.fetchAssocations()
-            }
+            //}
         })
     }
     
