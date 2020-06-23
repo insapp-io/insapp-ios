@@ -14,16 +14,14 @@ class APIManager{
     var Object:AnyObject?
     static var token:String!
     static let group = DispatchGroup()
+    static let serviceName = "InsappService"
     
     static func process(request: URLRequestConvertible, completion: @escaping (Optional<AnyObject>) -> (), errorBlock: @escaping (String, Int) -> (Bool)){
         { () -> Void in
             var retry = false
-            //group.enter()
-            //DispatchQueue.global().async {
             Alamofire.request(request).responseJSON { response in
                 guard let res = response.response else {
                         retry = errorBlock(kErrorServer, -1)
-                        //group.leave()
                         return
                     }
                     var error = kErrorUnkown
@@ -39,11 +37,12 @@ class APIManager{
                  
                 
                 if(response.response?.statusCode == 401){       //TODO
-                    print("")
+
                 }
-                    
                 
-                print("====== BEGIN ======")
+                /*print("====== BEGIN ======")
+                print("-> Request")
+                print(response.request)
                 print("-> Response")
                 print(response.response)    // URL response
                 print("-> Result")
@@ -52,32 +51,20 @@ class APIManager{
                 if let JSON = response.result.value {
                     print("JSON: \(JSON)")  // content
                 }
-                print("===== END =====")
-                    //group.leave()
-                
+                print("===== END =====")*/
             }
-            //}
-            //group.wait()
-            //return retry
         }()
         
-        //DispatchQueue.global().async {
-            //let retry = proc()
-            //if retry {
-               // _ = proc()
-            //}
-        //}
-        
     }
-        
+    
     static func request(url:String, method: HTTPMethod, parameters: [String:AnyObject], completion: @escaping (Optional<AnyObject>) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
         let url = URL(string: "\(kAPIHostname)\(url)")!
         var req = URLRequest(url: url)
         
         
         req.httpMethod = method.rawValue
-        //req.setValue("application/json", forHTTPHeaderField: "Content-Type")
         req.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
+        
         
         APIManager.process(request: req, completion: completion, errorBlock: errorBlock)
     }
@@ -88,31 +75,9 @@ class APIManager{
         
         req.httpMethod = method.rawValue
         req.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
+                
         APIManager.process(request: req, completion: completion, errorBlock: errorBlock)
         
     }
     
-    static func requestCas(url:String, method: HTTPMethod, parameters: [String:AnyObject], completion: @escaping (Bool) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
-        let url = URL(string: "\(kCASHostname)\(url)")!
-        var req = URLRequest(url: url)
-
-        guard let username = parameters[kLoginUsername] else { completion(false) ; return }
-        guard let password = parameters[kLoginPassword] else { completion(false) ; return }
-        
-        let data = "username=\(username)&password=\(password)"
-        
-        req.httpMethod = method.rawValue
-        req.setValue("text/plain", forHTTPHeaderField: "Content-Type")
-        req.httpBody = data.data(using: .utf8, allowLossyConversion: false)
-        
-        //req.log()
-        Alamofire.request(req).response { (response) in
-            guard let res = response.response, res.statusCode == 201 else {
-                completion(false)
-                return
-            }
-            completion(true)
-        }
-    }
 }
