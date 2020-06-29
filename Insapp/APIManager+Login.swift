@@ -16,9 +16,10 @@ extension APIManager{
             guard let json = result as? Dictionary<String, AnyObject>
                 else { completion(.none) ; return }
             
-            /*let authToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsAuthToken })
-            let refreshToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsRefreshToken })*/
+            let authToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsAuthToken })
+            let refreshToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsRefreshToken })
             
+            Cookies.init(authToken: authToken!.value, refreshToken: refreshToken!.value)
             
             completion(User.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }

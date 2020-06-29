@@ -80,4 +80,16 @@ class APIManager{
         
     }
     
+    static func requestWithCookies(url:String, cookies: Cookies, method: HTTPMethod, completion: @escaping (Optional<AnyObject>) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
+        let url = URL(string: "\(kAPIHostname)\(url)")!
+        var req = URLRequest(url: url)
+        
+        req.httpMethod = method.rawValue
+        req.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        req.setValue("AuthCookie = " + cookies.authToken+";" + "RefreshCookie = " + cookies.refreshToken, forHTTPHeaderField: "Set-Cookie")
+                
+        APIManager.process(request: req, completion: completion, errorBlock: errorBlock)
+        
+    }
+    
 }
