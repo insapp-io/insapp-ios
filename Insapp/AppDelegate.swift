@@ -195,10 +195,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        /*if let credentials = Credentials.fetch(), let controller = self.window?.rootViewController {
+        if let controller = self.window?.rootViewController {
             /*APIManager.login(credentials, controller: controller, completion: { (_, _) in } )*/
-            APIManager.signin(credentials: credentials, controller: controller, completion: {(_, _) in})
-        }*/
+            APIManager.signin(ticket:"", controller: controller, completion: {(_) in})
+        }
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

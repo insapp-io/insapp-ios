@@ -51,4 +51,17 @@ public class Cookies: NSManagedObject {
         }
         Cookies.saveContext()
     }
+    
+    static func parseJson(_ json:Dictionary<String, AnyObject>) -> Optional<Cookies>{
+        guard let authToken = json[kCredentialsAuthToken] as? String  else { return .none }
+        guard let refreshToken  = json[kCredentialsRefreshToken] as? String   else { return .none }
+        
+        Cookies.delete()
+        
+        let cookies = Cookies(authToken: authToken, refreshToken: refreshToken)
+        
+        Cookies.saveContext()
+        
+        return cookies
+    }
 }
