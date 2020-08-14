@@ -122,8 +122,8 @@
 		E1F96D1F1E4DBEE40050C1F8 /* UserBarCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F96D1E1E4DBEE40050C1F8 /* UserBarCodeCell.swift */; };
 		E1F96D211E4DC9870050C1F8 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F96D201E4DC9870050C1F8 /* LoadingCell.xib */; };
 		E1F96D231E4DC9B70050C1F8 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F96D221E4DC9B70050C1F8 /* LoadingCell.swift */; };
-		ED93724F24A260660046DD33 /* Cookies+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED93724E24A260660046DD33 /* Cookies+CoreDataClass.swift */; };
-		ED93725124A260830046DD33 /* Cookies+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED93725024A260830046DD33 /* Cookies+CoreDataProperties.swift */; };
+		ED42556D24E2A282001FCA3A /* Cookies+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42556B24E2A282001FCA3A /* Cookies+CoreDataClass.swift */; };
+		ED42556E24E2A282001FCA3A /* Cookies+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED42556C24E2A282001FCA3A /* Cookies+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -267,8 +267,8 @@
 		E1F96D221E4DC9B70050C1F8 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		E1F96D241E4F24B20050C1F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/Insapp-fpvrmazddeqndybobxdsewkwjnoh/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		E1F96D251E4F24B20050C1F8 /* FaveButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FaveButton.framework; path = "../../Library/Developer/Xcode/DerivedData/Insapp-fpvrmazddeqndybobxdsewkwjnoh/Build/Products/Debug-iphonesimulator/FaveButton/FaveButton.framework"; sourceTree = "<group>"; };
-		ED93724E24A260660046DD33 /* Cookies+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cookies+CoreDataClass.swift"; sourceTree = "<group>"; };
-		ED93725024A260830046DD33 /* Cookies+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Cookies+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		ED42556B24E2A282001FCA3A /* Cookies+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cookies+CoreDataClass.swift"; sourceTree = "<group>"; };
+		ED42556C24E2A282001FCA3A /* Cookies+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Cookies+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FF193D226DDB96C99A3FA380 /* Pods-Insapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insapp/Pods-Insapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -581,6 +581,8 @@
 		E1DC7F321D86F27C00284222 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				ED42556B24E2A282001FCA3A /* Cookies+CoreDataClass.swift */,
+				ED42556C24E2A282001FCA3A /* Cookies+CoreDataProperties.swift */,
 				E11EE83B1DA247DD0029C051 /* Notification+CoreDataClass.swift */,
 				E11EE83C1DA247DD0029C051 /* Notification+CoreDataProperties.swift */,
 				E11EE8331DA173C40029C051 /* CommentTag+CoreDataClass.swift */,
@@ -597,8 +599,6 @@
 				E1DC7F601D86FBAB00284222 /* Association+CoreDataProperties.swift */,
 				E1DC7F631D86FBAB00284222 /* Event+CoreDataClass.swift */,
 				E1DC7F641D86FBAB00284222 /* Event+CoreDataProperties.swift */,
-				ED93724E24A260660046DD33 /* Cookies+CoreDataClass.swift */,
-				ED93725024A260830046DD33 /* Cookies+CoreDataProperties.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -827,7 +827,7 @@
 				E193DD8A1D9E745400478B52 /* UserCell.swift in Sources */,
 				7D1591881DE49EB0001F949E /* SearchEventCell.swift in Sources */,
 				E1C3F9EE1D8951D7006A66CF /* EventCell.swift in Sources */,
-				ED93725124A260830046DD33 /* Cookies+CoreDataProperties.swift in Sources */,
+				ED42556E24E2A282001FCA3A /* Cookies+CoreDataProperties.swift in Sources */,
 				E181C70C1D8DB44E00CE3D5B /* Image+CoreDataProperties.swift in Sources */,
 				E119D0881E4A02BD00C10A64 /* AssociationPostsCell.swift in Sources */,
 				E1C3F9F01D897142006A66CF /* NewsViewController.swift in Sources */,
@@ -835,7 +835,7 @@
 				E1DC7F121D86E2C900284222 /* Insapp.xcdatamodeld in Sources */,
 				E1C3F9F21D89722F006A66CF /* APIManager+Post.swift in Sources */,
 				E1C3F9FA1D8A88D0006A66CF /* PostCell.swift in Sources */,
-				ED93724F24A260660046DD33 /* Cookies+CoreDataClass.swift in Sources */,
+				ED42556D24E2A282001FCA3A /* Cookies+CoreDataClass.swift in Sources */,
 				7DBEFCBD1DD1D49F00BDA8A1 /* SearchPostCell.swift in Sources */,
 				E1E01CD41DA8EDE20082E88A /* Alert.swift in Sources */,
 				E181C70B1D8DB44E00CE3D5B /* Image+CoreDataClass.swift in Sources */,

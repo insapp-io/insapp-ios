@@ -17,11 +17,11 @@ class SpashScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*if let cookies = Cookies.fetch() {
+        if let cookies = Cookies.fetch() {
             self.login(cookies)
-        }else{*/
+        }else{
             self.signin()
-        //}
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,8 +38,10 @@ class SpashScreenViewController: UIViewController {
     
     func login(_ cookies:Cookies){
         APIManager.login(cookies, controller: self, completion: { (opt_cookie, opt_user) in
-            guard let _ = opt_user else { self.signin() ; return }
-            guard let _ = opt_cookie else { self.signin() ; return }
+            guard let _ = opt_user
+                else { self.signin(); return }
+            guard let _ = opt_cookie
+                else { self.signin() ; return }
             self.displayTabViewController()
         })
     }

@@ -16,7 +16,7 @@ extension Cookies {
         return NSFetchRequest<Cookies>(entityName: "Cookies");
     }
 
-    @NSManaged public var authToken: String
-    @NSManaged public var refreshToken: String
+    @NSManaged public var authToken: String?
+    @NSManaged public var refreshToken: String?
 
 }

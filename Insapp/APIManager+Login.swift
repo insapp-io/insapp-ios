@@ -19,9 +19,13 @@ extension APIManager{
             let authToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsAuthToken })
             let refreshToken = HTTPCookieStorage.shared.cookies?.first(where: { $0.name == kCredentialsRefreshToken })
             
+            Cookies.save(authToken: authToken!.value, refreshToken: refreshToken!.value)
+            
             completion(User.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
         }
+    
+    
     
     static func login(_ cookies: Cookies, controller:UIViewController, completion:@escaping (Optional<Cookies>, Optional<User>) -> ()){
         let params = [
@@ -29,6 +33,7 @@ extension APIManager{
             kCredentialsRefreshToken: cookies.refreshToken
         ]
         request(url: "/login/user", method: .post, parameters: params as [String : AnyObject], completion: { result in
+
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none, .none) ; return }
             guard let cookiesJson = json["credentials"] as? Dictionary<String, AnyObject> else { completion(.none, .none) ; return }
             guard let cookies = Cookies.parseJson(cookiesJson) else { completion(.none, .none) ; return }

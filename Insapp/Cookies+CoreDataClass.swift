@@ -24,6 +24,7 @@ public class Cookies: NSManagedObject {
         super.init(entity: Cookies.entityDescription!, insertInto: Cookies.managedContext)
         self.authToken = authToken
         self.refreshToken = refreshToken
+        
     }
     
     static func fetch() -> Optional<Cookies>{
@@ -64,4 +65,15 @@ public class Cookies: NSManagedObject {
         
         return cookies
     }
+    
+    static func save(authToken: String, refreshToken: String) {
+        
+        Cookies.delete()
+        
+        let cookies = Cookies(authToken: authToken, refreshToken: refreshToken)
+        
+        Cookies.saveContext()
+
+    }
+    
 }

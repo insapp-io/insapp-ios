@@ -61,13 +61,13 @@ class APIManager{
         let url = URL(string: "\(kAPIHostname)\(url)")!
         var req = URLRequest(url: url)
         
-        
         req.httpMethod = method.rawValue
         req.httpBody = try! JSONSerialization.data(withJSONObject: parameters, options: [])
         
         
         APIManager.process(request: req, completion: completion, errorBlock: errorBlock)
     }
+    
     
     static func request(url:String, method: HTTPMethod, completion: @escaping (Optional<AnyObject>) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
         let url = URL(string: "\(kAPIHostname)\(url)")!
