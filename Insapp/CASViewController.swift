@@ -46,14 +46,14 @@ class CASViewController: UIViewController, UIWebViewDelegate{
         
         if let url = request.url, request.httpMethod == "GET", url.absoluteString.contains("ticket=") {
             let ticket = url.absoluteString.components(separatedBy: "ticket=").last!
-            self.signInUser(ticket: ticket)
+            self.logInUser(ticket: ticket)
             return false
         }
         return true
     }
     
-    func signInUser(ticket: String){
-        APIManager.signin(ticket: ticket, controller: self) { (opt_user) in
+    func logInUser(ticket: String){
+        APIManager.login(ticket: ticket, controller: self) { (opt_user) in
             guard let _ = opt_user else {
                     self.displayError(message: kErrorUnkown)
                     return
@@ -65,7 +65,6 @@ class CASViewController: UIViewController, UIWebViewDelegate{
                     vc.delegate = UIApplication.shared.delegate as! UITabBarControllerDelegate?
                     vc.modalPresentationStyle = .fullScreen
                     self.present(vc, animated: true, completion: nil)
-                    
                 }
             }
     }

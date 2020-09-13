@@ -71,6 +71,8 @@ let kCDNHostname = "https://" + (Bundle.main.infoDictionary?["BaseCdnUrl"] as! S
 //let kAPIHostname = "https://insapp.insa-rennes.fr/api/v1"
 //let kCDNHostname = "https://insapp.insa-rennes.fr/cdn/"
 
+let kInsappURL = URL(string: kAPIHostname)
+
 let kCASHostname = "https://cas.insa-rennes.fr"
 let kLoginPassword = "password"
 let kLoginUsername = "username"

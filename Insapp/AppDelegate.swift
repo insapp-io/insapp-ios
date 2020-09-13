@@ -15,7 +15,6 @@ import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate {
 
@@ -197,7 +196,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
         if let controller = self.window?.rootViewController {
             /*APIManager.login(credentials, controller: controller, completion: { (_, _) in } )*/
-            APIManager.signin(ticket:"", controller: controller, completion: {(_) in})
+            APIManager.login(ticket:"", controller: controller, completion: {(_) in})
         }
     }
 

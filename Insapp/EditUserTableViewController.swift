@@ -148,15 +148,15 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 11 {
             let alert = Alert.create(alert: .deleteUser, completion: { (success) in
-                if success {
-                    self.deleteUser()
-                }
+//                if success {
+//                    self.deleteUser()
+//                }
             })
             self.present(alert, animated: true, completion: nil)
         }
     }
     
-    func deleteUser(){
+    /*func deleteUser(){
         APIManager.delete(user: (self.parent as! EditUserViewController).user!, controller: self.parent!, completion: { (result) in
             if result == .success {
                 UserDefaults.standard.removeObject(forKey: kSuggestCalendar)
@@ -165,7 +165,7 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
                 self.present(vc, animated: true, completion: nil)
             }
         })
-    }
+    }*/
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if range.location == textField.text?.characters.count, string == " ", let text = textField.text {

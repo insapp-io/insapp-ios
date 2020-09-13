@@ -60,6 +60,39 @@ public class User: NSManagedObject {
         return User.userInstance
     }
     
+    static func save() {
+        do {
+            try User.managedContext.save()
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    static func delete() {
+        do {
+            try User.managedContext.delete(User.retrieveUser()!)
+        } catch let error as NSError  {
+            print("Could not save \(error), \(error.userInfo)")
+        }
+    }
+    
+    static func retrieveUser() -> User? {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+
+        do {
+            let result = try User.managedContext.fetch(fetchRequest) as! [User]
+            if result.count > 0 {
+                // Assuming there will only ever be one User in the app.
+                return result[0]
+            } else {
+                return nil
+            }
+        } catch let error as NSError {
+            print("Retrieiving user failed. \(error): \(error.userInfo)")
+           return nil
+        }
+    }
+    
     static func parseArray(_ array: [Dictionary<String, AnyObject>]) -> [User] {
         let usersJson = array.filter({ (json) -> Bool in
             if let user = User.parseJson(json) {

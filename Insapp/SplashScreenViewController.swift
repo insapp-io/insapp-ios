@@ -17,10 +17,31 @@ class SpashScreenViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let cookies = Cookies.fetch() {
-            self.login(cookies)
-        }else{
-            self.signin()
+        
+        APIManager.isLoggedIn{ (loggedIn) -> Any in
+            if(loggedIn){
+                print("")
+                let user = User.retrieveUser()
+                print(user?.id)
+                APIManager.fetch(user_id: (user?.id)!, controller: self) { (opt_user) in
+                guard let _ = opt_user else {
+                        self.displayError(message: kErrorUnkown)
+                        return
+                    }
+                }
+                DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier:"TabViewController") as! UITabBarController
+                vc.delegate = UIApplication.shared.delegate as! UITabBarControllerDelegate?
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: true, completion: nil)
+                }
+            } else {
+                DispatchQueue.main.async {
+                    self.loadViewController(name: "TutorialViewController")
+                }
+            }
+            return ""
         }
     }
     
@@ -36,17 +57,15 @@ class SpashScreenViewController: UIViewController {
         }
     }
     
-    func login(_ cookies:Cookies){
-        APIManager.login(cookies, controller: self, completion: { (opt_cookie, opt_user) in
-            guard let _ = opt_user
-                else { self.signin(); return }
-            guard let _ = opt_cookie
-                else { self.signin() ; return }
-            self.displayTabViewController()
-        })
-    }
+//    func login(_ cookies:[HTTPCookie]){
+//        APIManager.login(cookies, controller: self, completion: {(opt_user) in
+//                guard let _ = opt_user
+//                    else { self.signin(); return }
+//                self.displayTabViewController()
+//            })
+//    }
     
-    func signin(){
+    func login(){
         DispatchQueue.main.async {
             self.loadViewController(name: "TutorialViewController")
         }
