@@ -20,6 +20,20 @@
                ReferencedContainer = "container:Insapp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "ED982496250E9AC600044871"
+               BuildableName = "InsappDev.app"
+               BlueprintName = "InsappDev"
+               ReferencedContainer = "container:Insapp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
@@ -37,16 +51,6 @@
          </BuildableReference>
       </MacroExpansion>
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "ED04CAE4244F012E0067165D"
-               BuildableName = "InsappBeta.xctest"
-               BlueprintName = "InsappBeta"
-               ReferencedContainer = "container:Insapp.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
