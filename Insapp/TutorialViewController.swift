@@ -81,10 +81,7 @@ class TutorialViewController: UIPageViewController, UIPageViewControllerDataSour
             let center = UNUserNotificationCenter.current()
             center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
                 if !granted {
-                    let alert = Alert.create(alert: .notificationEnable) { sucess in
-                        self.presentCASViewController()
-                    }
-                    self.present(alert, animated: true, completion: nil)
+                    self.presentCASViewController()
                 }else{
                     UIApplication.shared.registerForRemoteNotifications()
                     self.presentCASViewController()
