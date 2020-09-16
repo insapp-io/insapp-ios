@@ -20,9 +20,7 @@ class SpashScreenViewController: UIViewController {
         
         APIManager.isLoggedIn{ (loggedIn) -> Any in
             if(loggedIn){
-                print("")
                 let user = User.retrieveUser()
-                print(user?.id)
                 APIManager.fetch(user_id: (user?.id)!, controller: self) { (opt_user) in
                 guard let _ = opt_user else {
                         self.displayError(message: kErrorUnkown)
