@@ -68,8 +68,8 @@ let kSeeMoreCell = "SeeMoreCell"
 
 let kAPIHostname = "https://" + (Bundle.main.infoDictionary?["BaseApiUrl"] as! String)
 let kCDNHostname = "https://" + (Bundle.main.infoDictionary?["BaseCdnUrl"] as! String)
-//let kAPIHostname = "https://insapp.insa-rennes.fr/api/v1"
-//let kCDNHostname = "https://insapp.insa-rennes.fr/cdn/"
+// let kAPIHostname = "https://insapp-dev.insa-rennes.fr/api/v1"
+// let kCDNHostname = "https://insapp-dev.insa-rennes.fr/cdn/"
 
 let kInsappURL = URL(string: kAPIHostname)
 
