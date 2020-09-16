@@ -30,18 +30,19 @@ extension APIManager {
     }
     
     static func fetchNotifications(controller: UIViewController, completion:@escaping (_ notifications:[Notification]) -> ()){
-        let user_id = User.fetch()!.id
-        request(url: "/notifications/\(user_id)", method: .get, completion: { result in
+        let user_id = User.retrieveUser()!.id!
+        request(url: "/notifications/" + user_id, method: .get, completion: { result in
             guard let resultJson = result as? Dictionary<String, AnyObject> else { completion([]) ; return }
+            print(resultJson)
             guard let notifJsonArray = resultJson["notifications"] as? [Dictionary<String, AnyObject>] else { completion([]) ; return }
             completion(Notification.parseArray(notifJsonArray))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     
     static func readNotification(notification: Notification, controller: UIViewController, completion:@escaping (_ notification:Optional<Notification>) -> ()){
-        let user_id = User.fetch()!.id
+        let user_id = User.retrieveUser()!.id!
         let notif_id = notification.id!
-        request(url: "/notifications/\(user_id)/\(notif_id)", method: .delete, completion: { result in
+        request(url: "/notifications/" + user_id + "/" + notif_id, method: .delete, completion: { result in
             guard let notifJson = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Notification.parseJson(notifJson))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
