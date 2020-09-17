@@ -130,7 +130,7 @@ class CommentCell: UITableViewCell, UITextViewDelegate {
         self.roundUserImage()
         self.user = user
         self.addGestureRecognizer()
-        if user.id! == User.fetch()!.id! {
+        if user.id! == User.retrieveUser()!.id! {
             self.backgroundColor = kRedColor
             self.button.backgroundColor = kRedColor
             self.iconImageView.image = #imageLiteral(resourceName: "garbage")

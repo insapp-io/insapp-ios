@@ -32,15 +32,19 @@ extension APIManager{
     }
     
     static func fetchEvent(event_id: String, controller: UIViewController, completion:@escaping (_ event:Optional<Event>) -> ()){
-        request(url: "/events/\(event_id)", method: .get, completion: { result in
+        request(url: "/events/" + event_id, method: .get, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Event.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     
     static func changeStatusForEvent(event_id: String, status: String, controller: UIViewController, completion:@escaping (_ event:Optional<Event>) -> ()){
-        let user_id = User.fetch()!.id
-        request(url: "/events/\(event_id)/attend/\(user_id)/status/\(status)", method: .post, completion: { result in
+        let user_id = User.retrieveUser()!.id
+        
+        var url = "/events/" + event_id + "/attend/"
+        url += user_id! + "/status/" + status
+        
+        request(url: url, method: .post, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             guard let json_event = json["event"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
             guard let json_user = json["user"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
@@ -50,8 +54,8 @@ extension APIManager{
     }
     
     static func dismissEvent(event_id: String, controller: UIViewController, completion:@escaping (_ event:Optional<Event>) -> ()){
-        let user_id = User.fetch()!.id
-        request(url: "/events/\(event_id)/attend/\(user_id)", method: .delete, completion: { result in
+        let user_id = User.retrieveUser()!.id
+        request(url: "/events/" + event_id + "/attend/" + user_id!, method: .delete, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             guard let json_event = json["event"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
             guard let json_user = json["user"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
@@ -62,21 +66,21 @@ extension APIManager{
     
     static func comment(event_id: String, comment: Comment, controller: UIViewController, completion:@escaping (_ post:Optional<Event>) -> ()){
         let params = Comment.toJson(comment)
-        request(url: "/events/\(event_id)/comment", method: .post, parameters: params as [String : AnyObject], completion: { result in
+        request(url: "/events/" + event_id + "comment", method: .post, parameters: params as [String : AnyObject], completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Event.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     
     static func uncomment(event_id: String, comment_id: String, controller: UIViewController, completion:@escaping (_ post:Optional<Event>) -> ()){
-        request(url: "/events/\(event_id)/comment/\(comment_id)", method: .delete, completion: { result in
+        request(url: "/events/" + event_id + "/comment/" + comment_id, method: .delete, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Event.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     
     static func report(comment: Comment, event: Event, controller: UIViewController){
-        request(url: "/report/\(event.id!)/comment/\(comment.id!)", method: .put, completion: { (_) in
+        request(url: "/report/" + event.id! + "comment/" + comment.id! , method: .put, completion: { (_) in
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     

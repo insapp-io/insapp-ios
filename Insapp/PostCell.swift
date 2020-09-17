@@ -49,8 +49,8 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
     
     func loadPost(_ post: Post, forAssociation association: Association){
         self.post = post
-        if (User.fetch() != nil){
-            self.likeButton.isSelected = post.likes!.contains(User.fetch()!.id!)
+        if (User.retrieveUser() != nil){
+            self.likeButton.isSelected = post.likes!.contains(User.retrieveUser()!.id!)
         }
 
         self.association = association
@@ -119,7 +119,7 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
     }
     
     func faveButton(_ faveButton: FaveButton, didSelected selected: Bool){
-        delegate?.likeAction(post: self.post, forCell: self, liked: post.likes!.contains(User.fetch()!.id!))
+        delegate?.likeAction(post: self.post, forCell: self, liked: post.likes!.contains(User.retrieveUser()!.id!))
     }
     
     func faveButtonDotColors(_ faveButton: FaveButton) -> [DotColors]?{
@@ -142,7 +142,7 @@ class PostCell: UITableViewCell, FaveButtonDelegate {
     
     @IBAction func likeAction(_ sender: AnyObject) {
         self.likeButton.isSelected = !self.likeButton.isSelected
-        delegate?.likeAction(post: self.post, forCell: self, liked: post.likes!.contains(User.fetch()!.id!))
+        delegate?.likeAction(post: self.post, forCell: self, liked: post.likes!.contains(User.retrieveUser()!.id!))
     }
     
     @IBAction func associationAction(_ sender: AnyObject) {

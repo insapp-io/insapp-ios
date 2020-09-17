@@ -115,7 +115,7 @@ public class User: NSManagedObject {
         
         let user = User(user_id: id, username: username)
         
-        if User.fetch()?.id == id || User.fetch() == nil {
+        if User.retrieveUser()?.id == id || User.retrieveUser() == nil {
             User.userInstance = user
         }
         
