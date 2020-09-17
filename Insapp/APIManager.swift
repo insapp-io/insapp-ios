@@ -19,6 +19,7 @@ class APIManager{
     
     static func process(request: URLRequestConvertible, completion: @escaping (Optional<AnyObject>) -> (), errorBlock: @escaping (String, Int) -> (Bool)){
         { () -> Void in
+            User.save()
             var retry = false
             
             let cookies = readCookies(forURL: kInsappURL!)
@@ -38,25 +39,16 @@ class APIManager{
                     
                     
                 }
-                    var error = kErrorUnkown
-                    if let dict = response.result.value as? Dictionary<String, AnyObject>{
-                        if let err = dict["error"] as? String {
-                            error = err
-                        }
-                    }
-                retry = errorBlock(error, res.statusCode)
-                    if !retry {
-                        completion(response.result.value as AnyObject)   
-                    }
+                if !retry {
+                    completion(response.result.value as AnyObject)
+                }
             }
         }()
         
     }
     
     static func request(url:String, method: HTTPMethod, parameters: [String:AnyObject], completion: @escaping (Optional<AnyObject>) -> (), errorBlock:@escaping (String, Int) -> (Bool)) {
-        
-        User.save()
-        
+
         let url = URL(string: "\(kAPIHostname)\(url)")!
         var req = URLRequest(url: url)
         
@@ -66,8 +58,8 @@ class APIManager{
         let cookies = readCookies(forURL: kInsappURL!)
         
         if(!cookies.isEmpty){
-            req.setValue("AuthToken=\(cookies[0].value); Path=/; Domain=insapp.fr; Expires=Thu, 08 Oct 2020 20:02:55 GMT; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
-            req.addValue("RefreshToken=\(cookies[1].value); Path=/; Domain=insapp.fr; Expires=Thu, 08 Oct 2020 20:02:55 GMT; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
+            req.setValue("AuthToken=\(cookies[0].value); Path=/; Domain=insapp.fr; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
+            req.addValue("RefreshToken=\(cookies[1].value); Path=/; Domain=insapp.fr; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
         }
         
         APIManager.process(request: req, completion: completion, errorBlock: errorBlock)
@@ -75,8 +67,6 @@ class APIManager{
     
     
     static func request(url:String, method: HTTPMethod, completion: @escaping (Optional<AnyObject>) -> (), errorBlock:@escaping (String, Int) -> (Bool)){
-        
-        User.save()
         
         let url = URL(string: "\(kAPIHostname)\(url)")!
         var req = URLRequest(url: url)
@@ -87,8 +77,8 @@ class APIManager{
         let cookies = readCookies(forURL: kInsappURL!)
         
         if(!cookies.isEmpty){
-            req.setValue("AuthToken=\(cookies[0].value); Path=/; Domain=insapp.fr; Expires=Thu, 08 Oct 2020 20:02:55 GMT; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
-            req.addValue("RefreshToken=\(cookies[1].value); Path=/; Domain=insapp.fr; Expires=Thu, 08 Oct 2020 20:02:55 GMT; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
+            req.setValue("AuthToken=\(cookies[0].value); Path=/; Domain=insapp.fr; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
+            req.addValue("RefreshToken=\(cookies[1].value); Path=/; Domain=insapp.fr; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
         }
         
         APIManager.process(request: req, completion: completion, errorBlock: errorBlock)

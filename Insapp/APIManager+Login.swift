@@ -24,6 +24,13 @@ extension APIManager{
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
         }
     
+    static func logout(){
+        deleteCookies(forURL: kInsappURL!)
+        APIManager.request(url: "logout/user", method: .post, completion:{ result in
+        }){ (errorMessage, statusCode) in return false }
+        User.delete()
+    }
+    
     
     static func isLoggedIn(completion: @escaping(Bool) -> Any){
         let url = URL(string: "\(kAPIHostname)/associations")!
@@ -32,13 +39,13 @@ extension APIManager{
         let cookies = readCookies(forURL: kInsappURL!)
         print(cookies)
         if(!cookies.isEmpty){
-            req.setValue("AuthToken=\(cookies[0].value); Path=/; Domain=insapp.fr; Expires=Thu, 08 Oct 2020 20:02:55 GMT; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
-            req.addValue("RefreshToken=\(cookies[1].value); Path=/; Domain=insapp.fr; Expires=Thu, 08 Oct 2020 20:02:55 GMT; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
+            req.setValue("AuthToken=\(cookies[0].value); Path=/; Domain=insapp.fr; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
+            req.addValue("RefreshToken=\(cookies[1].value); Path=/; Domain=insapp.fr; HttpOnly; Secure", forHTTPHeaderField: "Set-Cookie")
         }
+        
         
         var loggedIn = false
         Alamofire.request(req).response{ response in
-            print("hello")
             print(response.response?.statusCode)
             if(response.response?.statusCode == 401){
                 loggedIn = false
