@@ -36,7 +36,7 @@ extension APIManager {
     }
     
     static func likePost(post_id: String, controller: UIViewController, completion:@escaping (_ post:Optional<Post>) -> ()){
-        let user_id = User.fetch()!.id!
+        let user_id = User.retrieveUser()!.id!
         request(url: "/posts/\(post_id)/like/\(user_id)", method: .post, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             guard let json_post = json["post"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
@@ -47,7 +47,7 @@ extension APIManager {
     }
     
     static func dislikePost(post_id: String, controller: UIViewController, completion:@escaping (_ post:Optional<Post>) -> ()){
-        let user_id = User.fetch()!.id!
+        let user_id = User.retrieveUser()!.id!
         request(url: "/posts/\(post_id)/like/\(user_id)", method: .delete, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             guard let json_post = json["post"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
