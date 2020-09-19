@@ -8,7 +8,6 @@
 
 import Foundation
 import Alamofire
-import Bagel
 
 class APIManager{
     
