@@ -238,11 +238,11 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
         cell.loadUserComment(comment, user: user)
         cell.delegate = self
         
-        if comment.id! == self.activeComment?.id! {
+        /*if comment.id! == self.activeComment?.id! {
             cell.frontView.backgroundColor = kLightGreyColor
         }else{
             cell.frontView.backgroundColor = .white
-        }
+        }*/
         
         return cell
     }

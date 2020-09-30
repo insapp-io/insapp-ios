@@ -18,7 +18,7 @@ class APIManager{
     
     static func process(request: URLRequestConvertible, completion: @escaping (Optional<AnyObject>) -> (), errorBlock: @escaping (String, Int) -> (Bool)){
         { () -> Void in
-            User.save()
+            //User.save()
             var retry = false
             
             let cookies = readCookies(forURL: kInsappURL!)
@@ -34,7 +34,7 @@ class APIManager{
                     deleteCookies(forURL: kInsappURL!)
                     APIManager.request(url: "logout/user", method: .post, completion:{ result in
                     }){ (errorMessage, statusCode) in return false }
-                    User.delete()
+                    //User.delete()
                     
                     
                 }

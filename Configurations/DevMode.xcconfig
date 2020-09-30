@@ -12,7 +12,7 @@
 
 #include "Pods/Target Support Files/Pods-Insapp/Pods-Insapp.debug.xcconfig"
 
-BASEAPIURL = insapp.insa-rennes.fr/api/v1
-BASECDNURL = insapp.insa-rennes.fr/cdn/
+BASEAPIURL = insapp-dev.insa-rennes.fr/api/v1
+BASECDNURL = insapp-dev.insa-rennes.fr/cdn/
 
 BUNDLEIDENTIFIER = io.thomasmorel.insapp.dev

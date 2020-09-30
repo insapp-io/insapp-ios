@@ -42,7 +42,7 @@ let kPostCell = "kPostCell"
 let kPostCellEmptyHeight = CGFloat(180)
 
 let kCommentCell = "kCommentCell"
-let kCommentCellEmptyHeight = 41
+let kCommentCellEmptyHeight = 50
 let kCommentCellEmptyWidth = 64
 
 let kCommentViewEmptyHeight = CGFloat(16)

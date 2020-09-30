@@ -7,7 +7,7 @@
 	<key>BaseCdnUrl</key>
 	<string>$(BASECDNURL)</string>
 	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
+	<string>fr_FR</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
