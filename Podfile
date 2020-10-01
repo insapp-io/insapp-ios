@@ -17,7 +17,6 @@ target 'Insapp' do
   pod 'Firebase/Messaging'
   pod 'Crashlytics'
   pod 'Firebase/Analytics'
-  pod 'Bagel', '~>  1.3.2'
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
