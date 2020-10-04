@@ -41,8 +41,7 @@ extension APIManager{
     static func changeStatusForEvent(event_id: String, status: String, controller: UIViewController, completion:@escaping (_ event:Optional<Event>) -> ()){
         let user_id = User.retrieveUser()!.id
         
-        var url = "/events/" + event_id + "/attend/"
-        url += user_id! + "/status/" + status
+        let url = "/events/" + event_id + "/attend/" + user_id! + "/status/" + status
         
         request(url: url, method: .post, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
@@ -80,7 +79,7 @@ extension APIManager{
     }
     
     static func report(comment: Comment, event: Event, controller: UIViewController){
-        request(url: "/report/" + event.id! + "comment/" + comment.id! , method: .put, completion: { (_) in
+        request(url: "/report/" + event.id! + "/comment/" + comment.id! , method: .put, completion: { (_) in
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     

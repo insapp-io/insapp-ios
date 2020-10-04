@@ -122,6 +122,7 @@
 		E1F96D1F1E4DBEE40050C1F8 /* UserBarCodeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F96D1E1E4DBEE40050C1F8 /* UserBarCodeCell.swift */; };
 		E1F96D211E4DC9870050C1F8 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F96D201E4DC9870050C1F8 /* LoadingCell.xib */; };
 		E1F96D231E4DC9B70050C1F8 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F96D221E4DC9B70050C1F8 /* LoadingCell.swift */; };
+		ED35BB3C25278F7B00D75244 /* GoogleService-Info-prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED35BB3B25278F7B00D75244 /* GoogleService-Info-prod.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -265,6 +266,7 @@
 		E1F96D221E4DC9B70050C1F8 /* LoadingCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingCell.swift; sourceTree = "<group>"; };
 		E1F96D241E4F24B20050C1F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/Insapp-fpvrmazddeqndybobxdsewkwjnoh/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		E1F96D251E4F24B20050C1F8 /* FaveButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FaveButton.framework; path = "../../Library/Developer/Xcode/DerivedData/Insapp-fpvrmazddeqndybobxdsewkwjnoh/Build/Products/Debug-iphonesimulator/FaveButton/FaveButton.framework"; sourceTree = "<group>"; };
+		ED35BB3B25278F7B00D75244 /* GoogleService-Info-prod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info-prod.plist"; sourceTree = SOURCE_ROOT; };
 		FF193D226DDB96C99A3FA380 /* Pods-Insapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insapp/Pods-Insapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -568,6 +570,7 @@
 				E1DC7F321D86F27C00284222 /* Model */,
 				E1DC7F091D86E2C900284222 /* AppDelegate.swift */,
 				E1DC7F131D86E2C900284222 /* Assets.xcassets */,
+				ED35BB3B25278F7B00D75244 /* GoogleService-Info-prod.plist */,
 				E1DC7F181D86E2C900284222 /* Info.plist */,
 				E1DC7F101D86E2C900284222 /* Insapp.xcdatamodeld */,
 			);
@@ -678,6 +681,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED35BB3C25278F7B00D75244 /* GoogleService-Info-prod.plist in Resources */,
 				E119D08C1E4A3F1100C10A64 /* AssociationEventsCell.xib in Resources */,
 				E11EE8381DA245C20029C051 /* NotificationCell.xib in Resources */,
 				E119D0861E49FBFC00C10A64 /* AssociationPostsCell.xib in Resources */,
@@ -1017,7 +1021,7 @@
 				INFOPLIST_FILE = Insapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.3;
+				MARKETING_VERSION = 3.1.4;
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1048,7 +1052,7 @@
 				INFOPLIST_FILE = Insapp/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				MARKETING_VERSION = 3.1.3;
+				MARKETING_VERSION = 3.1.4;
 				PRODUCT_BUNDLE_IDENTIFIER = io.thomasmorel.insapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

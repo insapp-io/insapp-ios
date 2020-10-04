@@ -119,15 +119,15 @@ class EventHeaderCell: UITableViewCell {
         self.notgoingLabel.textColor = fgColor
         self.maybeLabel.textColor = fgColor
         
-        if let contains = self.event.attendees?.contains(User.userInstance!.id!), contains {
+        if let contains = self.event.attendees?.contains(User.retrieveUser()!.id!), contains {
             self.goingImageView.image = #imageLiteral(resourceName: "go_checked")
             self.eventStatus = .going
         }
-        if let contains = self.event.maybe?.contains(User.userInstance!.id!), contains {
+        if let contains = self.event.maybe?.contains(User.retrieveUser()!.id!), contains {
             self.unkownImageView.image = #imageLiteral(resourceName: "unkown_checked")
             self.eventStatus = .maybe
         }
-        if let contains = self.event.notgoing?.contains(User.userInstance!.id!), contains {
+        if let contains = self.event.notgoing?.contains(User.retrieveUser()!.id!), contains {
             self.notgoingImageView.image = #imageLiteral(resourceName: "not_going_checked")
             self.eventStatus = .notgoing
         }

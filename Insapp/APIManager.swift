@@ -23,8 +23,9 @@ class APIManager{
             
             let cookies = readCookies(forURL: kInsappURL!)
             print(cookies)
-        
-        
+            
+            print("Request route:")
+            print(request)
             Alamofire.request(request).responseJSON { response in
                 guard let res = response.response else {
                         retry = errorBlock(kErrorServer, -1)
@@ -32,8 +33,8 @@ class APIManager{
                     }
                 if(res.statusCode == 401){
                     deleteCookies(forURL: kInsappURL!)
-                    APIManager.request(url: "logout/user", method: .post, completion:{ result in
-                    }){ (errorMessage, statusCode) in return false }
+                    /*APIManager.request(url: "logout/user", method: .post, completion:{ result in
+                    }){ (errorMessage, statusCode) in return false }*/
                     //User.delete()
                     
                     

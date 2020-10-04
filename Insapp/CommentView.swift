@@ -56,7 +56,7 @@ class CommentView: UIView, UITextViewDelegate, ListUserDelegate {
         self.updateTag()
         self.checkTextView()
         self.invalidateIntrinsicContentSize()
-        self.searchForUser()
+        //self.searchForUser()
     }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
