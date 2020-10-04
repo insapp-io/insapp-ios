@@ -13,3 +13,8 @@ Related repositories: [Android client](https://github.com/thomas-bouvier/insapp-
 Insapp is a project aiming at helping associations from INSA Rennes to communicate with students.
 
 You can find us on [Facebook](https://www.facebook.com/insapp.crew/).
+
+
+## Notable open-source library
+
+• [Favebutton](https://github.com/janselv/fave-button) for like button
