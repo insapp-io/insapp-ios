@@ -1014,7 +1014,7 @@
 				CODE_SIGN_ENTITLEMENTS = Insapp/Insapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 442QXB6FK6;
 				ENABLE_BITCODE = YES;
 				EXCLUDED_ARCHS = "";
@@ -1045,7 +1045,7 @@
 				CODE_SIGN_ENTITLEMENTS = Insapp/Insapp.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 442QXB6FK6;
 				ENABLE_BITCODE = YES;
 				EXCLUDED_ARCHS = "";

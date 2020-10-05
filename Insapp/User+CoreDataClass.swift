@@ -57,13 +57,9 @@ public class User: NSManagedObject {
     }
     
     static func fetch() -> Optional<User>{
-        User.save()
         return User.userInstance
     }
-    
-    static func save() {
-        UserDefaults.standard.setValue(User.userInstance?.id, forKey: "UserID")
-    }
+
     
     static func delete() {
         do {

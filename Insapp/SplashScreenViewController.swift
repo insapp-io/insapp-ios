@@ -18,7 +18,6 @@ class SpashScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK: revoir ici
         
         APIManager.isLoggedIn{ (loggedIn) -> Any in
             if(loggedIn){
