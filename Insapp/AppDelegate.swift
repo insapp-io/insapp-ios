@@ -107,7 +107,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
     
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
-        guard let _ = User.retrieveUser() else { return }
+        guard let _ = User.fetch() else { return }
         guard let _ = APIManager.token else { return }
         APIManager.fetchNotifications(controller: self.window!.rootViewController!) { (notifs) in
             let badge = notifs.filter({ (notif) -> Bool in return !notif.seen })
@@ -175,7 +175,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
             token += String(format: "%02.2hhx", deviceToken[i] as CVarArg)
         }
         
-        if let user = User.retrieveUser() {
+        if let user = User.fetch() {
             APIManager.updateNotification(token: token, user: user)
         }
         

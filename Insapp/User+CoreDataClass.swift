@@ -57,20 +57,17 @@ public class User: NSManagedObject {
     }
     
     static func fetch() -> Optional<User>{
+        User.save()
         return User.userInstance
     }
     
     static func save() {
-        do {
-            try User.managedContext.save()
-        } catch let error as NSError  {
-            print("Could not save \(error), \(error.userInfo)")
-        }
+        UserDefaults.standard.setValue(User.userInstance?.id, forKey: "UserID")
     }
     
     static func delete() {
         do {
-            try User.managedContext.delete(User.retrieveUser()!)
+            try User.managedContext.delete(User.fetch()!)
         } catch let error as NSError  {
             print("Could not save \(error), \(error.userInfo)")
         }
@@ -115,7 +112,7 @@ public class User: NSManagedObject {
         
         let user = User(user_id: id, username: username)
         
-        if User.retrieveUser()?.id == id || User.retrieveUser() == nil {
+        if User.fetch()?.id == id || User.fetch() == nil {
             User.userInstance = user
         }
         

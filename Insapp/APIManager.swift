@@ -26,6 +26,9 @@ class APIManager{
             
             print("Request route:")
             print(request)
+            
+            print("User requesting")
+            print(User.fetch()?.username)
             Alamofire.request(request).responseJSON { response in
                 guard let res = response.response else {
                         retry = errorBlock(kErrorServer, -1)

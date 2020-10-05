@@ -156,7 +156,7 @@ class CommentViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     func postComment(_ content: String, withTags tags: [CommentTag]) {
-        let user_id = User.retrieveUser()!.id!
+        let user_id = User.fetch()!.id!
         let comment = Comment(comment_id: "", user_id: user_id, content: content, date: NSDate())
         comment.tags = tags
         self.delegate?.comment(content: self.content, comment: comment, completion: { (content, description, date, comments) in

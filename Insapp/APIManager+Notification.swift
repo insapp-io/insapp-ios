@@ -30,7 +30,7 @@ extension APIManager {
     }
     
     static func fetchNotifications(controller: UIViewController, completion:@escaping (_ notifications:[Notification]) -> ()){
-        let user_id = User.retrieveUser()!.id!
+        let user_id = User.fetch()!.id!
         request(url: "/notifications/" + user_id, method: .get, completion: { result in
             guard let resultJson = result as? Dictionary<String, AnyObject> else { completion([]) ; return }
             print(resultJson)
@@ -40,7 +40,7 @@ extension APIManager {
     }
     
     static func readNotification(notification: Notification, controller: UIViewController, completion:@escaping (_ notification:Optional<Notification>) -> ()){
-        let user_id = User.retrieveUser()!.id!
+        let user_id = User.fetch()!.id!
         let notif_id = notification.id!
         request(url: "/notifications/" + user_id + "/" + notif_id, method: .delete, completion: { result in
             guard let notifJson = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }

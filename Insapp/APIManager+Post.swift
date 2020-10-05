@@ -29,15 +29,15 @@ extension APIManager {
     }
     
     static func fetchPost(post_id: String, controller: UIViewController, completion:@escaping (_ post:Optional<Post>) -> ()){
-        request(url: "/posts/\(post_id)", method: .get, completion: { result in
+        request(url: "/posts/" + post_id, method: .get, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Post.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     
     static func likePost(post_id: String, controller: UIViewController, completion:@escaping (_ post:Optional<Post>) -> ()){
-        let user_id = User.retrieveUser()!.id!
-        request(url: "/posts/\(post_id)/like/\(user_id)", method: .post, completion: { result in
+        let user_id = User.fetch()!.id!
+        request(url: "/posts/" + post_id + "/like/" + user_id, method: .post, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             guard let json_post = json["post"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
             guard let json_user = json["user"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
@@ -47,8 +47,8 @@ extension APIManager {
     }
     
     static func dislikePost(post_id: String, controller: UIViewController, completion:@escaping (_ post:Optional<Post>) -> ()){
-        let user_id = User.retrieveUser()!.id!
-        request(url: "/posts/\(post_id)/like/\(user_id)", method: .delete, completion: { result in
+        let user_id = User.fetch()!.id!
+        request(url: "/posts/" + post_id + "/like/" + user_id, method: .delete, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             guard let json_post = json["post"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
             guard let json_user = json["user"] as? Dictionary<String, AnyObject> else{ completion(.none) ; return }
@@ -59,21 +59,21 @@ extension APIManager {
     
     static func comment(post_id: String, comment: Comment, controller: UIViewController, completion:@escaping (_ post:Optional<Post>) -> ()){
         let params = Comment.toJson(comment)
-        request(url: "/posts/\(post_id)/comment", method: .post, parameters: params as [String : AnyObject], completion: { result in
+        request(url: "/posts/" + post_id + "/comment", method: .post, parameters: params as [String : AnyObject], completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Post.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     
     static func uncomment(post_id: String, comment_id: String, controller: UIViewController, completion:@escaping (_ post:Optional<Post>) -> ()){
-        request(url: "/posts/\(post_id)/comment/\(comment_id)", method: .delete, completion: { result in
+        request(url: "/posts/" + post_id + "/comment/" + comment_id, method: .delete, completion: { result in
             guard let json = result as? Dictionary<String, AnyObject> else { completion(.none) ; return }
             completion(Post.parseJson(json))
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     
     static func report(comment: Comment, post: Post, controller: UIViewController){
-        request(url: "/report/\(post.id!)/comment/\(comment.id!)", method: .put, completion: { (_) in
+        request(url: "/report/" + post.id! + "/comment/" + comment.id!, method: .put, completion: { (_) in
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
     }
     
