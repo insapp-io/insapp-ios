@@ -13,6 +13,7 @@ import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
@@ -67,13 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         UIApplication.shared.statusBarStyle = .lightContent
         UITabBar.appearance().tintColor = kRedColor
         
-        var configureError:NSError?
-        //GGLContext.sharedInstance().configureWithError(&configureError)
-        //let gai = GAI.sharedInstance()
-        //gai?.trackUncaughtExceptions = true
-        
-        //Fabric.with([Crashlytics.self])
-        
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -91,6 +85,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         }
         
         application.registerForRemoteNotifications()
+        
+        FirebaseApp.configure()
 
         
         self.notification = launchOptions?[.remoteNotification] as? [String: AnyObject]
@@ -147,7 +143,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         print(userInfo)
     }
     
-
     
     func registerForNotification(completion: (() -> ())? = nil ){
         let center = UNUserNotificationCenter.current()
@@ -273,4 +268,3 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     }
 
 }
-
