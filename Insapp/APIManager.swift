@@ -29,7 +29,7 @@ class APIManager{
             
             print("User requesting")
             print(User.fetch()?.username)
-            Alamofire.request(request).responseJSON { response in
+            AF.request(request).responseJSON { response in
                 guard let res = response.response else {
                         retry = errorBlock(kErrorServer, -1)
                         return
@@ -43,7 +43,7 @@ class APIManager{
                     
                 }
                 if !retry {
-                    completion(response.result.value as AnyObject)
+                    completion(response.value as AnyObject)
                 }
             }
         }()

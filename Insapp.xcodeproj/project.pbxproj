@@ -123,6 +123,7 @@
 		E1F96D211E4DC9870050C1F8 /* LoadingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E1F96D201E4DC9870050C1F8 /* LoadingCell.xib */; };
 		E1F96D231E4DC9B70050C1F8 /* LoadingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1F96D221E4DC9B70050C1F8 /* LoadingCell.swift */; };
 		ED35BB3C25278F7B00D75244 /* GoogleService-Info-prod.plist in Resources */ = {isa = PBXBuildFile; fileRef = ED35BB3B25278F7B00D75244 /* GoogleService-Info-prod.plist */; };
+		EDDB6E4E2530F3450081C8A6 /* GoogleService-Info-dev.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDDB6E4D2530F3450081C8A6 /* GoogleService-Info-dev.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -202,7 +203,6 @@
 		E192C1E81D9119C900355512 /* TutorialPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialPageViewController.swift; sourceTree = "<group>"; };
 		E192C1EA1D911A2F00355512 /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		E192C1EC1D93C98C00355512 /* CreditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreditViewController.swift; sourceTree = "<group>"; };
-		E192C1F01D9427FB00355512 /* Insapp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Insapp-Bridging-Header.h"; sourceTree = "<group>"; };
 		E193DD851D9E72EF00478B52 /* ListUserViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListUserViewController.swift; sourceTree = "<group>"; };
 		E193DD871D9E73B700478B52 /* UserCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UserCell.xib; sourceTree = "<group>"; };
 		E193DD891D9E745400478B52 /* UserCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
@@ -267,6 +267,7 @@
 		E1F96D241E4F24B20050C1F8 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = "../../Library/Developer/Xcode/DerivedData/Insapp-fpvrmazddeqndybobxdsewkwjnoh/Build/Products/Debug-iphonesimulator/Alamofire/Alamofire.framework"; sourceTree = "<group>"; };
 		E1F96D251E4F24B20050C1F8 /* FaveButton.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FaveButton.framework; path = "../../Library/Developer/Xcode/DerivedData/Insapp-fpvrmazddeqndybobxdsewkwjnoh/Build/Products/Debug-iphonesimulator/FaveButton/FaveButton.framework"; sourceTree = "<group>"; };
 		ED35BB3B25278F7B00D75244 /* GoogleService-Info-prod.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info-prod.plist"; sourceTree = SOURCE_ROOT; };
+		EDDB6E4D2530F3450081C8A6 /* GoogleService-Info-dev.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "GoogleService-Info-dev.plist"; sourceTree = SOURCE_ROOT; };
 		FF193D226DDB96C99A3FA380 /* Pods-Insapp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Insapp.release.xcconfig"; path = "Pods/Target Support Files/Pods-Insapp/Pods-Insapp.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -546,7 +547,6 @@
 				E1DC7F071D86E2C900284222 /* Products */,
 				037CA08AD5C555BCEAA91135 /* Pods */,
 				1C1A49BC4867010B04E15155 /* Frameworks */,
-				E192C1F01D9427FB00355512 /* Insapp-Bridging-Header.h */,
 			);
 			sourceTree = "<group>";
 		};
@@ -571,6 +571,7 @@
 				E1DC7F091D86E2C900284222 /* AppDelegate.swift */,
 				E1DC7F131D86E2C900284222 /* Assets.xcassets */,
 				ED35BB3B25278F7B00D75244 /* GoogleService-Info-prod.plist */,
+				EDDB6E4D2530F3450081C8A6 /* GoogleService-Info-dev.plist */,
 				E1DC7F181D86E2C900284222 /* Info.plist */,
 				E1DC7F101D86E2C900284222 /* Insapp.xcdatamodeld */,
 			);
@@ -612,7 +613,6 @@
 				E1DC7F031D86E2C900284222 /* Frameworks */,
 				E1DC7F041D86E2C900284222 /* Resources */,
 				39E715618C35977E1EEBF500 /* [CP] Embed Pods Frameworks */,
-				E17240711D942D5F0073F501 /* ShellScript */,
 				2A2A490C20CEAD2E00A2AA19 /* Embed App Extensions */,
 				2AF2098F230E9C5F00C05EF9 /* Google plist */,
 			);
@@ -712,6 +712,7 @@
 				E1DC7F0F1D86E2C900284222 /* Main.storyboard in Resources */,
 				7D9D50EC1DF40837002AC837 /* SeeMoreCell.xib in Resources */,
 				E1F96D211E4DC9870050C1F8 /* LoadingCell.xib in Resources */,
+				EDDB6E4E2530F3450081C8A6 /* GoogleService-Info-dev.plist in Resources */,
 				E119D06C1E4879F600C10A64 /* EventTabView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -764,33 +765,24 @@
 				"${PODS_ROOT}/Target Support Files/Pods-Insapp/Pods-Insapp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/FaveButton/FaveButton.framework",
-				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PromisesObjC/FBLPromises.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FaveButton.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBLPromises.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Insapp/Pods-Insapp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
-		};
-		E17240711D942D5F0073F501 /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\" 2fc035eb84a4d714ea10291b4587818c05a74a2d d0541239a2f2c85e4f74b9ef2cbdf440d9dc38ca5bc835ad4a579ba0ceb5dc46\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1027,7 +1019,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Insapp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
@@ -1057,7 +1048,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "Insapp-Bridging-Header.h";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;

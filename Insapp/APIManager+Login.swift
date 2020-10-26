@@ -45,7 +45,7 @@ extension APIManager{
         
         
         var loggedIn = false
-        Alamofire.request(req).response{ response in
+        AF.request(req).response{ response in
             print(response.response?.statusCode)
             if(response.response?.statusCode != 200){
                 loggedIn = false

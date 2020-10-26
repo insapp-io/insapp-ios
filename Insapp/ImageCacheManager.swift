@@ -7,6 +7,8 @@
 //
 
 import Foundation
+import UIKit
+
 class ImageCacheManager {
     
     var Object:AnyObject?

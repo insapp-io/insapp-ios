@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 public class Notification: NSManagedObject {
     static let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext

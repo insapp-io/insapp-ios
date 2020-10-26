@@ -7,16 +7,14 @@
 //
 
 import UIKit
-import Fabric
 import CoreData
-import Crashlytics
 import UserNotifications
 import Firebase
 import FirebaseInstanceID
 import FirebaseMessaging
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UNUserNotificationCenterDelegate, FIRMessagingDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegate, UNUserNotificationCenterDelegate, MessagingDelegate {
 
     var window: UIWindow?
     var notification: [String: AnyObject]?
@@ -70,11 +68,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         UITabBar.appearance().tintColor = kRedColor
         
         var configureError:NSError?
-        GGLContext.sharedInstance().configureWithError(&configureError)
-        let gai = GAI.sharedInstance()
-        gai?.trackUncaughtExceptions = true
+        //GGLContext.sharedInstance().configureWithError(&configureError)
+        //let gai = GAI.sharedInstance()
+        //gai?.trackUncaughtExceptions = true
         
-        Fabric.with([Crashlytics.self])
+        //Fabric.with([Crashlytics.self])
+        
         
         if #available(iOS 10.0, *) {
             // For iOS 10 display notification (sent via APNS)
@@ -84,7 +83,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
                 options: authOptions,
                 completionHandler: {_, _ in })
             // For iOS 10 data message (sent via FCM
-            FIRMessaging.messaging().remoteMessageDelegate = self
+            Messaging.messaging().delegate = self
         } else {
             let settings: UIUserNotificationSettings =
                 UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
@@ -92,8 +91,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         }
         
         application.registerForRemoteNotifications()
-        
-        FIRApp.configure()
 
         
         self.notification = launchOptions?[.remoteNotification] as? [String: AnyObject]
@@ -109,6 +106,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         guard let _ = User.fetch() else { return }
         guard let _ = APIManager.token else { return }
+        
         APIManager.fetchNotifications(controller: self.window!.rootViewController!) { (notifs) in
             let badge = notifs.filter({ (notif) -> Bool in return !notif.seen })
             DispatchQueue.main.async {
@@ -120,14 +118,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
     
     func subscribeToTopicNotification(topic:String){
         DispatchQueue.main.async {
-            FIRMessaging.messaging().subscribe(toTopic: topic)
+            Messaging.messaging().subscribe(toTopic: topic)
         }
         print("subscribed to topic \(topic)")
     }
     
     func unsubscribeToTopicNotification(topic:String){
         DispatchQueue.main.async {
-            FIRMessaging.messaging().unsubscribe(fromTopic: topic)
+            Messaging.messaging().unsubscribe(fromTopic: topic)
         }
         print("unsubscribed from topic \(topic)")
     }
@@ -162,7 +160,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UITabBarControllerDelegat
         }
     }
     
-    func applicationReceivedRemoteMessage(_ remoteMessage: FIRMessagingRemoteMessage) {
+    func applicationReceivedRemoteMessage(_ remoteMessage: MessagingRemoteMessage) {
         print(remoteMessage.appData)
     }
     

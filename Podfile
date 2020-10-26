@@ -9,13 +9,11 @@ use_frameworks!
 target 'Insapp' do
 
   # Pods for Insapp
-  pod 'Alamofire', '~> 4.0'
+  pod 'Alamofire'
   pod 'FaveButton'
-  pod 'Google/Analytics'
-  pod 'Fabric'
   pod 'Firebase/Core'
   pod 'Firebase/Messaging'
-  pod 'Crashlytics'
+  pod 'Firebase/Crashlytics'
   pod 'Firebase/Analytics'
 
 post_install do |installer|

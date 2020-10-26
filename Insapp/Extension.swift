@@ -40,7 +40,7 @@ extension UIViewController{
     }
     
     func notifyGoogleAnalytics(){
-        var name = NSStringFromClass(type(of: self)).replacingOccurrences(of: "ViewController", with: "")
+        /*var name = NSStringFromClass(type(of: self)).replacingOccurrences(of: "ViewController", with: "")
         if self is AssociationViewController {
             name+="-\((self as! AssociationViewController).association.name!)"
         }
@@ -52,7 +52,7 @@ extension UIViewController{
         tracker?.set(kGAIScreenName, value: name)
         
         let builder = GAIDictionaryBuilder.createScreenView()
-        tracker?.send(builder!.build() as [NSObject : AnyObject])
+        tracker?.send(builder!.build() as [NSObject : AnyObject])*/
     }
     
     func changeStatusBarForColor(colorStr: String? = "ffffff"){
