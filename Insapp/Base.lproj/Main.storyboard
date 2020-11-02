@@ -448,7 +448,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KTe-m4-kZG">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crédit" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kK7-9e-rnd">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Crédits" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kK7-9e-rnd">
                                         <rect key="frame" x="139" y="59" width="97" height="21"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="97" id="Net-qf-U2l"/>
@@ -2189,60 +2189,6 @@ de l'INSA Rennes</string>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M9t-uS-vNX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lea-Gc-JPO">
-                    <rect key="frame" x="0.0" y="0.0" width="1000" height="80"/>
-                    <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeu-mH-EcP">
-                            <rect key="frame" x="950" y="35" width="30" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="30" id="iW7-1Y-ONM"/>
-                                <constraint firstAttribute="height" constant="30" id="qjp-F5-q3K"/>
-                            </constraints>
-                            <state key="normal" image="gear">
-                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="editAction:" destination="19i-yd-wvY" eventType="touchUpInside" id="yhd-u4-Kyv"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YBL-pe-xGa">
-                            <rect key="frame" x="20" y="35" width="35" height="30"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="35" id="8th-oe-xiP"/>
-                                <constraint firstAttribute="height" constant="30" id="JnW-H1-Klr"/>
-                            </constraints>
-                            <state key="normal" title="&lt; Retour" image="arrow_left_white">
-                                <color key="titleColor" red="0.99989169840000003" green="1" blue="0.99988096950000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </state>
-                            <connections>
-                                <action selector="dismissAction:" destination="19i-yd-wvY" eventType="touchUpInside" id="Gel-IE-WJ8"/>
-                                <action selector="dismissAction:" destination="go4-qq-aKa" eventType="touchUpInside" id="v5f-Wo-ogO"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qOn-Cm-Fsx">
-                            <rect key="frame" x="20" y="32.666666666666686" width="35" height="34.999999999999993"/>
-                            <constraints>
-                                <constraint firstAttribute="width" constant="35" id="vkn-GH-mtZ"/>
-                                <constraint firstAttribute="height" constant="35" id="zeP-Ag-3pJ"/>
-                            </constraints>
-                            <color key="tintColor" red="0.9946769754" green="0.9946769754" blue="0.9946769754" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" image="question_mark"/>
-                            <connections>
-                                <action selector="creditAction:" destination="19i-yd-wvY" eventType="touchUpInside" id="eeR-F0-127"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" red="0.92549019610000005" green="0.36470588240000001" blue="0.3411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="zeu-mH-EcP" secondAttribute="trailing" constant="20" id="4bJ-wl-HM2"/>
-                        <constraint firstItem="YBL-pe-xGa" firstAttribute="leading" secondItem="Lea-Gc-JPO" secondAttribute="leading" constant="20" id="I4x-Sy-H3h"/>
-                        <constraint firstAttribute="height" constant="80" id="OIK-Q5-NtG"/>
-                        <constraint firstItem="qOn-Cm-Fsx" firstAttribute="centerY" secondItem="zeu-mH-EcP" secondAttribute="centerY" id="dUo-wP-2Qg"/>
-                        <constraint firstItem="YBL-pe-xGa" firstAttribute="centerY" secondItem="Lea-Gc-JPO" secondAttribute="centerY" constant="10" id="fHv-0c-5pS"/>
-                        <constraint firstItem="qOn-Cm-Fsx" firstAttribute="leading" secondItem="YBL-pe-xGa" secondAttribute="leading" id="k43-xJ-t3Y"/>
-                        <constraint firstItem="zeu-mH-EcP" firstAttribute="centerY" secondItem="Lea-Gc-JPO" secondAttribute="centerY" constant="10" id="vEV-ch-Qiy"/>
-                    </constraints>
-                </view>
             </objects>
             <point key="canvasLocation" x="2124" y="1181.5592203898052"/>
         </scene>
@@ -2309,7 +2255,7 @@ de l'INSA Rennes</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PrW-th-2Fi">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="-6" width="375" height="104"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Commentaires" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UfE-jh-p2T">
                                         <rect key="frame" x="127.66666666666669" y="59" width="120" height="21"/>
@@ -2353,11 +2299,11 @@ de l'INSA Rennes</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Bdy-CV-nTL">
-                                <rect key="frame" x="0.0" y="104" width="375" height="674"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="680"/>
                                 <color key="backgroundColor" name="default-color-1"/>
                             </tableView>
                             <containerView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f1t-od-Qbx">
-                                <rect key="frame" x="0.0" y="104" width="375" height="587"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="587"/>
                                 <color key="backgroundColor" name="default-color-1"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="587" id="H8u-Vz-k6r"/>
@@ -2372,7 +2318,7 @@ de l'INSA Rennes</string>
                             <constraint firstItem="f1t-od-Qbx" firstAttribute="leading" secondItem="wp3-wE-aPI" secondAttribute="leading" id="08O-XH-V6T"/>
                             <constraint firstItem="PrW-th-2Fi" firstAttribute="leading" secondItem="wp3-wE-aPI" secondAttribute="leading" id="1PC-lX-hFE"/>
                             <constraint firstItem="PrW-th-2Fi" firstAttribute="top" secondItem="Nfg-q6-ImL" secondAttribute="bottom" constant="-20" id="7e1-2n-zfK">
-                                <variation key="widthClass=compact" constant="-44"/>
+                                <variation key="widthClass=compact" constant="-50"/>
                             </constraint>
                             <constraint firstAttribute="trailing" secondItem="f1t-od-Qbx" secondAttribute="trailing" id="LWA-bN-zQZ"/>
                             <constraint firstItem="zYy-bX-aO7" firstAttribute="top" secondItem="Bdy-CV-nTL" secondAttribute="bottom" id="NxR-YJ-pcO"/>
@@ -2690,10 +2636,10 @@ préférées grâce à la page News</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQJ-xd-dLg">
-                                <rect key="frame" x="0.0" y="104" width="375" height="659"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="665"/>
                                 <subviews>
                                     <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MHJ-oP-fzH">
-                                        <rect key="frame" x="169" y="311" width="37" height="37"/>
+                                        <rect key="frame" x="169" y="314" width="37" height="37"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="37" id="f4B-Gx-QMh"/>
                                             <constraint firstAttribute="height" constant="37" id="hP9-lC-w7i"/>
@@ -2708,7 +2654,7 @@ préférées grâce à la page News</string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CiL-V5-vIY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="-6" width="375" height="104"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Participants" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgF-nq-1Nc">
                                         <rect key="frame" x="139" y="59" width="97" height="21"/>
@@ -2750,7 +2696,7 @@ préférées grâce à la page News</string>
                                 </constraints>
                             </view>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jqt-EI-np5">
-                                <rect key="frame" x="0.0" y="104" width="375" height="674"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="680"/>
                                 <color key="backgroundColor" name="default-color-1"/>
                                 <connections>
                                     <segue destination="OHe-xO-RcO" kind="embed" id="Iad-5e-dbL"/>
@@ -2765,7 +2711,7 @@ préférées grâce à la page News</string>
                             <constraint firstItem="jQJ-xd-dLg" firstAttribute="leading" secondItem="Ab9-GS-6ug" secondAttribute="leading" id="e3x-sf-vVu"/>
                             <constraint firstItem="Jqt-EI-np5" firstAttribute="top" secondItem="CiL-V5-vIY" secondAttribute="bottom" id="fdn-Qp-Gqf"/>
                             <constraint firstItem="CiL-V5-vIY" firstAttribute="top" secondItem="BTz-Zh-6fB" secondAttribute="bottom" constant="-20" id="hwL-em-mZ0">
-                                <variation key="widthClass=compact" constant="-44"/>
+                                <variation key="widthClass=compact" constant="-50"/>
                             </constraint>
                             <constraint firstItem="Jqt-EI-np5" firstAttribute="leading" secondItem="Ab9-GS-6ug" secondAttribute="leading" id="jh7-9j-bHO"/>
                             <constraint firstItem="whZ-y7-ymp" firstAttribute="top" secondItem="Jqt-EI-np5" secondAttribute="bottom" id="k6a-It-MQF"/>
@@ -2885,7 +2831,7 @@ préférées grâce à la page News</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jQj-Z2-O61">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="-6" width="375" height="104"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Résultats" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMW-ch-wPP">
                                         <rect key="frame" x="127.66666666666669" y="59" width="120" height="21"/>
@@ -2929,7 +2875,7 @@ préférées grâce à la page News</string>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="fP5-zH-SwI">
-                                <rect key="frame" x="0.0" y="104" width="375" height="674"/>
+                                <rect key="frame" x="0.0" y="98" width="375" height="680"/>
                                 <color key="backgroundColor" name="default-color-1"/>
                             </tableView>
                         </subviews>
@@ -2941,7 +2887,7 @@ préférées grâce à la page News</string>
                             <constraint firstAttribute="trailing" secondItem="jQj-Z2-O61" secondAttribute="trailing" id="9PV-WS-7Wl"/>
                             <constraint firstItem="fP5-zH-SwI" firstAttribute="trailing" secondItem="hGD-Iw-GpV" secondAttribute="trailing" id="CNH-sG-qLB"/>
                             <constraint firstItem="jQj-Z2-O61" firstAttribute="top" secondItem="VzM-J9-eeG" secondAttribute="bottom" constant="-20" id="D7g-gV-f27">
-                                <variation key="widthClass=compact" constant="-44"/>
+                                <variation key="widthClass=compact" constant="-50"/>
                             </constraint>
                             <constraint firstItem="fP5-zH-SwI" firstAttribute="leading" secondItem="hGD-Iw-GpV" secondAttribute="leading" id="Xtw-SN-gFX"/>
                             <constraint firstItem="fP5-zH-SwI" firstAttribute="top" secondItem="jQj-Z2-O61" secondAttribute="bottom" id="cLZ-Cz-cuY"/>
