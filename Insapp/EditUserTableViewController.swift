@@ -46,6 +46,9 @@ class EditUserTableViewController: UITableViewController, UIPickerViewDataSource
         self.promotionPickerView.delegate = self
         self.promotionTextField.inputView = self.promotionPickerView
         
+        self.emailTextField.keyboardType = UIKeyboardType.emailAddress
+        self.emailTextField.autocorrectionType = .no
+        
         self.genderPickerView = UIPickerView()
         self.genderPickerView.dataSource = self
         self.genderPickerView.delegate = self
