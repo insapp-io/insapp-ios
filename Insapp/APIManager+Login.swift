@@ -24,12 +24,12 @@ extension APIManager{
         }) { (errorMessage, statusCode) in return controller.triggerError(errorMessage, statusCode) }
         }
     
-    static func logout(){
+    /*static func logout(){
         deleteCookies(forURL: kInsappURL!)
         APIManager.request(url: "logout/user", method: .post, completion:{ result in
         }){ (errorMessage, statusCode) in return false }
         User.delete()
-    }
+    }*/
     
     
     static func isLoggedIn(completion: @escaping(Bool) -> Any){
