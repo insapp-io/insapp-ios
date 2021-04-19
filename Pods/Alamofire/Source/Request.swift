@@ -149,7 +149,7 @@ public class Request {
     /// `Progress` of the download of any response data. Reset to `0` if the `Request` is retried.
     public let downloadProgress = Progress(totalUnitCount: 0)
     /// `ProgressHandler` called when `uploadProgress` is updated, on the provided `DispatchQueue`.
-    fileprivate var uploadProgressHandler: (handler: ProgressHandler, queue: DispatchQueue)? {
+    private var uploadProgressHandler: (handler: ProgressHandler, queue: DispatchQueue)? {
         get { mutableState.uploadProgressHandler }
         set { mutableState.uploadProgressHandler = newValue }
     }
@@ -1459,8 +1459,11 @@ public class DownloadRequest: Request {
 
     /// A closure executed once a `DownloadRequest` has successfully completed in order to determine where to move the
     /// temporary file written to during the download process. The closure takes two arguments: the temporary file URL
-    /// and the URL response, and returns a two arguments: the file URL where the temporary file should be moved and
+    /// and the `HTTPURLResponse`, and returns two values: the file URL where the temporary file should be moved and
     /// the options defining how the file should be moved.
+    ///
+    /// - Note: Downloads from a local `file://` `URL`s do not use the `Destination` closure, as those downloads do not
+    ///         return an `HTTPURLResponse`. Instead the file is merely moved within the temporary directory.
     public typealias Destination = (_ temporaryURL: URL,
                                     _ response: HTTPURLResponse) -> (destinationURL: URL, options: Options)
 
@@ -1489,10 +1492,16 @@ public class DownloadRequest: Request {
     /// with this destination must be additionally moved if they should survive the system reclamation of temporary
     /// space.
     static let defaultDestination: Destination = { url, _ in
+        (defaultDestinationURL(url), [])
+    }
+
+    /// Default `URL` creation closure. Creates a `URL` in the temporary directory with `Alamofire_` prepended to the
+    /// provided file name.
+    static let defaultDestinationURL: (URL) -> URL = { url in
         let filename = "Alamofire_\(url.lastPathComponent)"
         let destination = url.deletingLastPathComponent().appendingPathComponent(filename)
 
-        return (destination, [])
+        return destination
     }
 
     // MARK: Downloadable
@@ -1519,11 +1528,11 @@ public class DownloadRequest: Request {
     @Protected
     private var mutableDownloadState = DownloadRequestMutableState()
 
-    /// If the download is resumable and eventually cancelled, this value may be used to resume the download using the
-    /// `download(resumingWith data:)` API.
+    /// If the download is resumable and is eventually cancelled or fails, this value may be used to resume the download
+    /// using the `download(resumingWith data:)` API.
     ///
     /// - Note: For more information about `resumeData`, see [Apple's documentation](https://developer.apple.com/documentation/foundation/urlsessiondownloadtask/1411634-cancel).
-    public var resumeData: Data? { mutableDownloadState.resumeData }
+    public var resumeData: Data? { mutableDownloadState.resumeData ?? error?.downloadResumeData }
     /// If the download is successful, the `URL` where the file was downloaded.
     public var fileURL: URL? { mutableDownloadState.fileURL }
 
