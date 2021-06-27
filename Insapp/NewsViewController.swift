@@ -295,7 +295,7 @@ class NewsViewController: UIViewController, UITableViewDataSource, UITableViewDe
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
-    func scrollToTop(){
+    @objc func scrollToTop(){
         if self.searchView.isHidden {
             self.postTableView.setContentOffset(CGPoint.zero, animated: true)
         }else{

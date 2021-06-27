@@ -12,7 +12,7 @@ import UIKit
 
 extension UIViewController{
     
-    func triggerError(_ message: String, _ statusCode: Int) -> Bool {
+    @objc func triggerError(_ message: String, _ statusCode: Int) -> Bool {
         if statusCode == 406 {
             self.stopLoading()
             self.displayError(message: message)
